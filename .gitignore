@@ -27,3 +27,5 @@ sessionID.json
 # Wakanda Remote Model Cache
 *.waRemoteModel
 /mmpNG/DataFolder/journal.waJournal
+
+/mmpNG/DataFolder/journal.waJournal

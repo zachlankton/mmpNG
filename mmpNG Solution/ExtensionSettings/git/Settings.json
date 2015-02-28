@@ -1,5 +1,6 @@
 ﻿{
-	"serverType": "none",
-	"gitURL": "https://",
-	"gitIsPrivateRepository": "false"
+	"serverType": "github",
+	"gitURL": "https://github.com/zachlankton/mmpNG.git",
+	"gitIsPrivateRepository": "true",
+	"gitEmail": "zachlankton@gmail.com"
 }
