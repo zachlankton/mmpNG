@@ -1,0 +1,36 @@
+<h4 ng-show="Customers.currentSelection.name">{{Customers.currentSelection.name}}</h4>
+<ul ng-show="Customers.currentSelection"
+class="nav nav-tabs nav-justified">
+    <li role="presentation" ng-class="{active:Customers.activeTab('Overview')}"
+    ng-click="Customers.currentTab = 'Overview'">
+        <a href="#">Overview</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Contacts')}"
+    ng-click="Customers.currentTab = 'Contacts'">
+        <a href="#">Contacts</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Addresses')}"
+    ng-click="Customers.currentTab = 'Addresses'">
+        <a href="#">Addresses</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Parts')}"
+    ng-click="Customers.currentTab = 'Parts'">
+        <a href="#">Parts</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Quotes')}"
+    ng-click="Customers.currentTab = 'Quotes'">
+        <a href="#">Quotes</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Orders')}"
+    ng-click="Customers.currentTab = 'Orders'">
+        <a href="#">Orders</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('Files')}"
+    ng-click="Customers.currentTab = 'Files'">
+        <a href="#">Files</a>
+    </li>
+    <li role="presentation" ng-class="{active:Customers.activeTab('History')}"
+    ng-click="Customers.currentTab = 'History'">
+        <a href="#">History</a>
+    </li>
+</ul>

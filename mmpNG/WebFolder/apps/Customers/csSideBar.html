@@ -1,0 +1,13 @@
+<ul class="nav nav-sidebar">
+    <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Search or Add" ng-model="Customers.searchText">
+    </div>
+</ul>
+<ul class="nav nav-sidebar" when-scrolled="Customers.$more()">
+    <li ng-repeat="customer in testValue=(CustomersCollection | filter:Customers.searchText | orderBy:'name') " ng-click="Customers.currentSelection = customer">
+        <a href="#">{{customer.name}}</a>
+    </li>
+    <li ng-show="Customers.showAdd()">
+        <a href="#" ng-click="Customers.add()">ADD CUSTOMER: '{{Customers.searchText}}'</a>
+    </li>
+</ul>
