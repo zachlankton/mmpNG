@@ -3,21 +3,44 @@
     
     <head>
         <title>Molded Magnesium Products V4</title>
+        
+        <!--Bootstrap CSS-->
         <link rel="stylesheet" type="text/css"
         href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css" id="bootstrap-theme">
+
+        <!--Dashboard CSS-->
         <link rel="stylesheet" type="text/css" href="/index.waPage/css/dashboard.css">
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css"
-        id="bootstrap-theme">
+               
+        <!-- jQuery -->
         <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+        
+        <!--Bootstrap JS-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+        
+        <!--Angular Wakanda JS-->
         <script src="/js/angular.min.js"></script>
         <script src="/js/angular-wakanda.min.js"></script>
+
+        <!--Main App Module and Services Init-->
         <script src="/index.waPage/js/index-script.js"></script>
+
+        <!--
+                Unfortunately... we cannot lazy load these controllers after the page has been bootstrapped by angular
+                So, every module, controller, service, etc, need to be loaded here first...
+
+                However... all of our templates can be lazy loaded using ng-include and should be loaded this way
+        -->
+
+        <!--Customer Sidebar and Dashboard Controllers-->
+        <script src="/apps/Customers/csSideBarController.js"></script>
+        <script src="/apps/Customers/csDashController.js"></script>
+
     </head>
     
-    <body ng-app="mainPage">
+    <body ng-app="mainPage" ng-controller="templates">
         <nav class="navbar navbar-default navbar-fixed-top" ng-include="'mainNavBar.html'"></nav>
-        <div class="container-fluid" ng-include="'/apps/Customers/customers.html'">
+        <div class="container-fluid" ng-include="templates.currentMainTemplate.templateUrl">
             
         </div>
     </body>

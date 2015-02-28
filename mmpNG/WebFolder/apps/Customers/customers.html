@@ -1,7 +1,8 @@
-<div class="row" ng-controller="customerList">
+
+<div class="row">
 <!--Load the Customers the Sidebar-->
-    <div class="col-sm-3 col-md-2 sidebar navbar-default" ng-include="'/apps/Customers/csSideBar.html'"></div>
+    <div class="col-sm-3 col-md-2 sidebar navbar-default" ng-include="'/apps/Customers/csSideBar.html'" ng-controller="customerList"></div>
 
 <!--Load the Customers Dashboard-->
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-include="'/apps/Customers/csDashboard.html'"></div>
+    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-include="'/apps/Customers/csDashboard.html'" ng-controller="customerDash"></div>
 </div>
