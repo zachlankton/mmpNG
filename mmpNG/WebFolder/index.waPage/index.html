@@ -6,14 +6,14 @@
         
         <!--Bootstrap CSS-->
         <link rel="stylesheet" type="text/css"
-        href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-        <link rel="stylesheet" type="text/css" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.2/superhero/bootstrap.min.css" id="bootstrap-theme">
+        href="/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.superhero.css" id="bootstrap-theme">
 
         <!--Dashboard CSS-->
         <link rel="stylesheet" type="text/css" href="/index.waPage/css/dashboard.css">
                
         <!-- jQuery -->
-        <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+        <script src="/js/jquery-2.1.3.min.js"></script>
         
         <!--Bootstrap JS-->
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
@@ -23,7 +23,9 @@
         <script src="/js/angular-wakanda.min.js"></script>
 
         <!--Main App Module and Services Init-->
+        <script src="/index.waPage/js/csAppDataFactory.js"></script>
         <script src="/index.waPage/js/index-script.js"></script>
+        <script src="/index.waPage/js/mainTemplatesController.js"></script>
 
         <!--
                 Unfortunately... we cannot lazy load these controllers after the page has been bootstrapped by angular
@@ -31,6 +33,9 @@
 
                 However... all of our templates can be lazy loaded using ng-include and should be loaded this way
         -->
+
+        <!--Login Modal Controller-->
+        <script src="/index.waPage/js/login-controller.js"></script>
 
         <!--Customer Sidebar and Dashboard Controllers-->
         <script src="/apps/Customers/csSideBarController.js"></script>
@@ -40,8 +45,20 @@
     
     <body ng-app="mainPage" ng-controller="templates">
         <nav class="navbar navbar-default navbar-fixed-top" ng-include="'mainNavBar.html'"></nav>
-        <div class="container-fluid" ng-include="templates.currentMainTemplate.templateUrl">
-            
+        <div class="container-fluid" ng-include="templates.currentMainTemplate.templateUrl"></div>
+
+        <!--Login Modal-->
+        <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content" style="padding: 10px;">
+                    <form ng-submit="login.login()" class="form-signin" ng-controller="loginController">
+                        <h2 class="form-signin-heading">{{login.modalTitle}}</h2>               
+                        <input ng-model="login.username" type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="">                        
+                        <input ng-model="login.password" type="password" id="inputPassword" class="form-control" placeholder="Password" required="">                        
+                        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                    </form>                   
+                </div>
+            </div>
         </div>
     </body>
 

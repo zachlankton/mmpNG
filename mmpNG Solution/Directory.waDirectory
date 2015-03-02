@@ -1,6 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<directory>
+<?xml version="1.0" encoding="UTF-8"?><directory>
 	<group ID="01000000000000000000000000000000" name="Admin">
+		<include user="zach" ID="79BC2D8B3BF74244BAF72C174E39F736"/>
+		<include user="admin" ID="8F73A4E6D02B429C883E7C52202C8679"/>
 	</group>
+	<user ID="8F73A4E6D02B429C883E7C52202C8679" name="admin" fullName="Admin" password="4683d29fab15e5823eaf6dbc201d72ba"/>
+	<user ID="79BC2D8B3BF74244BAF72C174E39F736" name="zach" fullName="Zach Lankton" password="46eaa38663e98b92cf720781e04eb2ee"/>
 </directory>
-

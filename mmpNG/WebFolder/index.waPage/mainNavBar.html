@@ -15,16 +15,22 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-            <li ng-repeat="template in templates.MainNavBar | orderBy:'template.index'" ng-click="loadMainTemp(template.title)">
+            <li ng-repeat="template in templates.MainNavBar | orderBy:'template.index'" ng-click="templates.loadMainTemp(template.title)">
                 <a href="#" >{{template.title}}</a>
             </li>
         </ul>
 
 
         
-        <ul class="nav navbar-nav navbar-right">
-            <li>
+        <ul class="nav navbar-nav navbar-right" ng-controller="loginController">
+            <li ng-show="login.currentUser == null" ng-click="login.showLoginModal()">
                 <a href="#">Login</a>
+            </li>
+            <li ng-show="login.currentUser != null">
+                <a href="#">{{login.currentUser.fullName}}</a>
+            </li>
+            <li ng-show="login.currentUser != null">
+                <a ng-click="login.logout()" href="#">Logout</a>
             </li>
         </ul>
     </div>
