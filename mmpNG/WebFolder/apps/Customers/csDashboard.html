@@ -1,36 +1,10 @@
-<h4 ng-show="cd.Customers.currentSelection.name">{{cd.Customers.currentSelection.name}}</h4>
+<div ng-show="cd.Customers.currentSelection.name">{{cd.Customers.currentSelection.name}}</div>
+
 <ul ng-show="cd.Customers.currentSelection.name"
 class="nav nav-tabs nav-justified">
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Overview')}"
-    ng-click="cd.Customers.currentTab = 'Overview'">
-        <a href="#">Overview</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Contacts')}"
-    ng-click="cd.Customers.currentTab = 'Contacts'">
-        <a href="#">Contacts</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Addresses')}"
-    ng-click="cd.Customers.currentTab = 'Addresses'">
-        <a href="#">Addresses</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Parts')}"
-    ng-click="cd.Customers.currentTab = 'Parts'">
-        <a href="#">Parts</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Quotes')}"
-    ng-click="cd.Customers.currentTab = 'Quotes'">
-        <a href="#">Quotes</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Orders')}"
-    ng-click="cd.Customers.currentTab = 'Orders'">
-        <a href="#">Orders</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('Files')}"
-    ng-click="cd.Customers.currentTab = 'Files'">
-        <a href="#">Files</a>
-    </li>
-    <li role="presentation" ng-class="{active:cd.Customers.activeTab('History')}"
-    ng-click="cd.Customers.currentTab = 'History'">
-        <a href="#">History</a>
-    </li>
+    <li role="presentation" ng-repeat="tab in cd.csTabs" ng-class="{active:cd.Customers.activeTab(tab)}"
+    ng-click="cd.Customers.currentTab = tab">
+        <a href="#">{{tab.title}}</a>
+    </li>   
 </ul>
+<div ng-show="cd.Customers.currentSelection.name" class="well container-fluid" ng-include="cd.Customers.currentTab.templateUrl"></div>
