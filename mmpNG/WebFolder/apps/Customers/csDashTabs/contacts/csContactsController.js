@@ -4,7 +4,6 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 	var rScope = $scope.csContact;
 	var csContact = rScope.csContact;
 	
-   
 			
   
 });
