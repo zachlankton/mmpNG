@@ -6,13 +6,9 @@ myApp.controller('templates', function($scope, $wakanda, $filter, csAppData) {
     t.loadMainTemp = function(template){
         
         if(t.currentUser != null){
-            var srchObj = {
-                arr: t.MainNavBar, 
-                key:"title", 
-                value: template
-            };
 
-            t.currentMainTemplate = searchObject(srchObj)[0];    
+			t.currentMainTemplate = template;
+		
         }else{
             t.templateToLoad = template;
             t.showLoginModal();
