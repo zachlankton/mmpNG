@@ -1,487 +1,449 @@
-
 {
-	"toJSON" : true,
-	"extraProperties" : 
-	{
-		"version" : "2",
-		"classes" : 
-		{
-			"Customer" : 
-			{
-				"panelColor" : "#BFBFBF",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 25,
-						"Y" : 20
+	"toJSON": true,
+	"extraProperties": {
+		"version": "2",
+		"classes": {
+			"Customer": {
+				"panelColor": "#BFBFBF",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 25,
+						"Y": 20
 					}
 				}
 			},
-			"Contact" : 
-			{
-				"panelColor" : "#C4BD97",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 41,
-						"Y" : 486
+			"Contact": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 41,
+						"Y": 486
 					}
 				}
 			},
-			"Orders" : 
-			{
-				"panelColor" : "#B7DDE8",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 645,
-						"Y" : 20
+			"Orders": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 645,
+						"Y": 20
 					}
 				}
 			},
-			"ContactInfo" : 
-			{
-				"panelColor" : "#B7DDE8",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 456,
-						"Y" : 636
+			"ContactInfo": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 456,
+						"Y": 636
 					}
 				}
 			},
-			"PartNumber" : 
-			{
-				"panelColor" : "#B7DDE8",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 578,
-						"Y" : 205
+			"PartNumber": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 578,
+						"Y": 205
 					}
 				}
 			},
-			"Molds" : 
-			{
-				"panelColor" : "#996699",
-				"panel" : 
-				{
-					"isOpen" : "true",
-					"pathVisible" : true,
-					"position" : 
-					{
-						"X" : 1006,
-						"Y" : 336
+			"Molds": {
+				"panelColor": "#996699",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 1006,
+						"Y": 336
 					}
 				}
 			}
 		},
-		"model" : 
-		{
-			"scriptMode" : "manual",
-			"workspaceLeft" : 0,
-			"workspaceTop" : 0
+		"model": {
+			"scriptMode": "manual",
+			"workspaceLeft": 0,
+			"workspaceTop": 26
 		}
 	},
-	"dataClasses" : 
-	[
+	"dataClasses": [
 		{
-			"name" : "Contact",
-			"className" : "Contact",
-			"collectionName" : "ContactCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
+			"name": "Contact",
+			"className": "Contact",
+			"collectionName": "ContactCollection",
+			"scope": "public",
+			"attributes": [
 				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name" : "name",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "customer",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "Customer",
-					"path" : "Customer"
+					"name": "customer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Customer",
+					"path": "Customer"
 				},
 				{
-					"name" : "title",
-					"kind" : "storage",
-					"matchColumn" : "phone",
-					"scope" : "public",
-					"type" : "string"
+					"name": "title",
+					"kind": "storage",
+					"matchColumn": "phone",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "dept",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "dept",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "notes",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "notes",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "contactInfoCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "ContactInfoCollection",
-					"reversePath" : true,
-					"path" : "contact"
-				}
-			],
-			"key" : 
-			[
+					"name": "contactInfoCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ContactInfoCollection",
+					"reversePath": true,
+					"path": "contact"
+				},
 				{
-					"name" : "ID"
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
 				}
 			]
 		},
 		{
-			"name" : "ContactInfo",
-			"className" : "ContactInfo",
-			"collectionName" : "ContactInfoCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
+			"name": "ContactInfo",
+			"className": "ContactInfo",
+			"collectionName": "ContactInfoCollection",
+			"scope": "public",
+			"attributes": [
 				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name" : "contact",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "Contact",
-					"path" : "Contact"
+					"name": "contact",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Contact",
+					"path": "Contact"
 				},
 				{
-					"name" : "type",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "type",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "data",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				}
-			],
-			"key" : 
-			[
-				{
-					"name" : "ID"
-				}
-			]
-		},
-		{
-			"name" : "Customer",
-			"className" : "Customer",
-			"collectionName" : "CustomerCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
-				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "data",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "name",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"type" : "string",
-					"indexKind" : "btree"
-				},
-				{
-					"name" : "contactCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "ContactCollection",
-					"reversePath" : true,
-					"path" : "customer"
-				},
-				{
-					"name" : "ordersCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "OrdersCollection",
-					"reversePath" : true,
-					"path" : "customer"
-				},
-				{
-					"name" : "productTypeRef",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "terms",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "representative",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "einNo",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "notes",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "partNumberCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "PartNumberCollection",
-					"reversePath" : true,
-					"path" : "customer"
-				}
-			],
-			"key" : 
-			[
-				{
-					"name" : "ID"
+					"name": "ctName",
+					"scope": "public",
+					"path": "contact.name",
+					"type": "string",
+					"kind": "alias"
 				}
 			]
 		},
 		{
-			"name" : "Molds",
-			"className" : "Molds",
-			"collectionName" : "MoldsCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
+			"name": "Customer",
+			"className": "Customer",
+			"collectionName": "CustomerCollection",
+			"scope": "public",
+			"attributes": [
 				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name" : "partNumberCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "PartNumberCollection",
-					"reversePath" : true,
-					"path" : "tool"
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"type": "string",
+					"indexKind": "btree"
 				},
 				{
-					"name" : "toolID",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "contactCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ContactCollection",
+					"reversePath": true,
+					"path": "customer"
 				},
 				{
-					"name" : "description",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "ordersCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "OrdersCollection",
+					"reversePath": true,
+					"path": "customer"
 				},
 				{
-					"name" : "manufacturer",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				}
-			],
-			"key" : 
-			[
-				{
-					"name" : "ID"
-				}
-			]
-		},
-		{
-			"name" : "Orders",
-			"className" : "Orders",
-			"collectionName" : "OrdersCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
-				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "productTypeRef",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "customer",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "Customer",
-					"path" : "Customer"
+					"name": "terms",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "orderNo",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				}
-			],
-			"key" : 
-			[
+					"name": "representative",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
 				{
-					"name" : "ID"
+					"name": "einNo",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "notes",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "partNumberCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "PartNumberCollection",
+					"reversePath": true,
+					"path": "customer"
 				}
 			]
 		},
 		{
-			"name" : "PartNumber",
-			"className" : "PartNumber",
-			"collectionName" : "PartNumberCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
+			"name": "Molds",
+			"className": "Molds",
+			"collectionName": "MoldsCollection",
+			"scope": "public",
+			"attributes": [
 				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
-					"type" : "long",
-					"indexKind" : "btree"
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name" : "customer",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "Customer",
-					"path" : "Customer"
+					"name": "partNumberCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "PartNumberCollection",
+					"reversePath": true,
+					"path": "tool"
 				},
 				{
-					"name" : "partNo",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "toolID",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "description",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "description",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				},
 				{
-					"name" : "partWeight",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "shotWeight",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "cycleTimeInSeconds",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "numOfCavities",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "notes",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "img",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "image"
-				},
-				{
-					"name" : "partType",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
-					"name" : "tool",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "Molds",
-					"path" : "Molds"
-				},
-				{
-					"name" : "currentRev",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
+					"name": "manufacturer",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
 				}
-			],
-			"key" : 
-			[
+			]
+		},
+		{
+			"name": "Orders",
+			"className": "Orders",
+			"collectionName": "OrdersCollection",
+			"scope": "public",
+			"attributes": [
 				{
-					"name" : "ID"
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "customer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Customer",
+					"path": "Customer"
+				},
+				{
+					"name": "orderNo",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
+				}
+			]
+		},
+		{
+			"name": "PartNumber",
+			"className": "PartNumber",
+			"collectionName": "PartNumberCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "customer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Customer",
+					"path": "Customer"
+				},
+				{
+					"name": "partNo",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "description",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "partWeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "shotWeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "cycleTimeInSeconds",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "numOfCavities",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "notes",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "img",
+					"kind": "storage",
+					"scope": "public",
+					"type": "image"
+				},
+				{
+					"name": "partType",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "tool",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Molds",
+					"path": "Molds"
+				},
+				{
+					"name": "currentRev",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
 				}
 			]
 		}

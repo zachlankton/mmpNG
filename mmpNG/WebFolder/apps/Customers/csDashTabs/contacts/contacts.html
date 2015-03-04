@@ -1,1 +1,17 @@
-<h1>Contacts</h1>
+<div class="col-md-4" ng-controller="csContactsController">
+    <ul class="list-group">
+        <li class="list-group-item" >
+            <input readonly value="Name" />
+            <input readonly value="Customer"/>
+        </li>
+        <li class="list-group-item" ng-repeat="contact in csContact.csContact.collection">
+            <input ng-model="contact.name" />
+        </li>
+        <li class="list-group-item">
+            <input ng-model="csContact.csContact.addContactName" />
+           <!-- <input ng-model="csContact.csContact.addContactCustomerRef" /> -->
+           <button class="btn btn-primary" ng-click="csContact.csContact.addContact()">Add</button>
+        </li>
+    </ul>
+    
+</div>
