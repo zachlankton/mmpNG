@@ -4,7 +4,7 @@
             <input readonly value="Name" />
             <input readonly value="Customer"/>
         </li>
-        <li class="list-group-item" ng-repeat="contact in csContact.csContact.collection">
+        <li class="list-group-item" ng-repeat="contact in csContact.collections.Contacts | filter:{'csName':  csContact.Customers.currentSelection.name}:true">
             <input ng-model="contact.name" />
         </li>
         <li class="list-group-item">
