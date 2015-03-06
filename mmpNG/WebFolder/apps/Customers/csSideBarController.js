@@ -3,11 +3,6 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
 	$scope.cl = csAppData.getData();
 	var sc = $scope.cl;
     
-
-		//Get Customer Collection Pass it's reference to $scope
-        //$scope.CustomersCollection = ds.Customer.$find();
-
-		//Init Customers Helper Scope
 		//This is used for searching and keeping track of things
         if (sc.Customers.searchText == undefined){  // we first check if it is undefined so we do not overwrite a previously set value
         	sc.Customers.searchText = "";	
@@ -29,12 +24,12 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
             
             newEntity.$save().then(function(e) {
 
-                sc.CustomersCollection = $wakanda.$ds.Customer.$find({pageSize:9999});
-                sc.CustomersCollection.$promise //Wait for the $find function to finish and then select the newly created Customer
+                sc.collections.Customers = $wakanda.$ds.Customer.$find({pageSize:9999});
+                sc.collections.Customers.$promise //Wait for the $find function to finish and then select the newly created Customer
                 .then(function(e) {
                 	
                 	//select the newly created Customer
-                    sc.Customers.currentSelection = ($filter('filter')(sc.CustomersCollection, function(val, index) {
+                    sc.Customers.currentSelection = ($filter('filter')(sc.collections.Customers, function(val, index) {
 						if (val.name == null) {
 							return false;
 						}
@@ -53,7 +48,7 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
                 return false;
             }
 
-            var results = ($filter('filter')(sc.CustomersCollection, function(val, index) {
+            var results = ($filter('filter')(sc.collections.Customers, function(val, index) {
                 if (val.name == null) {
                     return false;
                 }

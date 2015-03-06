@@ -5,7 +5,7 @@
     </div>
 </ul>
 <ul class="nav nav-sidebar" >
-    <li ng-repeat="customer in testValue=(cl.CustomersCollection | filter:cl.Customers.searchText | orderBy:'name') " 
+    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:cl.Customers.searchText | orderBy:'name') " 
     ng-click="cl.Customers.selectCS(customer)"
     ng-class="{active:cl.Customers.currentSelection.name == customer.name}">
         <a href="#">{{customer.name}}</a>

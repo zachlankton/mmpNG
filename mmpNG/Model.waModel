@@ -11,6 +11,7 @@
 					"position": {
 						"X": 25,
 						"Y": 20
+<<<<<<< HEAD
 					}
 				}
 			},
@@ -103,10 +104,34 @@
 					"pathVisible": true,
 					"position": {
 						"X": 923,
+=======
+					}
+				}
+			},
+			"Contact": {
+				"panelColor": "#C4BD97",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 41,
+						"Y": 486
+					}
+				}
+			},
+			"Orders": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 645,
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 						"Y": 20
 					}
 				}
 			},
+<<<<<<< HEAD
 			"Supplier": {
 				"panelColor": "#996699",
 				"panel": {
@@ -186,12 +211,43 @@
 			},
 			"CsQuoteLineItems": {
 				"panelColor": "#BFBFBF",
+=======
+			"ContactInfo": {
+				"panelColor": "#B7DDE8",
 				"panel": {
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
+						"X": 456,
+						"Y": 636
+					}
+				}
+			},
+			"PartNumber": {
+				"panelColor": "#B7DDE8",
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+						"X": 578,
+						"Y": 205
+					}
+				}
+			},
+			"Molds": {
+				"panelColor": "#996699",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+				"panel": {
+					"isOpen": "true",
+					"pathVisible": true,
+					"position": {
+<<<<<<< HEAD
 						"X": 627,
 						"Y": 737
+=======
+						"X": 1006,
+						"Y": 336
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 					}
 				}
 			}
@@ -199,6 +255,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
+<<<<<<< HEAD
 			"workspaceTop": 303,
 			"lastScriptLocation": {
 				"Customer": {
@@ -257,6 +314,9 @@
 				"run": true,
 				"mode": 2
 			}
+=======
+			"workspaceTop": 26
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 		}
 	},
 	"dataClasses": [
@@ -266,6 +326,7 @@
 			"collectionName": "ContactCollection",
 			"scope": "public",
 			"attributes": [
+<<<<<<< HEAD
 				{
 					"name": "ID",
 					"kind": "storage",
@@ -299,16 +360,50 @@
 				{
 					"name": "dept",
 					"kind": "storage",
+=======
+				{
+					"name": "ID",
+					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name": "notes",
+					"name": "name",
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
 				{
+					"name": "customer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Customer",
+					"path": "Customer"
+				},
+				{
+					"name": "title",
+					"kind": "storage",
+					"matchColumn": "phone",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
+					"name": "notes",
+=======
+					"name": "dept",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
 					"name": "contactInfoCollection",
 					"kind": "relatedEntities",
 					"scope": "public",
@@ -418,10 +513,32 @@
 							"userDefined": true
 						}
 					]
+=======
+					"name": "notes",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "contactInfoCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ContactInfoCollection",
+					"reversePath": true,
+					"path": "contact"
+				},
+				{
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		},
 		{
+<<<<<<< HEAD
 			"name": "CsQuoteLineItems",
 			"className": "CsQuoteLineItems",
 			"collectionName": "CsQuoteLineItemsCollection",
@@ -496,6 +613,11 @@
 			"name": "Customer",
 			"className": "Customer",
 			"collectionName": "CustomerCollection",
+=======
+			"name": "ContactInfo",
+			"className": "ContactInfo",
+			"collectionName": "ContactInfoCollection",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 			"scope": "public",
 			"attributes": [
 				{
@@ -509,6 +631,7 @@
 					"primKey": true
 				},
 				{
+<<<<<<< HEAD
 					"name": "name",
 					"kind": "storage",
 					"scope": "public",
@@ -552,17 +675,32 @@
 				},
 				{
 					"name": "einNo",
+=======
+					"name": "contact",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Contact",
+					"path": "Contact"
+				},
+				{
+					"name": "type",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
 				{
+<<<<<<< HEAD
 					"name": "notes",
+=======
+					"name": "data",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
 				{
+<<<<<<< HEAD
 					"name": "partNumberCollection",
 					"kind": "relatedEntities",
 					"scope": "public",
@@ -591,10 +729,18 @@
 					"type": "CustomerQuotesCollection",
 					"reversePath": true,
 					"path": "customer"
+=======
+					"name": "ctName",
+					"scope": "public",
+					"path": "contact.name",
+					"type": "string",
+					"kind": "alias"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		},
 		{
+<<<<<<< HEAD
 			"name": "CustomerQuotes",
 			"className": "CustomerQuotes",
 			"collectionName": "CustomerQuotesCollection",
@@ -660,12 +806,48 @@
 				},
 				{
 					"name": "contact",
+=======
+			"name": "Customer",
+			"className": "Customer",
+			"collectionName": "CustomerCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
 					"kind": "storage",
 					"scope": "public",
-					"type": "string"
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
 				},
 				{
-					"name": "representative",
+					"name": "name",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"type": "string",
+					"indexKind": "btree"
+				},
+				{
+					"name": "contactCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "ContactCollection",
+					"reversePath": true,
+					"path": "customer"
+				},
+				{
+					"name": "ordersCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "OrdersCollection",
+					"reversePath": true,
+					"path": "customer"
+				},
+				{
+					"name": "productTypeRef",
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
@@ -677,6 +859,34 @@
 					"type": "string"
 				},
 				{
+					"name": "representative",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
+					"name": "representative",
+=======
+					"name": "einNo",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
+					"name": "terms",
+=======
+					"name": "notes",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
 					"name": "FOB",
 					"kind": "storage",
 					"scope": "public",
@@ -782,13 +992,27 @@
 					"scope": "public",
 					"type": "PartRev",
 					"path": "PartRev"
+=======
+					"name": "partNumberCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "PartNumberCollection",
+					"reversePath": true,
+					"path": "customer"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		},
 		{
+<<<<<<< HEAD
 			"name": "OrderLineItemQtys",
 			"className": "OrderLineItemQtys",
 			"collectionName": "OrderLineItemQtysCollection",
+=======
+			"name": "Molds",
+			"className": "Molds",
+			"collectionName": "MoldsCollection",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 			"scope": "public",
 			"attributes": [
 				{
@@ -798,6 +1022,7 @@
 					"unique": true,
 					"autosequence": true,
 					"type": "long",
+<<<<<<< HEAD
 					"primKey": true
 				},
 				{
@@ -841,11 +1066,27 @@
 				},
 				{
 					"name": "unit",
+=======
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "partNumberCollection",
+					"kind": "relatedEntities",
+					"scope": "public",
+					"type": "PartNumberCollection",
+					"reversePath": true,
+					"path": "tool"
+				},
+				{
+					"name": "toolID",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
 				{
+<<<<<<< HEAD
 					"name": "lineRef",
 					"kind": "relatedEntity",
 					"scope": "public",
@@ -924,6 +1165,18 @@
 					"type": "OrderLineItemQtysCollection",
 					"reversePath": true,
 					"path": "lineRef"
+=======
+					"name": "description",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "manufacturer",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		},
@@ -957,6 +1210,7 @@
 					"type": "string"
 				},
 				{
+<<<<<<< HEAD
 					"name": "modified",
 					"kind": "calculated",
 					"scope": "public",
@@ -1341,10 +1595,18 @@
 					"scope": "public",
 					"type": "string",
 					"path": "supplierQuoteLine.spQuoteRef.quoteNo"
+=======
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		},
 		{
+<<<<<<< HEAD
 			"name": "Supplier",
 			"className": "Supplier",
 			"collectionName": "SupplierCollection",
@@ -1466,11 +1728,74 @@
 				},
 				{
 					"name": "quoteDescription",
+=======
+			"name": "PartNumber",
+			"className": "PartNumber",
+			"collectionName": "PartNumberCollection",
+			"scope": "public",
+			"attributes": [
+				{
+					"name": "ID",
+					"kind": "storage",
+					"scope": "public",
+					"unique": true,
+					"autosequence": true,
+					"type": "long",
+					"indexKind": "btree",
+					"primKey": true
+				},
+				{
+					"name": "customer",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Customer",
+					"path": "Customer"
+				},
+				{
+					"name": "partNo",
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
 				{
+					"name": "description",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "partWeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "shotWeight",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "cycleTimeInSeconds",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "numOfCavities",
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+					"name": "notes",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+				{
+<<<<<<< HEAD
 					"name": "routingCollection",
 					"kind": "relatedEntities",
 					"scope": "public",
@@ -1583,10 +1908,33 @@
 				},
 				{
 					"name": "quoteNo",
+=======
+					"name": "img",
+					"kind": "storage",
+					"scope": "public",
+					"type": "image"
+				},
+				{
+					"name": "partType",
 					"kind": "storage",
 					"scope": "public",
 					"type": "string"
 				},
+				{
+					"name": "tool",
+					"kind": "relatedEntity",
+					"scope": "public",
+					"type": "Molds",
+					"path": "Molds"
+				},
+				{
+					"name": "currentRev",
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
+					"kind": "storage",
+					"scope": "public",
+					"type": "string"
+				},
+<<<<<<< HEAD
 				{
 					"name": "quoteDate",
 					"kind": "storage",
@@ -1658,6 +2006,14 @@
 					"type": "SupplierQuoteLineCollection",
 					"reversePath": true,
 					"path": "spQuoteRef"
+=======
+				{
+					"name": "csName",
+					"scope": "public",
+					"path": "customer.name",
+					"type": "string",
+					"kind": "alias"
+>>>>>>> 240107ac33688259b520329f0adc1ae330268faf
 				}
 			]
 		}
