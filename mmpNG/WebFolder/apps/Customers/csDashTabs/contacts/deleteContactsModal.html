@@ -1,0 +1,9 @@
+<!-- the deleteContactsModalController is defined in csContactsController.js-->
+<div ng-controller="deleteContactsModalController">
+    <h3>Are you sure you want to delete this contact?</h3>
+    <p>This will permanently remove all this contacts info.  It will also remove any references to this contact in all other areas.</p>
+    <div class="row">
+        <button class="btn btn-lg btn-danger col-md-6" ng-click="deleteContact.deleteContact.Yes()">Yes</button>
+        <button class="btn btn-lg btn-success col-md-6" ng-click="deleteContact.deleteContact.No()">No</button>
+    </div>
+</div>

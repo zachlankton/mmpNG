@@ -1,1 +1,109 @@
-<h1>Addresses</h1>
+<div class="row">
+    <div class="col-md-12" ng-controller="csAddressesController">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <input class="input full-width" placeholder="Search or Add" ng-model="csAddr.csAddr.addressSearch" />
+               
+                <ul class="list-group">
+                    <a  href="#" 
+                        ng-repeat="address in csAddr.collections.csAddresses | filter:csAddr.csAddr.addressSearch | orderBy:'title'"
+                        ng-class="{active: csAddr.csAddr.currentAddress == address}" 
+                        ng-click="csAddr.csAddr.setCurrentAddress(address)" 
+                        class="list-group-item" >
+                        {{address.title}}
+                    </a>
+                    <li ng-show="csAddr.csAddr.showAdd()" class="list-group-item">
+                        <a href="#" ng-click="csAddr.csAddr.addAddress(address)">ADD ADDRESS (Title): '{{csAddr.csAddr.addressSearch}}'</a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.title">
+                <h4><u>Address Details</u></h4>
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Title</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="csAddr.csAddr.currentAddress.title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <textarea ng-change="csAddr.csAddr.updateMap()" 
+                            ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="5" 
+                            ng-model="csAddr.csAddr.currentAddress.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="3" 
+                            ng-model="csAddr.csAddr.currentAddress.description"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Notes</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="3" 
+                            ng-model="csAddr.csAddr.currentAddress.notes"></textarea>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Vendor</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="csAddr.csAddr.currentAddress.shipVendor">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Acct</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="csAddr.csAddr.currentAddress.shipAcct">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Method</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="csAddr.csAddr.currentAddress.shipMethod">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Terms</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="csAddr.csAddr.currentAddress.shipTerms">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-danger" ng-click="csAddr.csAddr.deleteCurrentAddress()">Delete Address</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div> 
+            <div class="col-md-5" ng-show="csAddr.csAddr.currentAddress.title">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-show="csAddr.csAddr.currentAddress.address">
+                        <iframe
+                            width="450"
+                            height="350"
+                            frameborder="0" style="border:0"
+                            ng-src="{{csAddr.csAddr.addressMapURL | trustAsResourceUrl}}">
+                        </iframe>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>

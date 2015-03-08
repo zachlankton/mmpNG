@@ -1,0 +1,30 @@
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title" id="myModalLabel">Select Primary Address for this contact.</h4>
+</div>
+<div class="modal-body" ng-controller="csAddressesController">
+    <div ng-show="!csAddr.collections.csAddresses[0].title">
+        There are no addresses to pick from.... use the 'Addresses' Tab to create addresses.
+    </div>
+    <div class="row"
+        ng-click="csAddr.csAddr.saveContactAddress(address)"
+        ng-repeat="address in csAddr.collections.csAddresses | filter:csAddr.csAddr.addressSearch | orderBy:'title'">
+        <div class="col-md-1">
+            <p>{{address.title}}</p>
+        </div>
+        <div class="col-md-5">
+            <textarea class="form-control" rows="5" readonly>{{address.address}}</textarea>
+        </div>
+        <div class="col-md-6">
+            <iframe
+                width="300"
+                height="250"
+                frameborder="0" style="border:0"
+                ng-src="{{csAddr.csAddr.getMapUrl(address.address) | trustAsResourceUrl}}">
+            </iframe>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>

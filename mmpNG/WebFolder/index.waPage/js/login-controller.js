@@ -7,8 +7,11 @@ myApp.controller('loginController', function ($scope, $wakanda, $filter, csAppDa
 	//check to see if we are currently logged in
 	//and populate the scope with the result
 	$wakanda.$currentUser().then(function(cUser){
-		l.currentUser = cUser.result;
-		l.loadAllWAKData(); //this method is defined in csAppDataFactory.js
+		if (cUser.result != null){
+			l.currentUser = cUser.result;
+			l.loadAllWAKData(); //this method is defined in csAppDataFactory.js
+		}
+		
 	});
 
 	//set the default login title

@@ -16,3 +16,5 @@ include("./Model/OrderLineItems/OrderLineItems-events.js");
 include("./Model/CustomerQuotes/CustomerQuotes-events.js");
 include("./Model/OrderLineItemQtys/OrderLineItemQtys-events.js");
 include("./Model/CsQuoteLineItems/CsQuoteLineItems-events.js");
+include("./Model/CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js");
+include("./Model/CsAddress/CsAddress-events.js");

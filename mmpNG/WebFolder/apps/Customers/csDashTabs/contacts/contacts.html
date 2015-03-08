@@ -1,17 +1,94 @@
-<div class="col-md-4" ng-controller="csContactsController">
-    <ul class="list-group">
-        <li class="list-group-item" >
-            <input readonly value="Name" />
-            <input readonly value="Customer"/>
-        </li>
-        <li class="list-group-item" ng-repeat="contact in csContact.collections.Contacts | filter:{'csName':  csContact.Customers.currentSelection.name}:true">
-            <input ng-model="contact.name" />
-        </li>
-        <li class="list-group-item">
-            <input ng-model="csContact.csContact.addContactName" />
-           <!-- <input ng-model="csContact.csContact.addContactCustomerRef" /> -->
-           <button class="btn btn-primary" ng-click="csContact.csContact.addContact()">Add</button>
-        </li>
-    </ul>
-    
+<div class="row">
+    <div class="col-md-12" ng-controller="csContactsController">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <input class="input full-width" placeholder="Search or Add" ng-model="csContact.csContact.contactSearch" />
+               
+                <ul class="list-group">
+                    <a  href="#" 
+                        ng-repeat="contact in csContact.collections.Contacts | filter:csContact.csContact.contactSearch | orderBy:'name'"
+                        ng-class="{active: csContact.csContact.currentContact == contact}" 
+                        ng-click="csContact.csContact.setCurrentContact(contact)" 
+                        class="list-group-item" >
+                        {{contact.name}} <span ng-show="contact.title">({{contact.title}})</span>
+                    </a>
+                    <li ng-show="csContact.csContact.showAdd()" class="list-group-item">
+                        <a href="#" ng-click="csContact.csContact.addContact()">ADD CONTACT: '{{csContact.csContact.contactSearch}}'</a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="col-md-4" ng-show="csContact.csContact.currentContact.name">
+                <h4><u>Contact Details</u></h4>
+                <form class="form-horizontal">
+                    <div class="form-group" ng-repeat="field in csContact.csContact.fields">
+                        <label class="col-sm-3 control-label">{{field.title}}</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="csContact.csContact.currentContact.$save()" type="text" class="input-xs col-md-12" ng-model="csContact.csContact.currentContact[field.name]">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-success btn-xs" ng-click="csContact.csContact.selectAddress()">Select Address</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Notes</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="csContact.csContact.currentContact.$save()" class="form-control" rows="3" ng-model="csContact.csContact.currentContact.notes"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-danger" ng-click="csContact.csContact.deleteCurrentContact()">Delete Contact</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div> 
+            <div class="col-md-5" ng-show="csContact.csContact.currentContact.name">
+                <h4><u>Contact Info</u></h4>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-show="csContact.csContact.currentContact.addressAlias">
+                        <iframe
+                            width="300"
+                            height="250"
+                            frameborder="0" style="border:0"
+                            ng-src="{{csContact.csContact.addressMapURL | trustAsResourceUrl}}">
+                        </iframe>
+                    </li>
+                    <li class="list-group-item" ng-show="csContact.csContact.currentContact.addressAlias">
+                        <textarea class="full-width form-control" rows="5" readonly>{{csContact.csContact.currentContact.addressAlias}}</textarea>
+                    </li>
+                    <li 
+                        ng-repeat="contactInfo in csContact.collections.ContactInfo | orderBy:'type'"
+                        class="list-group-item" >
+                        {{contactInfo.type}}: {{contactInfo.data}}
+                        <button ng-click="csContact.csContact.removeCInfo(contactInfo)" type="button" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </li>
+
+                    <li class="list-group-item">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <select class="form-control input-sm" ng-options="type for type in csContact.csContact.infoTypes" ng-model="csContact.csContact.infoTypeAdd"></select>
+                           </div>
+                           <div class="form-group">
+                                <input class="input input-sm" ng-model="csContact.csContact.infoDataAdd"/>
+                           </div>
+                           <div class="form-group">
+                                <button class="btn btn-primary btn-sm" ng-click="csContact.csContact.addContactInfo()">Add</button>
+                            </div>
+                        </form>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
 </div>
