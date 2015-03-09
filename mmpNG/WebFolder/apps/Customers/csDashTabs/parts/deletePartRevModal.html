@@ -1,0 +1,9 @@
+<!-- the deletePartRevModalController is defined in csPartsController.js-->
+<div ng-controller="deletePartRevModalController">
+    <h3>Are you sure you want to delete this part revision?</h3>
+    <p>This will permanently remove all this part revs info.  It will also remove any references to this part rev in all other areas.</p>
+    <div class="row">
+        <button class="btn btn-lg btn-danger col-md-6" ng-click="deletePartRev.deletePartRev.Yes()">Yes</button>
+        <button class="btn btn-lg btn-success col-md-6" ng-click="deletePartRev.deletePartRev.No()">No</button>
+    </div>
+</div>

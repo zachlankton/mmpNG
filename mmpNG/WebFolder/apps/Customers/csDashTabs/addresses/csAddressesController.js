@@ -41,6 +41,7 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
     ////////////////////////////////////////
 	csAddr.setCurrentAddress = function(address){
 		csAddr.currentAddress = address;
+		csAddr.currentAddress.show = true;
 		csAddr.addressMapURL = "https://www.google.com/maps/embed/v1/place?key=" + rScope.googleAPIkey + 
 		                          "&q=" + csAddr.currentAddress.address;
 	};
@@ -121,3 +122,27 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
         };
   
 });
+
+
+//////////////////////////////////////////////////
+// DELETE ADDRESS MODAL CONFIRMATION CONTROLLER //
+//////////////////////////////////////////////////
+myApp.controller('deleteAddressModalController', function ($scope, $wakanda, $filter, csAppData) {
+
+	$scope.deleteAddress = csAppData.getData();
+	var csAddr = $scope.deleteAddress.csAddr;
+	var deleteAddress = $scope.deleteAddress.deleteAddress = {};
+
+	deleteAddress.Yes = function(){
+		csAddr.currentAddress.$remove()
+		.then(function(e){
+			csAddr.currentAddress = {};
+			csAddr.getAddresses();
+			$('#reusable-modal').modal('hide');
+		});
+	};
+
+	deleteAddress.No = function(){
+		$('#reusable-modal').modal('hide');
+	};
+} );

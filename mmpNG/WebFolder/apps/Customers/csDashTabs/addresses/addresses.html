@@ -5,7 +5,7 @@
                 
                 <input class="input full-width" placeholder="Search or Add" ng-model="csAddr.csAddr.addressSearch" />
                
-                <ul class="list-group">
+                <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
                     <a  href="#" 
                         ng-repeat="address in csAddr.collections.csAddresses | filter:csAddr.csAddr.addressSearch | orderBy:'title'"
                         ng-class="{active: csAddr.csAddr.currentAddress == address}" 
@@ -18,9 +18,9 @@
                     </li>
                 </ul>
             </div> 
-            <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.title">
+            <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.show">
                 <h4><u>Address Details</u></h4>
-                <form class="form-horizontal">
+                <form class="form-horizontal" >
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Title</label>
                         <div class="col-sm-9">
@@ -83,19 +83,18 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-9">
-                            <button class="btn btn-danger" ng-click="csAddr.csAddr.deleteCurrentAddress()">Delete Address</button>
+                            <button class="btn btn-danger" type="button" ng-click="csAddr.csAddr.deleteCurrentAddress()">Delete Address</button>
                         </div>
                     </div>
                 </form>
                 
             </div> 
-            <div class="col-md-5" ng-show="csAddr.csAddr.currentAddress.title">
+            <div class="col-md-5" ng-show="csAddr.csAddr.currentAddress.show">
                 <ul class="list-group">
                     <li class="list-group-item" ng-show="csAddr.csAddr.currentAddress.address">
                         <iframe
-                            width="450"
-                            height="350"
-                            frameborder="0" style="border:0"
+                            
+                            frameborder="0" style="border:0;width: 100%;height: 400px;"
                             ng-src="{{csAddr.csAddr.addressMapURL | trustAsResourceUrl}}">
                         </iframe>
                     </li>

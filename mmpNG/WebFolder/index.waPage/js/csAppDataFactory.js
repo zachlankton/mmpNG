@@ -44,3 +44,18 @@ angular.module('filters-module', [])
         return $sce.trustAsResourceUrl(val);
     };
 }])
+.filter('gDriveFolder', function(){
+    return function(input){
+        input = input || "";
+        input = input.replace('/open?', '/embeddedfolderview?');
+        input = input.replace('&authuser=0', '');
+        return input;
+    };
+}).filter('gDriveImg', function(){
+    return function(input){
+        input = input || "";
+        input = input.replace('/open?', '/uc?');
+        input = input.replace('&authuser=0', '');
+        return input;
+    };
+});

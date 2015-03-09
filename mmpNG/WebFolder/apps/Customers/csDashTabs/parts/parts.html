@@ -1,1 +1,198 @@
-<h1>Parts</h1>
+<div class="row">
+    <div class="col-md-12" ng-controller="csPartsController">
+        <div class="row">
+			<div class="col-md-8">
+				<div class="row">
+        
+					<div class="col-md-6">
+						<p><u>Parts</u></p>
+						<input class="input full-width" placeholder="Search or Add" ng-model="csParts.csParts.partSearch" />
+   
+						<ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+							<a  href="#" 
+								ng-repeat="part in csParts.collections.csParts | filter:csParts.csParts.partSearch | orderBy:'partNo'"
+								ng-class="{active: csParts.csParts.currentPart == part}" 
+								ng-click="csParts.csParts.setCurrentPart(part)" 
+								class="list-group-item" >
+								{{part.partNo}} <span ng-show="part.description"> - {{part.description}}</span> 
+							</a>
+							<li ng-show="csParts.csParts.showPartAdd()" class="list-group-item">
+								<a href="#" ng-click="csParts.csParts.addPart()">ADD PART: '{{csParts.csParts.partSearch}}'</a>
+							</li>
+						</ul>
+
+						<form class="form-horizontal" ng-show="csParts.csParts.currentPart.show">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Part No</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPart.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPart.partNo">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Description</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPart.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPart.description">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"></label>
+								<div class="col-sm-9">
+									<button class="btn btn-danger" type="button" ng-click="csParts.csParts.deleteCurrentPart()">Delete Part</button>
+								</div>
+							</div>
+						</form>
+					</div> 
+					
+					<div class="col-md-6" ng-show="csParts.csParts.currentPart.show">
+						<p><u>Revisions</u></p>
+						<input class="input full-width" placeholder="Search or Add" ng-model="csParts.csParts.partRevSearch" />
+			   
+						<ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+							<a  href="#" 
+								ng-repeat="partRev in csParts.collections.csPartRevs | filter:csParts.csParts.partRevSearch | orderBy:'revision'"
+								ng-class="{active: csParts.csParts.currentPartRev == partRev}" 
+								ng-click="csParts.csParts.setCurrentPartRev(partRev)" 
+								class="list-group-item" >
+								{{partRev.revision}} 
+							</a>
+							<li ng-show="csParts.csParts.showPartRevAdd()" class="list-group-item">
+								<a href="#" ng-click="csParts.csParts.addPartRev()">ADD PART REV: '{{csParts.csParts.partRevSearch}}'</a>
+							</li>
+						</ul>
+				
+						<form class="form-horizontal" ng-show="csParts.csParts.currentPartRev.show">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Revision</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPartRev.revision">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Image URL</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPartRev.img">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Part Weight</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPartRev.partWeight">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Alloy Used</label>
+								<div class="col-sm-9">
+									<input ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="input-xs col-md-12" 
+									ng-model="csParts.csParts.currentPartRev.alloyUsed">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">gDrive URL</label>
+								<div class="col-sm-9">
+									<input  ng-blur="csParts.csParts.currentPartRev.$save()" 
+											type="text" class="input-xs col-md-12" 
+											ng-model="csParts.csParts.currentPartRev.googleDriveFolder">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Notes</label>
+								<div class="col-sm-9">
+									<textarea ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="form-control" rows="5" 
+									ng-model="csParts.csParts.currentPartRev.notes"></textarea>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label"></label>
+								<div class="col-sm-9">
+									<button class="btn btn-danger" type="button" ng-click="csParts.csParts.deleteCurrentPartRev()">Delete Part Rev</button>
+								</div>
+							</div>
+					
+						</form>
+
+					</div> 
+
+				
+				</div>
+				<div class="row" ng-show="csParts.csParts.currentPartRev.show">
+                    <div class="col-md-12">
+                        <h4 class="full-width"><u>Parts Routing</u></h4>
+                        <table class="table table-condensed">
+                            <tbody>
+                                <tr>
+                                    <th class="col-md-1">Step No.</th>
+                                    <th class="col-md-2">Op. Type</th>
+                                    <th class="col-md-2">Supplier</th>
+                                    <th class="col-md-4">Op. Description</th>
+                                    <th class="col-md-2">Quote No.</th>
+                                    <th class="col-md-1 delete-column"></th>
+                                </tr>
+                                <tr ng-repeat="route in csParts.collections.PartsRouting">
+                                    <td><input ng-model="route.stepNo" class="form-control input-sm" ng-blur="route.$save()"/></td>
+                                    <td>
+                                        <select class="form-control input-sm" 
+                                                ng-options="type for type in csParts.csParts.opTypes" 
+                                                ng-model="route.opType"
+                                                ng-change="route.$save()">
+                                        </select>
+                                    </td>
+                                    <td>{{route.supplier}}</td>
+                                    <td>{{route.poDescription}}</td>
+                                    <td>{{route.supplierQuoteNo}}</td>
+                                    <td>
+                                        <button ng-click="route.$remove()" type="button" class="btn btn-danger btn-xs">
+                                            <span class="glyphicon glyphicon-trash"></span>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input ng-model="csParts.csParts.route.StepNo" class="form-control input-sm"/></td>
+                                    <td>
+                                        <select class="form-control input-sm" 
+                                                ng-options="type for type in csParts.csParts.opTypes" 
+                                                ng-model="csParts.csParts.route.stepType">
+                                        </select>
+                                    </td>
+                                    <td>{{csParts.csParts.route.supplierOp.supplier}}</td>
+                                    <td>{{csParts.csParts.route.supplierOp.poDescription}}</td>
+                                    <td>
+                                        <button ng-click="" type="button" class="btn btn-primary btn-xs">
+                                            Select Supplier Op.
+                                        </button>
+                                    </td>
+                                    <td>
+                                        <button ng-click="" type="button" class="btn btn-primary btn-xs">
+                                            Add Route
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+				</div>
+            
+            </div>
+            
+            
+            
+            
+            <div class="col-md-4" ng-show="csParts.csParts.currentPartRev.show">
+                <img ng-show="csParts.csParts.currentPartRev.img" border="0" ng-src="{{csParts.csParts.currentPartRev.img | gDriveImg}}" style="width: 100%;">
+                <h4 ng-show="csParts.csParts.currentPartRev.googleDriveFolder">Files - 
+                    <a target="_blank" href="{{csParts.csParts.currentPartRev.googleDriveFolder}}">Open Drive</a>
+                </h4>
+                <iframe ng-show="csParts.csParts.currentPartRev.googleDriveFolder"
+                        style="width:100%; height:500px;background-color: white;"
+                        ng-src="{{csParts.csParts.currentPartRev.googleDriveFolder | gDriveFolder | trustAsResourceUrl}}" 
+                ></iframe>
+            </div>
+        </div>
+    </div>
+
+
+</div>

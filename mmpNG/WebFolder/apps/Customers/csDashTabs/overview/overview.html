@@ -2,18 +2,56 @@
 
 
     <form class="form-horizontal">
-        <div class="form-group" ng-repeat="field in csOverview.csOverview.csFields">
-            <label for="inputEmail3" class="col-sm-4 control-label">{{field.title}}</label>
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Customer Name</label>
             <div class="col-sm-8">
-                <input class="input-sm form-control" ng-model="csOverview.Customers.currentSelection[field.name]">
+                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                ng-model="csOverview.Customers.currentSelection.name">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Product Type</label>
+            <div class="col-sm-8">
+                <select class="form-control input-sm" ng-options="type for type in csOverview.csOverview.productTypes" 
+                ng-model="csOverview.Customers.currentSelection.productTypeRef"
+                ng-change="csOverview.Customers.currentSelection.$save()"></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">EIN No</label>
+            <div class="col-sm-8">
+                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                ng-model="csOverview.Customers.currentSelection.einNo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Terms</label>
+            <div class="col-sm-8">
+                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                ng-model="csOverview.Customers.currentSelection.terms">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Representative</label>
+            <div class="col-sm-8">
+                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                ng-model="csOverview.Customers.currentSelection.representative">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputEmail3" class="col-sm-4 control-label">Notes</label>
+            <div class="col-sm-8">
+                <textarea ng-blur="csOverview.Customers.currentSelection.$save()" class="form-control" rows="5"
+                ng-model="csOverview.Customers.currentSelection.notes"></textarea>
             </div>
         </div>
         
-        <div class="form-group">
-            <div class="col-sm-offset-2 col-sm-10">
-                <button type="submit" ng-click="csOverview.Customers.currentSelection.$save()"class="btn btn-primary">Save</button>
-            </div>
-        </div>
+        
     </form>
 
 </div>

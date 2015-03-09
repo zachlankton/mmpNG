@@ -4,16 +4,20 @@ myApp.controller('csOverviewController', function ($scope, $wakanda, $filter, cs
 	var rScope = $scope.csOverview;
 	var csOverview = rScope.csOverview = {};
 
+    var pt = csOverview.productTypes = [];
+    pt.push('Aerospace');
+    pt.push('Automotive');
+    pt.push('Auto Aftermarket');
+    pt.push('Consumer Product');
+    pt.push('Diagnostics');
+    pt.push('Electronics');
+    pt.push('Military');
+    pt.push('Other');
+    pt.push('Prototype');
+    pt.push('University');
+    
 	
 	var c = rScope.Customers.currentSelection;
-   	var csFields = csOverview.csFields = [];
-   	csFields.push({title:"Customer Name", type:"text", name: "name" });
-   	csFields.push({title:"Product Type", type:"text", name: "productTypeRef"});
-   	csFields.push({title:"EIN No", type:"text", name: "einNo"});
-   	csFields.push({title:"Terms", type:"text", name: "terms"});
-   	csFields.push({title:"Representative", type:"text", name: "representative"});
-   	csFields.push({title:"Notes", type:"textarea", name: "notes"});
-
-			
+		
   
 });

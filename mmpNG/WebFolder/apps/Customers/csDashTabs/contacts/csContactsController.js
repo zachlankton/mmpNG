@@ -54,6 +54,7 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
     ////////////////////////////////////////
 	csContact.setCurrentContact = function(contact){
 		csContact.currentContact = contact;
+		csContact.currentContact.show = true;
 		csContact.getContactInfo();
 		csContact.addressMapURL = "https://www.google.com/maps/embed/v1/place?key=" + rScope.googleAPIkey + 
 		                          "&q=" + csContact.currentContact.addressAlias;
