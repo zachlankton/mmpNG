@@ -1,0 +1,102 @@
+<div class="row">
+    <div class="col-md-12" ng-controller="spContactsController">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <input class="input full-width" placeholder="Search or Add" ng-model="spContact.spContact.contactSearch" />
+               
+                <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
+                    <a  href="#" 
+                        ng-repeat="contact in spContact.collections.SpContacts | filter:spContact.spContact.contactSearch | orderBy:'name'"
+                        ng-class="{active: spContact.spContact.currentContact == contact}" 
+                        ng-click="spContact.spContact.setCurrentContact(contact)" 
+                        class="list-group-item" >
+                        {{contact.name}} <span ng-show="contact.title">({{contact.title}})</span>
+                    </a>
+                    <li ng-show="spContact.spContact.showAdd()" class="list-group-item">
+                        <a href="#" ng-click="spContact.spContact.addContact()">ADD CONTACT: '{{spContact.spContact.contactSearch}}'</a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="col-md-4" ng-show="spContact.spContact.currentContact.show">
+                <h4><u>Contact Details</u></h4>
+                <form class="form-horizontal" >
+                    <div class="form-group" >
+                        <label class="col-sm-3 control-label">Photo</label>
+                        <div class="col-sm-9">
+                            <img ng-show="spContact.spContact.currentContact.img" border="0" ng-src="{{spContact.spContact.currentContact.img | gDriveImg}}" 
+                            style="width: 100%;">
+                            <input ng-blur="spContact.spContact.currentContact.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spContact.spContact.currentContact.img">
+                        </div>
+                    </div>
+                    <div class="form-group" ng-repeat="field in spContact.spContact.fields">
+                        <label class="col-sm-3 control-label">{{field.title}}</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spContact.spContact.currentContact.$save()" type="text" class="input-xs col-md-12" ng-model="spContact.spContact.currentContact[field.name]">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-success btn-xs" type="button" ng-click="spContact.spContact.selectAddress()">Select Address</button>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Notes</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="spContact.spContact.currentContact.$save()" class="form-control" rows="3" ng-model="spContact.spContact.currentContact.notes"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-danger" type="button" ng-click="spContact.spContact.deleteCurrentContact()">Delete Contact</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div> 
+            <div class="col-md-5" ng-show="spContact.spContact.currentContact.show">
+                <h4><u>Contact Info</u></h4>
+                <ul class="list-group">
+                    <li class="list-group-item" ng-show="spContact.spContact.currentContact.addressAlias">
+                        <iframe
+                           
+                            frameborder="0" style="border:0;width: 100%;height: 250px;"
+                            ng-src="{{spContact.spContact.addressMapURL | trustAsResourceUrl}}">
+                        </iframe>
+                    </li>
+                    <li class="list-group-item" ng-show="spContact.spContact.currentContact.addressAlias">
+                        <textarea class="full-width form-control" rows="5" readonly>{{spContact.spContact.currentContact.addressAlias}}</textarea>
+                    </li>
+                    <li 
+                        ng-repeat="contactInfo in spContact.collections.SpContactInfo | orderBy:'type'"
+                        class="list-group-item" >
+                        {{contactInfo.type}}: {{contactInfo.data}}
+                        <button ng-click="spContact.spContact.removeCInfo(contactInfo)" type="button" class="btn btn-default btn-xs">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </button>
+                    </li>
+
+                    <li class="list-group-item">
+                        <form class="form-inline">
+                            <div class="form-group">
+                                <select class="form-control input-sm" ng-options="type for type in spContact.spContact.infoTypes" ng-model="spContact.spContact.infoTypeAdd"></select>
+                           </div>
+                           <div class="form-group">
+                                <input class="input input-sm" ng-model="spContact.spContact.infoDataAdd"/>
+                           </div>
+                           <div class="form-group">
+                                <button class="btn btn-primary btn-sm" ng-click="spContact.spContact.addContactInfo()">Add</button>
+                            </div>
+                        </form>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>

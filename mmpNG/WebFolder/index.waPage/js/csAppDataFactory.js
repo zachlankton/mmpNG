@@ -5,12 +5,14 @@ var csAppServices = angular.module('csAppServices', ['wakanda', 'filters-module'
 csAppServices.factory('csAppData', function ($wakanda) {
     var values = {}; 
     values.Customers = {};
+    values.Suppliers = {};
     
     //load all the wakanda data that we want for this application
     values.collections = {};
     values.loadAllWAKData = function(){
          $wakanda.init().then(function oninit(ds) {  
             values.collections.Customers = ds.Customer.$find({pageSize:999999999});
+            values.collections.Suppliers = ds.Supplier.$find({pageSize:999999999});
          });
      };
 

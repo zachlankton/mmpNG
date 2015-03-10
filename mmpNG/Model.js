@@ -18,3 +18,6 @@ include("./Model/OrderLineItemQtys/OrderLineItemQtys-events.js");
 include("./Model/CsQuoteLineItems/CsQuoteLineItems-events.js");
 include("./Model/CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js");
 include("./Model/CsAddress/CsAddress-events.js");
+include("./Model/SpContact/SpContact-events.js");
+include("./Model/SpContactInfo/SpContactInfo-events.js");
+include("./Model/SpAddress/SpAddress-events.js");

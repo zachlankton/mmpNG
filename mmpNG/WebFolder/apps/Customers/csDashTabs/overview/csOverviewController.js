@@ -17,7 +17,7 @@ myApp.controller('csOverviewController', function ($scope, $wakanda, $filter, cs
     pt.push('University');
     
 	
-	var c = rScope.Customers.currentSelection;
+	
 		
   
 });

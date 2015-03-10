@@ -13,6 +13,7 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
 		
 		sc.Customers.selectCS = function(customer){
 			sc.Customers.currentSelection = customer;
+			sc.Customers.currentSelection.show = true;
 		};
 
         sc.Customers.add = function() {

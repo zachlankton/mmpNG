@@ -1,10 +1,10 @@
-<div ng-show="cd.Customers.currentSelection.name">{{cd.Customers.currentSelection.name}}</div>
+<div ng-show="cd.Customers.currentSelection.show">{{cd.Customers.currentSelection.name}}</div>
 
-<ul ng-show="cd.Customers.currentSelection.name"
+<ul ng-show="cd.Customers.currentSelection.show"
 class="nav nav-tabs nav-justified">
     <li role="presentation" ng-repeat="tab in cd.csTabs" ng-class="{active:cd.Customers.activeTab(tab)}"
     ng-click="cd.Customers.currentTab = tab">
         <a href="#">{{tab.title}}</a>
     </li>   
 </ul>
-<div ng-show="cd.Customers.currentSelection.name" class="well container-fluid" ng-include="cd.Customers.currentTab.templateUrl"></div>
+<div ng-show="cd.Customers.currentSelection.show" class="well container-fluid" ng-include="cd.Customers.currentTab.templateUrl"></div>

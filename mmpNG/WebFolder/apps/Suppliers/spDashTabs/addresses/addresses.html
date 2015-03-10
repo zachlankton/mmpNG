@@ -1,0 +1,108 @@
+<div class="row">
+    <div class="col-md-12" ng-controller="spAddressesController">
+        <div class="row">
+            <div class="col-md-3">
+                
+                <input class="input full-width" placeholder="Search or Add" ng-model="spAddr.spAddr.addressSearch" />
+               
+                <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
+                    <a  href="#" 
+                        ng-repeat="address in spAddr.collections.spAddresses | filter:spAddr.spAddr.addressSearch | orderBy:'title'"
+                        ng-class="{active: spAddr.spAddr.currentAddress == address}" 
+                        ng-click="spAddr.spAddr.setCurrentAddress(address)" 
+                        class="list-group-item" >
+                        {{address.title}}
+                    </a>
+                    <li ng-show="spAddr.spAddr.showAdd()" class="list-group-item">
+                        <a href="#" ng-click="spAddr.spAddr.addAddress(address)">ADD ADDRESS (Title): '{{spAddr.spAddr.addressSearch}}'</a>
+                    </li>
+                </ul>
+            </div> 
+            <div class="col-md-4" ng-show="spAddr.spAddr.currentAddress.show">
+                <h4><u>Address Details</u></h4>
+                <form class="form-horizontal" >
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Title</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spAddr.spAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spAddr.spAddr.currentAddress.title">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Address</label>
+                        <div class="col-sm-9">
+                            <textarea ng-change="spAddr.spAddr.updateMap()" 
+                            ng-blur="spAddr.spAddr.currentAddress.$save()" class="form-control" rows="5" 
+                            ng-model="spAddr.spAddr.currentAddress.address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Description</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="spAddr.spAddr.currentAddress.$save()" class="form-control" rows="3" 
+                            ng-model="spAddr.spAddr.currentAddress.description"></textarea>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Notes</label>
+                        <div class="col-sm-9">
+                            <textarea ng-blur="spAddr.spAddr.currentAddress.$save()" class="form-control" rows="3" 
+                            ng-model="spAddr.spAddr.currentAddress.notes"></textarea>
+                        </div>
+                    </div>
+                    
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Vendor</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spAddr.spAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spAddr.spAddr.currentAddress.shipVendor">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Acct</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spAddr.spAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spAddr.spAddr.currentAddress.shipAcct">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Method</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spAddr.spAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spAddr.spAddr.currentAddress.shipMethod">
+                        </div>
+                    </div>
+                     <div class="form-group">
+                        <label class="col-sm-3 control-label">Ship Terms</label>
+                        <div class="col-sm-9">
+                            <input ng-blur="spAddr.spAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
+                            ng-model="spAddr.spAddr.currentAddress.shipTerms">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label"></label>
+                        <div class="col-sm-9">
+                            <button class="btn btn-danger" type="button" ng-click="spAddr.spAddr.deleteCurrentAddress()">Delete Address</button>
+                        </div>
+                    </div>
+                </form>
+                
+            </div> 
+            <div class="col-md-5" ng-show="spAddr.spAddr.currentAddress.show">
+                <ul class="list-group">
+                    <li class="list-group-item" ng-show="spAddr.spAddr.currentAddress.address">
+                        <iframe
+                            
+                            frameborder="0" style="border:0;width: 100%;height: 400px;"
+                            ng-src="{{spAddr.spAddr.addressMapURL | trustAsResourceUrl}}">
+                        </iframe>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</div>

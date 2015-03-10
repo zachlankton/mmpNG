@@ -1,0 +1,10 @@
+<div ng-show="sp.Suppliers.currentSupplier.show">{{sp.Suppliers.currentSupplier.name}}</div>
+
+<ul ng-show="sp.Suppliers.currentSupplier.show"
+class="nav nav-tabs nav-justified">
+    <li role="presentation" ng-repeat="tab in sp.spTabs" ng-class="{active:sp.Suppliers.activeTab(tab)}"
+    ng-click="sp.Suppliers.currentTab = tab">
+        <a href="#">{{tab.title}}</a>
+    </li>   
+</ul>
+<div ng-show="sp.Suppliers.currentSupplier.show" class="well container-fluid" ng-include="sp.Suppliers.currentTab.templateUrl"></div>

@@ -1,0 +1,17 @@
+
+<ul class="nav nav-sidebar">
+    <div class="form-group" >
+        <input type="text" class="form-control" placeholder="Search or Add" ng-model="sp.Suppliers.searchText">
+    </div>
+</ul>
+<ul class="nav nav-sidebar" >
+    <li ng-repeat="supplier in testValue=(sp.collections.Suppliers | filter:sp.Suppliers.searchText | orderBy:'name') " 
+    ng-click="sp.Suppliers.selectSP(supplier)"
+    ng-class="{active:sp.Suppliers.currentSupplier.name == supplier.name}">
+        <a href="#">{{supplier.name}}</a>
+    </li>
+   
+    <li ng-show="sp.Suppliers.showAdd()">
+        <a href="#" ng-click="sp.Suppliers.add()">ADD SUPPLIER: '{{sp.Suppliers.searchText}}'</a>
+    </li>
+</ul>
