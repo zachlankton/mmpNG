@@ -1,0 +1,9 @@
+<!-- the deleteSupplierQuoteModalController is defined in csQuotesController.js-->
+<div ng-controller="deleteSupplierQuoteModalController">
+    <h3>Are you sure you want to delete this quote?</h3>
+    <p>This will permanently remove all this quotes info and related data.  It will also remove any references to this quote in all other areas.</p>
+    <div class="row">
+        <button class="btn btn-lg btn-danger col-md-6" ng-click="deleteSupplierQuote.deleteSupplierQuote.Yes()">Yes</button>
+        <button class="btn btn-lg btn-success col-md-6" ng-click="deleteSupplierQuote.deleteSupplierQuote.No()">No</button>
+    </div>
+</div>

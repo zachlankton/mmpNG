@@ -6,6 +6,7 @@ csAppServices.factory('csAppData', function ($wakanda) {
     var values = {}; 
     values.Customers = {};
     values.Suppliers = {};
+    values.sideBarVisible = true;
     
     //load all the wakanda data that we want for this application
     values.collections = {};
@@ -22,6 +23,7 @@ csAppServices.factory('csAppData', function ($wakanda) {
 
     values.MainNavBar = [];
     var mnTemp = values.MainNavBar;
+    mnTemp.push ( {title: "HR",               templateUrl: "/apps/HR/HR.html"   } );
     mnTemp.push ( {title: "Customers",        templateUrl: "/apps/Customers/customers.html"   } );
     mnTemp.push ( {title: "Suppliers",        templateUrl: "/apps/Suppliers/suppliers.html"   } );
     mnTemp.push ( {title: "Accounting",       templateUrl: "/apps/Accounting/accounting.html"   } );
@@ -60,4 +62,13 @@ angular.module('filters-module', [])
         input = input.replace('&authuser=0', '');
         return input;
     };
-});
+}).filter('modDate', function(){
+    return function(input){
+        var retVal = "";
+        input = input || "";
+        if (input != ""){
+            retVal = input.toDateString() + " " + input.toLocaleTimeString();
+        }
+        return retVal;
+    };
+});;

@@ -1,0 +1,3 @@
+[submodule "mmpNG/WebFolder/js/bower-angular-wakanda"]
+	path = mmpNG/WebFolder/js/bower-angular-wakanda
+	url = https://github.com/zachlankton/bower-angular-wakanda.git

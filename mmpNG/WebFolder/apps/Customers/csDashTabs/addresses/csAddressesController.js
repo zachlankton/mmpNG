@@ -112,12 +112,14 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
         //////////////////////////
         csAddr.saveContactAddress = function(address){
             rScope.csContact.currentContact.$_entity.address.setValue(address.$_entity);
-            $('#reusable-modal').modal('hide');
+
             rScope.csContact.currentContact.$save()
             .then(function(e){
-                rScope.csContact.currentContact.addressAlias = address.address
+                rScope.csContact.currentContact.addressAlias = address.address;
                 rScope.csContact.addressMapURL = "https://www.google.com/maps/embed/v1/place?key=" + rScope.googleAPIkey + 
-		                          "&q=" + address.address
+		                          "&q=" + address.address;
+                rScope.reusable.modal.templateUrl = "";
+                $('#reusable-modal').modal('hide');
             });
         };
   

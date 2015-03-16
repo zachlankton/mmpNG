@@ -1,0 +1,19 @@
+<h3>Select Customer Contact</h3>
+<div class="row" ng-controller="csContactsController" >
+    <div class="col-md-12" ng-controller="csQuotesContactController" >
+
+        <input class="input full-width" placeholder="Search or Add" ng-model="csContact.csContact.contactSearch" />
+
+        <ul class="list-group" style="border: 1px solid;height: 200px;overflow: auto;">
+            <a  href="#" 
+                ng-repeat="contact in csContact.collections.Contacts | filter:csContact.csContact.contactSearch | orderBy:'name'"
+                ng-click="csQC.csQC.selectCurrentQuoteContact(contact)" 
+                class="list-group-item" >
+                {{contact.name}} <span ng-show="contact.title">({{contact.title}})</span>
+            </a>
+            <li ng-show="csContact.csContact.showAdd()" class="list-group-item">
+                <a href="#" ng-click="csContact.csContact.addContact()">ADD CONTACT: '{{csContact.csContact.contactSearch}}'</a>
+            </li>
+        </ul>
+    </div> 
+</div>

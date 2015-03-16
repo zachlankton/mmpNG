@@ -1,11 +1,26 @@
+<!-- 
+<button type="button" class="btn btn-primary" ng-click="templates.sideBarVisible = false">
+             <span class="glyphicon glyphicon-chevron-left"></span>
+        </button>
 
+-->
 <ul class="nav nav-sidebar">
-    <div class="form-group" >
+    <div ng-class="cl.Customers.currentSelection.show ? 'input-group' : 'form-group' " >
+        
+             <span  title="Hide Side Bar" ng-show="cl.Customers.currentSelection.show"
+                    ng-click="templates.sideBarVisible = false" 
+                    class="btn btn-primary input-group-addon glyphicon glyphicon-chevron-left">
+             </span>
+       
         <input type="text" class="form-control" placeholder="Search or Add" ng-model="cl.Customers.searchText">
     </div>
 </ul>
 <ul class="nav nav-sidebar" >
-    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:cl.Customers.searchText | orderBy:'name') " 
+    <li>- Customers</li>
+</ul>
+<ul class="nav nav-sidebar" style="height:300px; overflow:auto;">
+   
+    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:{lead: 'false'} | filter:cl.Customers.searchText | orderBy:'name') " 
     ng-click="cl.Customers.selectCS(customer)"
     ng-class="{active:cl.Customers.currentSelection.name == customer.name}">
         <a href="#">{{customer.name}}</a>
@@ -13,5 +28,22 @@
    
     <li ng-show="cl.Customers.showAdd()">
         <a href="#" ng-click="cl.Customers.add()">ADD CUSTOMER: '{{cl.Customers.searchText}}'</a>
+    </li>
+</ul>
+
+<ul class="nav nav-sidebar" >
+    <li>- Leads</li>
+</ul>
+
+<ul class="nav nav-sidebar" style="height:300px; overflow:auto;">
+   
+    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:{lead: 'true'} | filter:cl.Customers.searchText | orderBy:'name') " 
+    ng-click="cl.Customers.selectCS(customer)"
+    ng-class="{active:cl.Customers.currentSelection.name == customer.name}">
+        <a href="#">{{customer.name}}</a>
+    </li>
+   
+    <li ng-show="cl.Customers.showAdd()">
+        <a href="#" ng-click="cl.Customers.addLead()">ADD LEAD: '{{cl.Customers.searchText}}'</a>
     </li>
 </ul>

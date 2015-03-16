@@ -1,0 +1,145 @@
+<!-- SUPPLIER QUOTES FORM -->
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6 alert alert-success"
+                    ng-show="csQuotes.csQuotes.currentSpQuoteForm.$pristine">
+                    Last Auto Save: {{csQuotes.csQuotes.currentSupplierQuote.modified | modDate}}
+            </div>
+            <div class="col-md-offset-3 col-md-6 alert alert-danger"
+                    ng-show="csQuotes.csQuotes.currentSpQuoteForm.$dirty">
+                    Form Has Been Edited Since Last Save
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <button class="btn btn-danger" ng-click="csQuotes.csQuotes.deleteCurrentSupplierQuote()">
+                Delete Quote</button>
+            </div>
+        </div>
+
+        <div class="row">
+            
+            <div class="col-md-3">
+<!-- QUOTE NO -->                
+                <div class="form-group form-group-sm">
+                    <label>Quote No</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.quoteNo"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()">
+                </div>
+            </div>
+<!-- SUPPLIER -->            
+            <div class="col-md-3">
+                <div class="form-group form-group-sm">
+                    <label>Supplier</label>
+                    <input  readonly class="form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.sName"
+                            ng-click="spQuotes.spQuotes.selectSupplier()">
+                </div>
+            </div>
+<!-- QUOTE DATE -->
+            <div class="col-md-3">
+                <div class="form-group form-group-sm">
+                    <label>Quote Date</label>
+                    <input type="date" class="form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.quoteDate"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()">
+                </div>
+            </div>
+<!--QUOTE EXPIRES -->
+            <div class="col-md-3">
+                <div class="form-group form-group-sm">
+                    <label>Quote Expires</label>
+                    <input type="date" class="form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.expireDate"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()">
+                </div>
+            </div>
+
+        </div> <!-- End Row -->
+        
+        <div class="row">
+            
+            <div class="col-md-3">
+ <!-- ENTERED BY -->               
+                <div class="form-group form-group-sm">
+                    <label>Entered By</label>
+                    <input  readonly class="form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.enteredBy"
+                            >
+                </div>
+
+            </div>
+<!--QUOTED BY CONTACT -->
+            <div class="col-md-3">
+                <div class="form-group form-group-sm" ng-show="csQuotes.csQuotes.currentSupplierQuote.sName">
+                    <label>Quoted By</label>
+                    <input  readonly class="form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.contactName"
+                            ng-click="spQuotes.spQuotes.selectSupplierContact()">
+                </div>
+            </div>
+<!-- FILE LINK -->
+             <div class="col-md-3">
+                <div class="form-group form-group-sm">
+                    <label>File Link</label>
+                    <input  class="form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.spQuoteFileLink"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()">
+                </div>
+            </div>
+<!-- TERMS -->
+             <div class="col-md-3">
+                <div class="form-group form-group-sm">
+                    <label>Terms</label>
+                    <input  readonly class="form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.terms"
+                            title="This field is pulled from the Suppliers Overview Tab">
+                </div>
+            </div>
+
+        </div> <!-- End Row -->
+<!--FOB -->
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>FOB</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.FOB"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()" rows="5">
+                    </textarea>
+                </div>
+            </div>
+<!--DELIVERY -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Delivery</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.delivery"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()" rows="5">
+                    </textarea>
+                </div>
+            </div>
+<!-- ADDRESS -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Address</label>
+                    <textarea readonly  class="input-sm form-control auto-save default-cursor" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.address" rows="5">
+                    </textarea>
+                </div>
+            </div>
+<!-- NOTES -->
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea class="input-sm form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.notes"
+                            ng-blur="spQuotes.spQuotes.saveCurrentSupplierQuote()" rows="5">
+                    </textarea>
+                </div>
+            </div>
+
+
+        </div><!-- End Row -->
+
+        <div class="row" > <!-- ng-controller="spQuoteLinesController"  Not sure if we need a seperate controller just yet  > -->
+            <div class="col-md-12" ng-include="'/apps/Customers/csDashTabs/quotes/spQuoteLinesForm.html'"></div>
+        </div>

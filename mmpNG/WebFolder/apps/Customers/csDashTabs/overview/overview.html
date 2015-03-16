@@ -1,28 +1,52 @@
 <div class="col-md-4" ng-controller="csOverviewController">
 
-
-    <form class="form-horizontal">
+    <div class="row">
+        <div class="col-md-12 alert alert-success"
+                ng-show="csOverview.csOverview.overviewForm.$pristine">
+                Last Auto Save: {{csOverview.Customers.currentSelection.modified | modDate}}
+        </div>
+        <div class="col-md-12 alert alert-danger"
+                ng-show="csOverview.csOverview.overviewForm.$dirty">
+                Form Has Been Edited Since Last Save
+        </div>
+        
+    </div>
+    <form class="form-horizontal" name="csOverview.csOverview.overviewForm">
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Customer Name</label>
             <div class="col-sm-8">
-                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
                 ng-model="csOverview.Customers.currentSelection.name">
             </div>
         </div>
 
         <div class="form-group">
+            <label class="col-sm-4 control-label">
+                Lead?
+            </label>
+            <div class="col-sm-8">
+                <input type="checkbox" 
+                ng-model="csOverview.Customers.currentSelection.lead" 
+                ng-change="csOverview.csOverview.saveCustomer()"
+                ng-true-value="'true'"
+                ng-false-value="'false'">
+            </div>
+          
+        </div>
+
+        <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Product Type</label>
             <div class="col-sm-8">
-                <select class="form-control input-sm" ng-options="type for type in csOverview.csOverview.productTypes" 
+                <select class="form-control input-sm auto-save" ng-options="type for type in csOverview.csOverview.productTypes" 
                 ng-model="csOverview.Customers.currentSelection.productTypeRef"
-                ng-change="csOverview.Customers.currentSelection.$save()"></select>
+                ng-change="csOverview.csOverview.saveCustomer()"></select>
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">EIN No</label>
             <div class="col-sm-8">
-                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
                 ng-model="csOverview.Customers.currentSelection.einNo">
             </div>
         </div>
@@ -30,7 +54,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Terms</label>
             <div class="col-sm-8">
-                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
                 ng-model="csOverview.Customers.currentSelection.terms">
             </div>
         </div>
@@ -38,7 +62,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Representative</label>
             <div class="col-sm-8">
-                <input ng-blur="csOverview.Customers.currentSelection.$save()" class="input-sm form-control" 
+                <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
                 ng-model="csOverview.Customers.currentSelection.representative">
             </div>
         </div>
@@ -46,7 +70,7 @@
         <div class="form-group">
             <label for="inputEmail3" class="col-sm-4 control-label">Notes</label>
             <div class="col-sm-8">
-                <textarea ng-blur="csOverview.Customers.currentSelection.$save()" class="form-control" rows="5"
+                <textarea ng-blur="csOverview.csOverview.saveCustomer()" class="form-control auto-save" rows="5"
                 ng-model="csOverview.Customers.currentSelection.notes"></textarea>
             </div>
         </div>

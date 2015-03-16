@@ -1,1 +1,50 @@
-<h1>Quotes</h1>
+<div class="row" ng-controller="csQuotesController">
+    <div class="col-md-3" >
+        <div>
+            <p><u>Quotes</u></p>
+            <input class="input full-width" placeholder="Search or Add" ng-model="csQuotes.csQuotes.quoteSearch" />
+
+            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+                <a  href="#" 
+                    ng-repeat="quote in csQuotes.collections.csQuotes | filter:csQuotes.csQuotes.quoteSearch | orderBy:'modified':true"
+                    ng-class="{active: csQuotes.csQuotes.currentQuote == quote}" 
+                    ng-click="csQuotes.csQuotes.setCurrentQuote(quote)" 
+                    class="list-group-item" >
+                    {{quote.quoteTitle}} - {{quote.ID}}
+                </a>
+                <li ng-show="csQuotes.csQuotes.showQuoteAdd()" class="list-group-item">
+                    <a href="#" ng-click="csQuotes.csQuotes.addQuote()">ADD QUOTE: '{{csQuotes.csQuotes.quoteSearch}}'</a>
+                </li>
+            </ul>
+        </div>
+        <div ng-show="csQuotes.csQuotes.currentQuote.show">
+            <p><u>Supplier Quotes</u></p>
+            <input class="input full-width" placeholder="Search or Add" ng-model="csQuotes.csQuotes.spQuoteSearch" />
+
+            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+                <a  href="#" 
+                    ng-repeat="spQuote in csQuotes.collections.spQuotes | filter:csQuotes.csQuotes.spQuoteSearch | orderBy:'sName' "
+                    ng-class="{active: csQuotes.csQuotes.currentSupplierQuote == spQuote}" 
+                    ng-click="csQuotes.csQuotes.setCurrentSpQuote(spQuote)" 
+                    class="list-group-item" >
+                    {{spQuote.quoteNo}} - {{spQuote.sName}}
+                </a>
+                <li ng-show="csQuotes.csQuotes.showSpQuoteAdd()" class="list-group-item">
+                    <a href="#" ng-click="csQuotes.csQuotes.addSpQuote()">ADD SUPPLIER QUOTE: '{{csQuotes.csQuotes.spQuoteSearch}}'</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div 	ng-form="csQuotes.csQuotes.currentQuoteForm" 
+			class="col-md-9" 
+			ng-show="csQuotes.csQuotes.currentQuote.show  && !csQuotes.csQuotes.currentSupplierQuote.show"
+			ng-include="'/apps/Customers/csDashTabs/quotes/csQuoteForm.html'">
+    </div>
+
+    <div 	ng-form="csQuotes.csQuotes.currentSpQuoteForm" 
+			class="col-md-9" 
+			ng-show="csQuotes.csQuotes.currentSupplierQuote.show"
+			ng-include="'/apps/Customers/csDashTabs/quotes/spQuoteForm.html'"
+			ng-controller="spQuoteFormController">
+    </div>
+</div>

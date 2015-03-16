@@ -1,8 +1,15 @@
 
 <div class="row">
 <!--Load the Customers the Sidebar-->
-    <div class="col-sm-3 col-md-2 sidebar navbar-default" ng-include="'/apps/Customers/csSideBar.html'" ng-controller="customerList"></div>
+    <div    ng-class="templates.sideBarVisible ? 'col-md-2 col-sm-3' : 'hidden'"
+            class="sidebar navbar-default" 
+            ng-include="'/apps/Customers/csSideBar.html'" 
+            ng-controller="customerList">
+    </div>
 
 <!--Load the Customers Dashboard-->
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-include="'/apps/Customers/csDashboard.html'" ng-controller="customerDash"></div>
+    <div    ng-class="templates.sideBarVisible ? 'col-md-10 col-md-offset-2 col-sm-9 col-sm-offset-3' : 'col-md-12'"
+            class="main" 
+            ng-include="'/apps/Customers/csDashboard.html'" 
+            ng-controller="customerDash"></div>
 </div>

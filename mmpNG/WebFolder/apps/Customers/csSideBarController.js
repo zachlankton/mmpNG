@@ -16,11 +16,41 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
 			sc.Customers.currentSelection.show = true;
 		};
 
+        sc.Customers.addLead = function(){
+            var customerName = sc.Customers.searchText;
+            var newEntity;
+            newEntity = $wakanda.$ds.Customer.$create({
+                name: customerName,
+                lead: 'true'
+            });
+            
+            newEntity.$save().then(function(e) {
+
+                sc.collections.Customers = $wakanda.$ds.Customer.$find({pageSize:9999});
+                sc.collections.Customers.$promise //Wait for the $find function to finish and then select the newly created Customer
+                .then(function(e) {
+                	
+                	//select the newly created Customer
+                    sc.Customers.currentSelection = ($filter('filter')(sc.collections.Customers, function(val, index) {
+						if (val.name == null) {
+							return false;
+						}
+						if (val.name.toLowerCase() == customerName.toLowerCase()) {
+							return true;
+						}
+					}))[0];
+
+                });
+            });
+
+        };
+
         sc.Customers.add = function() {
             var customerName = sc.Customers.searchText;
             var newEntity;
             newEntity = $wakanda.$ds.Customer.$create({
-                name: customerName
+                name: customerName,
+                lead: 'false'
             });
             
             newEntity.$save().then(function(e) {

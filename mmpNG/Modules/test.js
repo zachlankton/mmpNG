@@ -1,1 +1,1 @@
-ds.SupplierQuotes.setAutoSequenceNumber(5000)
+ds.SupplierQuotes.setAutoSequenceNumber(5001)

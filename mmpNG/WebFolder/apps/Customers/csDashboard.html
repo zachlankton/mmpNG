@@ -1,4 +1,11 @@
-<div ng-show="cd.Customers.currentSelection.show">{{cd.Customers.currentSelection.name}}</div>
+<div ng-show="cd.Customers.currentSelection.show">
+    <div style="display:inline;" ng-class="templates.sideBarVisible ? 'hidden' : ''">
+        <button title="Show Side Bar" type="button" class="btn btn-primary" ng-click="templates.sideBarVisible = true">
+             <span class="glyphicon glyphicon-chevron-right"></span>
+        </button>
+    </div>
+    {{cd.Customers.currentSelection.name}}
+</div>
 
 <ul ng-show="cd.Customers.currentSelection.show"
 class="nav nav-tabs nav-justified">

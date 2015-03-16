@@ -125,7 +125,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 
 
 	///////////////////////////////////////////////
-    // SHOW THE ADD CONTACT LINK LOGIC FOR PARTS //
+    // SHOW THE ADD PART LINK LOGIC FOR PARTS //
     ///////////////////////////////////////////////
 	csParts.showPartAdd = function() {
 			var searchBox = csParts.partSearch;
@@ -153,7 +153,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 
 
     ///////////////////////////////////////////////////
-    // SHOW THE ADD CONTACT LINK LOGIC FOR PART REVS //
+    // SHOW THE ADD PART REV LINK LOGIC FOR PART REVS //
     ///////////////////////////////////////////////////
 	csParts.showPartRevAdd = function() {
 			var searchBox = csParts.partRevSearch;
