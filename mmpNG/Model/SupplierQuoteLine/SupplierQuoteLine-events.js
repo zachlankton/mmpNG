@@ -6,5 +6,10 @@ model.SupplierQuoteLine.modified.onGet = function() {
 
 
 model.SupplierQuoteLine.events.remove = function(event) {
-	this.SupplierQuoteLineQtysCollection.remove();
+	this.supplierQuoteLineQtysCollection.remove();
+};
+
+
+model.SupplierQuoteLine.modified.onSet = function(value) {
+	return "";
 };

@@ -95,7 +95,7 @@ myApp.controller('csQuoteLinesController', function ($scope, $wakanda, $filter, 
             
             csQuotes.saveCurrentQuote();
         });
-    }
+    };
 
 
 
@@ -108,7 +108,7 @@ myApp.controller('csQuoteLinesController', function ($scope, $wakanda, $filter, 
             
             csQuotes.saveCurrentQuote();
         });
-    }
+    };
 
 
 

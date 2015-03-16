@@ -168,8 +168,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 111,
-						"Y": 258
+						"X": 21,
+						"Y": 332
 					}
 				}
 			},
@@ -183,8 +183,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 19,
-						"Y": 812
+						"X": 10,
+						"Y": 876
 					}
 				}
 			},
@@ -198,8 +198,8 @@
 					"isOpen": "true",
 					"pathVisible": true,
 					"position": {
-						"X": 715,
-						"Y": 989
+						"X": 38,
+						"Y": 1366
 					}
 				}
 			},
@@ -477,7 +477,7 @@
 		"model": {
 			"scriptMode": "manual",
 			"workspaceLeft": 0,
-			"workspaceTop": 0,
+			"workspaceTop": 792,
 			"methodShowMode": "true",
 			"methodInhShowMode": "true",
 			"inhShowMode": "true",
@@ -524,7 +524,7 @@
 					"events": "Contact/Contact-events.js"
 				},
 				"SupplierQuotePriceBreak": {
-					"computed": "SupplierQuoteLineQtys/SupplierQuoteLineQtys-events.js"
+					"computed": "SupplierQuotePriceBreak/SupplierQuotePriceBreak-events.js"
 				},
 				"OrderLineItems": {
 					"computed": "OrderLineItems/OrderLineItems-events.js"
@@ -2579,10 +2579,10 @@
 				},
 				{
 					"name": "addressAlias",
+					"kind": "alias",
 					"scope": "public",
-					"path": "address.address",
 					"type": "string",
-					"kind": "alias"
+					"path": "address.address"
 				}
 			],
 			"events": [
@@ -2810,6 +2810,12 @@
 							"from": "$mainModel.SupplierQuoteLine.modified.onGet",
 							"userDefined": true
 						}
+					],
+					"onSet": [
+						{
+							"from": "$mainModel.SupplierQuoteLine.modified.onSet",
+							"userDefined": true
+						}
 					]
 				},
 				{
@@ -2852,6 +2858,13 @@
 					"scope": "public",
 					"type": "long",
 					"path": "spQuoteRef.ID"
+				},
+				{
+					"name": "tempModAttr",
+					"kind": "storage",
+					"scope": "public",
+					"type": "date",
+					"simpleDate": false
 				}
 			],
 			"events": [
@@ -2885,7 +2898,19 @@
 					"scope": "public",
 					"type": "date",
 					"simpleDate": false,
-					"scriptKind": "javascript"
+					"scriptKind": "javascript",
+					"onGet": [
+						{
+							"from": "$mainModel.SupplierQuotePriceBreak.modified.onGet",
+							"userDefined": true
+						}
+					],
+					"onSet": [
+						{
+							"from": "$mainModel.SupplierQuotePriceBreak.modified.onSet",
+							"userDefined": true
+						}
+					]
 				},
 				{
 					"name": "quoteLineRef",
@@ -2911,6 +2936,12 @@
 					"kind": "storage",
 					"scope": "public",
 					"type": "number"
+				},
+				{
+					"name": "unit",
+					"scope": "public",
+					"type": "string",
+					"kind": "storage"
 				}
 			]
 		},

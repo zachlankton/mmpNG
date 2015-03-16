@@ -35,6 +35,92 @@ myApp.controller('spQuoteFormController', function ($scope, $wakanda, $filter, c
 
 
 
+	///////////////////////////////
+	// ADD SUPPLIER QUOTES LINE  //
+	///////////////////////////////
+    spQuotes.addQLine = function(){
+        var totalLines = rScope.collections.spQuoteLines.$totalCount;
+        var curQuote = csQuotes.currentSupplierQuote;
+        var newEntity = $wakanda.$ds.SupplierQuoteLine.$create({
+            lineID: totalLines + 1,
+            spQuoteRef: curQuote
+        });
+
+        newEntity.$save().then(function(){
+            spQuotes.getQuoteLines();
+        });
+    };
+
+
+    ////////////////////////////////////
+	// ADD SUPPLIER QUOTES LINE QTYS  //
+	////////////////////////////////////
+    spQuotes.addQLIQ = function(qLine){
+        var newEntity = $wakanda.$ds.SupplierQuotePriceBreak.$create({
+            quoteLineRef: qLine
+        });
+        newEntity.$save().then(function(){
+            spQuotes.getQuoteLines();
+        });
+    };
+
+
+
+    ///////////////////////////////////////
+	// REMOVE SUPPLIER QUOTES LINE QTYS  //
+	///////////////////////////////////////
+    spQuotes.removeQLIQ = function(qliq){
+        qliq.$remove().then(function(){
+            spQuotes.getQuoteLines();
+        });
+    };
+
+
+
+    //////////////////////////////////
+	// REMOVE SUPPLIER QUOTES LINE  //
+	//////////////////////////////////
+    spQuotes.remove = function(qLine){
+        qLine.$remove().then(function(){spQuotes.getQuoteLines();});
+    };
+
+
+
+
+    //////////////////////////////////
+	// SAVE SUPPLIER QUOTES LINE    //
+	//////////////////////////////////
+    spQuotes.saveQuoteLine = function(qLine){
+        qLine.$save().then(function(){
+            csQuotes.currentSupplierQuote.tempModAttr = new Date();
+            
+            spQuotes.saveCurrentSupplierQuote();
+        });
+    };
+
+
+
+    ///////////////////////////////////
+	// SAVE SUPPLIER QUOTES LINE QTY //
+	///////////////////////////////////
+    spQuotes.saveQLIQ = function(qliq){
+        qliq.$save().then(function(){
+            csQuotes.currentSupplierQuote.tempModAttr = new Date();
+            
+            spQuotes.saveCurrentSupplierQuote();
+        });
+    };
+
+
+
+    //////////////////////////////////////////
+    // WATCH FOR QUOTE SELECTION CHANGES    //
+    //////////////////////////////////////////
+	$scope.$watch('spQuotes.csQuotes.currentSupplierQuote', function(newValue, oldValue) {
+		spQuotes.getQuoteLines();
+	});
+
+
 
     ///////////////////////////////
 	// SAVE SUPPLIER QUOTE       //
