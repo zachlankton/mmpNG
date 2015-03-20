@@ -1,0 +1,16 @@
+<h3>Select Quote Line Item</h3>
+<div class="row" ng-controller="csPartQuoteLineSelectController" >
+    <div class="col-md-12" ng-controller="csQuotesContactController" >
+
+        <input class="input full-width" placeholder="Search" ng-model="csPartQuoteLines.csPartQuoteLines.qLineSearch" />
+
+        <ul class="list-group" style="border: 1px solid;height: 300px;overflow: auto;">
+            <a  href="#" 
+                ng-repeat="quoteLine in csPartQuoteLines.collections.csPartQuoteLines | filter:csPartQuoteLines.csPartQuoteLines.qLineSearch | orderBy:'quoteNo':true"
+                ng-click="csPartQuoteLines.csPartQuoteLines.setPartQuoteLine(quoteLine)" 
+                class="list-group-item" >
+                Quote No: {{quoteLine.quoteNo | number}} --- Part No: {{quoteLine.partNo}} {{quoteLine.partDesc}}
+            </a>
+        </ul>
+    </div> 
+</div>

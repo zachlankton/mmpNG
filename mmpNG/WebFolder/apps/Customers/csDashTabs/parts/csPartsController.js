@@ -1,5 +1,5 @@
 myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csAppData) {
-	
+
 	$scope.csParts = csAppData.getData();
 	var rScope = $scope.csParts;
 	var csParts = rScope.csParts = {};
@@ -57,6 +57,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	csParts.setCurrentPartRev = function(partRev){
 		csParts.currentPartRev = partRev;
 		csParts.currentPartRev.show = true;
+		csParts.getPartsRouting();
 	};
 
 
@@ -73,6 +74,26 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 		});
 	};
 
+	csParts.getPartsRouting = function(){
+	    var curPartRev = csParts.currentPartRev;
+
+	    rScope.collections.PartsRouting = $wakanda.$ds.Routing.$find({
+	        filter: 'partRev.ID = :1',
+	        params: [curPartRev.ID],
+	        pageSize: 999999999
+	    });
+	};
+
+	//////////////////////////////
+    // SELECT CUSTOMER QUOTE    //
+    //////////////////////////////
+    csParts.selectQuoteLine = function(){
+        //display the confirmation modal
+		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/csSelectQuoteLine.html";
+		$('#reusable-modal').modal('show');
+    };
+
+    
 
 	//////////////////////////////
     // ADD RELATED PART REV     //
@@ -231,3 +252,47 @@ myApp.controller('deletePartRevModalController', function ($scope, $wakanda, $fi
 		$('#reusable-modal').modal('hide');
 	};
 } );
+
+
+///////////////////////////////////////////////////
+// SELECT QUOTE LINE MODAL CONTROLER             //
+///////////////////////////////////////////////////
+myApp.controller('csPartQuoteLineSelectController', function ($scope, $wakanda, $filter, csAppData) {
+
+	$scope.csPartQuoteLines = csAppData.getData();
+	var rScope = $scope.csPartQuoteLines;
+	var csPartQuoteLines = rScope.csPartQuoteLines = {};
+	var csParts = rScope.csParts;
+
+    /////////////////////////////////
+	// GET CUSTOMER QUOTE LINES    //
+	/////////////////////////////////
+    csPartQuoteLines.getQuoteLines = function(){
+		var curCustomer = rScope.Customers.currentSelection;
+		
+		rScope.collections.csPartQuoteLines = $wakanda.$ds.CsQuoteLineItems.$find({
+			filter:'customerName = :1',
+			params:[curCustomer.name],
+			pageSize:999999999
+		});	
+	};
+	csPartQuoteLines.getQuoteLines();
+
+	//////////////////////////////
+    // SET PART QUOTE LINE     //
+    //////////////////////////////
+    csPartQuoteLines.setPartQuoteLine = function(quoteLine){
+        csParts.currentPartRev.$_entity.quoteLineRef.setValue(quoteLine.$_entity);
+        csParts.currentPartRev.$save()
+        .then(function(){
+            rScope.reusable.modal.templateUrl = "";
+            $('#reusable-modal').modal('hide');
+        });
+        
+        
+    };
+} );
+
+
+
+

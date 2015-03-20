@@ -36,6 +36,13 @@
 									ng-model="csParts.csParts.currentPart.description">
 								</div>
 							</div>
+							<div class="form-group" ng-show="csParts.csParts.currentPartRev.show">
+								<label class="col-sm-3 control-label">Price Break Summary</label>
+								<div class="col-sm-9">
+									<textarea readonly wrap="off" type="text" class="form-control default-cursor" rows="5" 
+									ng-model="csParts.csParts.currentPartRev.quotePriceBreaks"></textarea>
+								</div>
+							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label"></label>
 								<div class="col-sm-9">
@@ -68,6 +75,14 @@
 								<div class="col-sm-9">
 									<input ng-blur="csParts.csParts.currentPartRev.$save()" type="text" class="input-xs col-md-12" 
 									ng-model="csParts.csParts.currentPartRev.revision">
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">Quote No:</label>
+								<div class="col-sm-9">
+									<input readonly type="text" class="input-xs col-md-12 default-cursor" 
+									ng-model="csParts.csParts.currentPartRev.quoteNo"
+									ng-click="csParts.csParts.selectQuoteLine()">
 								</div>
 							</div>
 							<div class="form-group">
