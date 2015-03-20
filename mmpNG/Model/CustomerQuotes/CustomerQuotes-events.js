@@ -13,4 +13,5 @@ model.CustomerQuotes.modified.onSet = function(value) {
 
 model.CustomerQuotes.events.remove = function(event) {
 	this.csQuoteLineItemsCollection.remove();
+	this.customerSupplierQuotesCollection.remove();
 };

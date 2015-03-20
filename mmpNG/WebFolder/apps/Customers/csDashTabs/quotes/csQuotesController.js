@@ -85,10 +85,11 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	csQuotes.getSupplierQuotes = function(){
 		var curQuote = csQuotes.currentQuote;
 
-		rScope.collections.spQuotes = $wakanda.$ds.SupplierQuotes.$find({
-			filter: 'relatedCSQuoteID = :1',
+		rScope.collections.spQuotes = $wakanda.$ds.CustomerSupplierQuotes.$find({
+			filter: 'csQuoteNo = :1',
 			params: [curQuote.ID],
-			pageSize: 999999999
+			pageSize: 999999999,
+			select: "spQuote"
 		});
 	};
 
@@ -100,7 +101,25 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 		var newEntity = $wakanda.$ds.SupplierQuotes.$create({
                 quoteNo: spQuoteNo,
                 enteredBy: rScope.currentUser.fullName,
-                relatedCSQuote: csQuotes.currentQuote
+            });
+
+		newEntity.$save().then(function(e) {
+			console.log(e);
+			csQuotes.currentSupplierQuote = {};
+			csQuotes.relateExistingSupplierQuote(e.rawResult.__ENTITIES[0]);
+			
+		})
+	};
+
+    /////////////////////////////////////
+    // RELATE EXISTING SUPPLIER QUOTE  //
+    /////////////////////////////////////
+	csQuotes.relateExistingSupplierQuote = function(spQuote){
+	    var curQuote = csQuotes.currentQuote;
+
+        var newEntity = $wakanda.$ds.CustomerSupplierQuotes.$create({
+                csQuote: curQuote,
+                spQuote: spQuote
             });
 
 		newEntity.$save().then(function(e) {
@@ -108,6 +127,15 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 			csQuotes.getSupplierQuotes();
 			
 		})
+	};
+
+	/////////////////////////////////////
+    // SELECT EXISTING SUPPLIER QUOTE  //
+    /////////////////////////////////////
+	csQuotes.selectExistingSupplierQuote = function(spQuote){
+         //display the confirmation modal
+		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/quotes/selectExistingSupplierQuote.html";
+		$('#reusable-modal').modal('show');
 	};
 
 	////////////////////////////
@@ -276,6 +304,33 @@ myApp.controller('csQuotesContactController', function ($scope, $wakanda, $filte
             $('#reusable-modal').modal('hide');
         });
 	};
+} );
+
+
+///////////////////////////////////////////
+// SELECT EXISTING SUPPLIER QUOTE MODAL  //
+///////////////////////////////////////////
+myApp.controller('spQuoteSupplierQuoteSelectController', function ($scope, $wakanda, $filter, csAppData) {
+
+	$scope.spQSQ = csAppData.getData();
+	var rScope = $scope.spQSQ;
+	var csQuotes = $scope.spQSQ.csQuotes;
+	var spQSQ = rScope.spQSQ = {};
+
+	rScope.collections.existingSupplierQuotes = $wakanda.$ds.SupplierQuotes.$find({
+        pageSize: 999999999  
+	});
+
+	spQSQ.addExistingSupplierQuote = function(spQuote){
+	    csQuotes.relateExistingSupplierQuote(spQuote);
+        rScope.reusable.modal.templateUrl = "";
+        $('#reusable-modal').modal('hide');
+
+	};
+
+
+
+
 } );
 
 

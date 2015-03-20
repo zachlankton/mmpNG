@@ -684,6 +684,10 @@
 				"SpAddress" : 
 				{
 					"computed" : "SpAddress/SpAddress-events.js"
+				},
+				"CustomerSupplierQuotes" : 
+				{
+					"events" : "CustomerSupplierQuotes/CustomerSupplierQuotes-events.js"
 				}
 			},
 			"relationCurve" : 
@@ -1608,6 +1612,14 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "spQuote.sName"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "validate",
+					"from" : "$mainModel.CustomerSupplierQuotes.events.validate",
+					"userDefined" : true
 				}
 			],
 			"key" : 

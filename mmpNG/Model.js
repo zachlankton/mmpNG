@@ -22,3 +22,4 @@ include("./Model/SpContact/SpContact-events.js");
 include("./Model/SpContactInfo/SpContactInfo-events.js");
 include("./Model/SpAddress/SpAddress-events.js");
 include("./Model/SupplierQuotePriceBreak/SupplierQuotePriceBreak-events.js");
+include("./Model/CustomerSupplierQuotes/CustomerSupplierQuotes-events.js");

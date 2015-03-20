@@ -18,16 +18,18 @@
             </ul>
         </div>
         <div ng-show="csQuotes.csQuotes.currentQuote.show">
-            <p><u>Supplier Quotes</u></p>
+            <p style="display: inline-block"><u>Supplier Quotes</u></p> 
+            <button ng-click="csQuotes.csQuotes.selectExistingSupplierQuote()" 
+            style="float:right;" class="btn btn-xs btn-primary">Add Existing</button>
             <input class="input full-width" placeholder="Search or Add" ng-model="csQuotes.csQuotes.spQuoteSearch" />
 
             <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
                 <a  href="#" 
                     ng-repeat="spQuote in csQuotes.collections.spQuotes | filter:csQuotes.csQuotes.spQuoteSearch | orderBy:'sName' "
-                    ng-class="{active: csQuotes.csQuotes.currentSupplierQuote == spQuote}" 
-                    ng-click="csQuotes.csQuotes.setCurrentSpQuote(spQuote)" 
+                    ng-class="{active: csQuotes.csQuotes.currentSupplierQuote == spQuote.spQuote}" 
+                    ng-click="csQuotes.csQuotes.setCurrentSpQuote(spQuote.spQuote)" 
                     class="list-group-item" >
-                    {{spQuote.quoteNo}} - {{spQuote.sName}}
+                    {{spQuote.spQuote.quoteNo}} - {{spQuote.spQuote.sName}}
                 </a>
                 <li ng-show="csQuotes.csQuotes.showSpQuoteAdd()" class="list-group-item">
                     <a href="#" ng-click="csQuotes.csQuotes.addSpQuote()">ADD SUPPLIER QUOTE: '{{csQuotes.csQuotes.spQuoteSearch}}'</a>
