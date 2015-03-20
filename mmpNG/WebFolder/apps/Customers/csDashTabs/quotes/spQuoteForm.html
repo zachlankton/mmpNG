@@ -91,7 +91,8 @@
                     <label>Terms</label>
                     <input  readonly class="form-control auto-save default-cursor" 
                             ng-model="csQuotes.csQuotes.currentSupplierQuote.terms"
-                            title="This field is pulled from the Suppliers Overview Tab">
+                            title="This field is pulled from the Suppliers Overview Tab"
+                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
                 </div>
             </div>
 
@@ -122,7 +123,8 @@
                 <div class="form-group">
                     <label>Address</label>
                     <textarea readonly  class="input-sm form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentSupplierQuote.address" rows="5">
+                            ng-model="csQuotes.csQuotes.currentSupplierQuote.address" rows="5"
+                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
                     </textarea>
                 </div>
             </div>

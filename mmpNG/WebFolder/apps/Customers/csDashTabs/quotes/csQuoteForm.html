@@ -88,9 +88,10 @@
              <div class="col-md-3">
                 <div class="form-group form-group-sm">
                     <label>Terms</label>
-                    <input  readonly class="form-control auto-save default-cursor" 
+                    <input  class="form-control auto-save" 
                             ng-model="csQuotes.csQuotes.currentQuote.terms"
-                            title="This field is pulled from the Overview Tab">
+                            title="This field is pulled from the Overview Tab"
+                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
                 </div>
             </div>
 
@@ -120,8 +121,9 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label>Address</label>
-                    <textarea readonly  class="input-sm form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentQuote.address" rows="5">
+                    <textarea class="input-sm form-control auto-save" 
+                            ng-model="csQuotes.csQuotes.currentQuote.address" rows="5"
+                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
                     </textarea>
                 </div>
             </div>
