@@ -97,8 +97,10 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // ADD RELATED SUPPLIER QUOTE  //
     /////////////////////////////////
 	csQuotes.addSpQuote = function(){
+	    var curCustomer = rScope.Customers.currentSelection;
 		var spQuoteNo = csQuotes.spQuoteSearch;
 		var newEntity = $wakanda.$ds.SupplierQuotes.$create({
+		        customer: curCustomer,
                 quoteNo: spQuoteNo,
                 enteredBy: rScope.currentUser.fullName,
             });
@@ -137,6 +139,12 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/quotes/selectExistingSupplierQuote.html";
 		$('#reusable-modal').modal('show');
 	};
+
+	csQuotes.remSpRel = function(spQuote){
+	    spQuote.$remove().then(function(){
+	        csQuotes.getSupplierQuotes();
+	    });
+	}
 
 	////////////////////////////
     // DELETE CURRENT QUOTE    //  //TODO: Make sure Server Side Removes Related Quote Info
@@ -316,8 +324,11 @@ myApp.controller('spQuoteSupplierQuoteSelectController', function ($scope, $waka
 	var rScope = $scope.spQSQ;
 	var csQuotes = $scope.spQSQ.csQuotes;
 	var spQSQ = rScope.spQSQ = {};
+	var curCustomer = rScope.Customers.currentSelection;
 
 	rScope.collections.existingSupplierQuotes = $wakanda.$ds.SupplierQuotes.$find({
+	    filter: 'cName = :1',
+        params: [curCustomer.name],
         pageSize: 999999999  
 	});
 

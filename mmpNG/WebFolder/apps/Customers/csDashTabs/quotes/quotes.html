@@ -29,7 +29,10 @@
                     ng-class="{active: csQuotes.csQuotes.currentSupplierQuote == spQuote.spQuote}" 
                     ng-click="csQuotes.csQuotes.setCurrentSpQuote(spQuote.spQuote)" 
                     class="list-group-item" >
-                    {{spQuote.spQuote.quoteNo}} - {{spQuote.spQuote.sName}}
+                    {{spQuote.spQuote.quoteNo}} - {{spQuote.spQuote.sName}}  
+                    <button type="button" 
+                    class="btn btn-danger btn-xs float-right"
+                    ng-click="csQuotes.csQuotes.remSpRel(spQuote)"><span class="glyphicon glyphicon-trash"></span></button>
                 </a>
                 <li ng-show="csQuotes.csQuotes.showSpQuoteAdd()" class="list-group-item">
                     <a href="#" ng-click="csQuotes.csQuotes.addSpQuote()">ADD SUPPLIER QUOTE: '{{csQuotes.csQuotes.spQuoteSearch}}'</a>

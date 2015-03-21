@@ -1368,6 +1368,14 @@
 					"matchColumn" : "leadOrCovertedCustomer",
 					"scope" : "public",
 					"type" : "string"
+				},
+				{
+					"name" : "supplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "customer"
 				}
 			],
 			"key" : 
@@ -3527,6 +3535,20 @@
 					"type" : "CustomerSupplierQuotesCollection",
 					"reversePath" : true,
 					"path" : "spQuote"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
 				}
 			],
 			"events" : 

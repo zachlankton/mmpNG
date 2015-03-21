@@ -1,16 +1,20 @@
 <!-- SUPPLIER QUOTES FORM -->
         <div class="row">
-            <div class="col-md-offset-3 col-md-6 alert alert-success"
+            <div class="col-md-3">
+                <h3>Supplier Quote</h3>
+            </div>
+            <div class="col-md-6 alert alert-success"
                     ng-show="csQuotes.csQuotes.currentSpQuoteForm.$pristine">
                     Last Auto Save: {{csQuotes.csQuotes.currentSupplierQuote.modified | modDate}}
             </div>
-            <div class="col-md-offset-3 col-md-6 alert alert-danger"
+            <div class="col-md-6 alert alert-danger"
                     ng-show="csQuotes.csQuotes.currentSpQuoteForm.$dirty">
                     Form Has Been Edited Since Last Save
             </div>
             <div class="col-md-2 col-md-offset-1">
                 <button class="btn btn-danger" ng-click="csQuotes.csQuotes.deleteCurrentSupplierQuote()">
                 Delete Quote</button>
+                
             </div>
         </div>
 
