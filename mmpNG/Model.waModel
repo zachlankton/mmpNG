@@ -127,8 +127,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 563,
-						"Y" : 148
+						"X" : 26,
+						"Y" : 588
 					}
 				},
 				"attributes" : 
@@ -152,8 +152,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 777,
-						"Y" : 60
+						"X" : 24,
+						"Y" : 10
 					}
 				}
 			},
@@ -206,8 +206,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 21,
-						"Y" : 332
+						"X" : 849,
+						"Y" : 165
 					}
 				}
 			},
@@ -220,12 +220,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 10,
-						"Y" : 876
+						"X" : 15,
+						"Y" : 703
 					}
 				}
 			},
@@ -238,7 +238,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -278,8 +278,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 28,
-						"Y" : 19
+						"X" : 30,
+						"Y" : 149
 					}
 				}
 			},
@@ -310,12 +310,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 590,
-						"Y" : 142
+						"X" : 27,
+						"Y" : 285
 					}
 				}
 			},
@@ -327,12 +327,12 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 504,
-						"Y" : 181
+						"X" : 322,
+						"Y" : 160
 					}
 				}
 			},
@@ -557,20 +557,20 @@
 					}
 				}
 			},
-			"PartRevSupplierQuoteLines" : 
+			"CustomerSupplierQuotes" : 
 			{
-				"panelColor" : "#4FA997",
+				"panelColor" : "#70CCC2",
 				"scalarVisible" : "true",
 				"inheritedVisible" : "true",
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 475,
-						"Y" : 20
+						"X" : 549,
+						"Y" : 96
 					}
 				}
 			}
@@ -579,7 +579,7 @@
 		{
 			"scriptMode" : "manual",
 			"workspaceLeft" : 0,
-			"workspaceTop" : 792,
+			"workspaceTop" : 0,
 			"methodShowMode" : "true",
 			"methodInhShowMode" : "true",
 			"inhShowMode" : "true",
@@ -684,6 +684,10 @@
 				"SpAddress" : 
 				{
 					"computed" : "SpAddress/SpAddress-events.js"
+				},
+				"CustomerSupplierQuotes" : 
+				{
+					"events" : "CustomerSupplierQuotes/CustomerSupplierQuotes-events.js"
 				}
 			},
 			"relationCurve" : 
@@ -792,6 +796,13 @@
 					"kind" : "storage",
 					"scope" : "public",
 					"type" : "string"
+				},
+				{
+					"name" : "addressAlias",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "address.address"
 				}
 			],
 			"events" : 
@@ -1209,6 +1220,13 @@
 					"type" : "PartRevCollection",
 					"reversePath" : true,
 					"path" : "quoteLineRef"
+				},
+				{
+					"name" : "customerName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "quoteRef.cName"
 				}
 			],
 			"events" : 
@@ -1350,6 +1368,14 @@
 					"matchColumn" : "leadOrCovertedCustomer",
 					"scope" : "public",
 					"type" : "string"
+				},
+				{
+					"name" : "supplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "customer"
 				}
 			],
 			"key" : 
@@ -1448,13 +1474,6 @@
 					"path" : "customer.representative"
 				},
 				{
-					"name" : "terms",
-					"kind" : "alias",
-					"scope" : "public",
-					"type" : "string",
-					"path" : "customer.terms"
-				},
-				{
 					"name" : "FOB",
 					"kind" : "storage",
 					"scope" : "public",
@@ -1488,14 +1507,6 @@
 					"path" : "customer.name"
 				},
 				{
-					"name" : "supplierQuotesCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "SupplierQuotesCollection",
-					"reversePath" : true,
-					"path" : "relatedCSQuote"
-				},
-				{
 					"name" : "quoteBy",
 					"kind" : "storage",
 					"scope" : "public",
@@ -1516,11 +1527,24 @@
 					"path" : "contact.name"
 				},
 				{
-					"name" : "address",
-					"kind" : "alias",
+					"name" : "terms",
+					"kind" : "storage",
 					"scope" : "public",
-					"type" : "string",
-					"path" : "contact.address.address"
+					"type" : "string"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customerSupplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CustomerSupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "csQuote"
 				}
 			],
 			"events" : 
@@ -1528,6 +1552,81 @@
 				{
 					"kind" : "remove",
 					"from" : "$mainModel.CustomerQuotes.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CustomerSupplierQuotes",
+			"className" : "CustomerSupplierQuotes",
+			"collectionName" : "CustomerSupplierQuotesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "csQuote",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CustomerQuotes",
+					"path" : "CustomerQuotes"
+				},
+				{
+					"name" : "spQuote",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuotes",
+					"path" : "SupplierQuotes"
+				},
+				{
+					"name" : "csQuoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "csQuote.ID"
+				},
+				{
+					"name" : "spQuoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuote.quoteNo"
+				},
+				{
+					"name" : "customer",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "csQuote.cName"
+				},
+				{
+					"name" : "supplier",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuote.sName"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "validate",
+					"from" : "$mainModel.CustomerSupplierQuotes.events.validate",
 					"userDefined" : true
 				}
 			],
@@ -2399,51 +2498,32 @@
 					"path" : "CsQuoteLineItems"
 				},
 				{
-					"name" : "partRevSupplierQuoteLinesCollection",
-					"kind" : "relatedEntities",
+					"name" : "quoteNo",
+					"kind" : "alias",
 					"scope" : "public",
-					"type" : "PartRevSupplierQuoteLinesCollection",
-					"reversePath" : true,
-					"path" : "csPartRev"
-				}
-			],
-			"key" : 
-			[
-				{
-					"name" : "ID"
-				}
-			]
-		},
-		{
-			"name" : "PartRevSupplierQuoteLines",
-			"className" : "PartRevSupplierQuoteLines",
-			"collectionName" : "PartRevSupplierQuoteLinesCollection",
-			"scope" : "public",
-			"attributes" : 
-			[
-				{
-					"name" : "ID",
-					"kind" : "storage",
-					"scope" : "public",
-					"indexed" : true,
-					"unique" : true,
-					"autosequence" : true,
 					"type" : "long",
-					"indexKind" : "btree"
+					"path" : "quoteLineRef.quoteNo"
 				},
 				{
-					"name" : "spQuoteLine",
-					"kind" : "relatedEntity",
+					"name" : "quotePriceBreaks",
+					"kind" : "calculated",
 					"scope" : "public",
-					"type" : "SupplierQuoteLine",
-					"path" : "SupplierQuoteLine"
-				},
-				{
-					"name" : "csPartRev",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "PartRev",
-					"path" : "PartRev"
+					"type" : "string",
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.quotePriceBreaks.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.quotePriceBreaks.onSet",
+							"userDefined" : true
+						}
+					]
 				}
 			],
 			"key" : 
@@ -2565,6 +2645,13 @@
 					"indexKind" : "btree"
 				},
 				{
+					"name" : "supplierQuoteLine",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuoteLine",
+					"path" : "SupplierQuoteLine"
+				},
+				{
 					"name" : "partRev",
 					"kind" : "relatedEntity",
 					"scope" : "public",
@@ -2589,13 +2676,6 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "supplierQuoteLine.spQuoteRef.supplier.name"
-				},
-				{
-					"name" : "supplierQuoteLine",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "SupplierQuoteLine",
-					"path" : "SupplierQuoteLine"
 				},
 				{
 					"name" : "supplierQuoteNo",
@@ -3203,14 +3283,6 @@
 					"type" : "string"
 				},
 				{
-					"name" : "partRevSupplierQuoteLinesCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "PartRevSupplierQuoteLinesCollection",
-					"reversePath" : true,
-					"path" : "spQuoteLine"
-				},
-				{
 					"name" : "quoteNo",
 					"kind" : "alias",
 					"scope" : "public",
@@ -3371,13 +3443,6 @@
 					"path" : "SpContact"
 				},
 				{
-					"name" : "terms",
-					"kind" : "alias",
-					"scope" : "public",
-					"type" : "string",
-					"path" : "supplier.supplierTerms"
-				},
-				{
 					"name" : "FOB",
 					"kind" : "storage",
 					"scope" : "public",
@@ -3388,13 +3453,6 @@
 					"kind" : "storage",
 					"scope" : "public",
 					"type" : "string"
-				},
-				{
-					"name" : "address",
-					"kind" : "alias",
-					"scope" : "public",
-					"type" : "string",
-					"path" : "contact.addressAlias"
 				},
 				{
 					"name" : "notes",
@@ -3440,20 +3498,6 @@
 					"path" : "supplier.name"
 				},
 				{
-					"name" : "relatedCSQuote",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "CustomerQuotes",
-					"path" : "CustomerQuotes"
-				},
-				{
-					"name" : "relatedCSQuoteID",
-					"kind" : "alias",
-					"scope" : "public",
-					"type" : "long",
-					"path" : "relatedCSQuote.ID"
-				},
-				{
 					"name" : "spQuoteFileLink",
 					"kind" : "storage",
 					"scope" : "public",
@@ -3471,6 +3515,40 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "contact.name"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customerSupplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CustomerSupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "spQuote"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
 				}
 			],
 			"events" : 

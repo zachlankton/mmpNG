@@ -12,4 +12,5 @@ model.SupplierQuotes.modified.onSet = function(value) {
 
 model.SupplierQuotes.events.remove = function(event) {
 	this.supplierQuoteLineCollection.remove();
+	this.customerSupplierQuotesCollection.remove();
 };

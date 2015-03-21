@@ -1,1 +1,1 @@
-ds.SupplierQuotes.setAutoSequenceNumber(5001)
+//ds.SupplierQuotes.setAutoSequenceNumber(6000);
