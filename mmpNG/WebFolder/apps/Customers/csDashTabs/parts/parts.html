@@ -147,7 +147,7 @@
                                     <th class="col-md-2">Quote No.</th>
                                     <th class="col-md-1 delete-column"></th>
                                 </tr>
-                                <tr ng-repeat="route in csParts.collections.PartsRouting">
+                                <tr ng-repeat="route in csParts.collections.PartsRouting | orderBy: 'stepNo'">
                                     <td><input ng-model="route.stepNo" class="form-control input-sm" ng-blur="route.$save()"/></td>
                                     <td>
                                         <select class="form-control input-sm" 
@@ -166,22 +166,22 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td><input ng-model="csParts.csParts.route.StepNo" class="form-control input-sm"/></td>
+                                    <td><input ng-model="csParts.csParts.routeToAdd.stepNo" class="form-control input-sm"/></td>
                                     <td>
                                         <select class="form-control input-sm" 
                                                 ng-options="type for type in csParts.csParts.opTypes" 
-                                                ng-model="csParts.csParts.route.stepType">
+                                                ng-model="csParts.csParts.routeToAdd.opType">
                                         </select>
                                     </td>
-                                    <td>{{csParts.csParts.route.supplierOp.supplier}}</td>
-                                    <td>{{csParts.csParts.route.supplierOp.poDescription}}</td>
+                                    <td>{{csParts.csParts.routeToAdd.sqLine.sName}}</td>
+                                    <td>{{csParts.csParts.routeToAdd.sqLine.quoteDescription}}</td>
                                     <td>
-                                        <button ng-click="" type="button" class="btn btn-primary btn-xs">
+                                        <button ng-click="csParts.csParts.selectSupplierQuoteLine()" type="button" class="btn btn-primary btn-xs">
                                             Select Supplier Op.
                                         </button>
                                     </td>
                                     <td>
-                                        <button ng-click="" type="button" class="btn btn-primary btn-xs">
+                                        <button ng-click="csParts.csParts.addPartRoutingStep()" type="button" class="btn btn-primary btn-xs">
                                             Add Route
                                         </button>
                                     </td>

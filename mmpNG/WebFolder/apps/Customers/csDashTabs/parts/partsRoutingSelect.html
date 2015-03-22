@@ -1,0 +1,16 @@
+<h3>Select Quote Line Item</h3>
+<div class="row" ng-controller="partsRoutingController" >
+    <div class="col-md-12" >
+
+        <input class="input full-width" placeholder="Search" ng-model="partsRouting.partsRouting.search" />
+
+        <ul class="list-group" style="border: 1px solid;height: 300px;overflow: auto;">
+            <a  href="#" 
+                ng-repeat="quoteLine in partsRouting.collections.prSpQLineSelect | filter:partsRouting.partsRouting.search | orderBy:'quoteNo'"
+                ng-click="partsRouting.partsRouting.setPartsRoutingQuoteLine(quoteLine)" 
+                class="list-group-item" >
+                Quote No: {{quoteLine.quoteNo}} --- Supplier: {{quoteLine.sName}} --- Part No: {{quoteLine.partNo}} {{quoteLine.partDesc}}
+            </a>
+        </ul>
+    </div> 
+</div>

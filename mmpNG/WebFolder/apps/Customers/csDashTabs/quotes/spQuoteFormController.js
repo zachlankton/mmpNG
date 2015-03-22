@@ -17,7 +17,7 @@ myApp.controller('spQuoteFormController', function ($scope, $wakanda, $filter, c
         if (curQuote.ID !== undefined){
             var wY = window.scrollY;
             rScope.collections.spQuoteLines = $wakanda.$ds.SupplierQuoteLine.$find({
-                filter:'quoteNo = :1',
+                filter:'spQuoteID = :1',
                 params:[curQuote.ID],
                 pageSize:999999999,
                 select: 'supplierQuoteLineQtysCollection'

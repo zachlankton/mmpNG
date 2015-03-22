@@ -123,12 +123,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 26,
-						"Y" : 588
+						"X" : 51,
+						"Y" : 559
 					}
 				},
 				"attributes" : 
@@ -148,12 +148,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 24,
-						"Y" : 10
+						"X" : 398,
+						"Y" : 5
 					}
 				}
 			},
@@ -206,8 +206,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 849,
-						"Y" : 165
+						"X" : 71,
+						"Y" : 8
 					}
 				}
 			},
@@ -220,12 +220,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 15,
-						"Y" : 703
+						"X" : 58,
+						"Y" : 775
 					}
 				}
 			},
@@ -278,8 +278,8 @@
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 30,
-						"Y" : 149
+						"X" : 1140,
+						"Y" : 143
 					}
 				}
 			},
@@ -579,7 +579,7 @@
 		{
 			"scriptMode" : "manual",
 			"workspaceLeft" : 0,
-			"workspaceTop" : 0,
+			"workspaceTop" : 588,
 			"methodShowMode" : "true",
 			"methodInhShowMode" : "true",
 			"inhShowMode" : "true",
@@ -2704,6 +2704,13 @@
 							"from" : "$mainModel.Routing.modified.onGet",
 							"userDefined" : true
 						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Routing.modified.onSet",
+							"userDefined" : true
+						}
 					]
 				}
 			],
@@ -3283,8 +3290,9 @@
 					"type" : "string"
 				},
 				{
-					"name" : "quoteNo",
+					"name" : "spQuoteID",
 					"kind" : "alias",
+					"matchColumn" : "quoteNo",
 					"scope" : "public",
 					"type" : "long",
 					"path" : "spQuoteRef.ID"
@@ -3295,6 +3303,20 @@
 					"scope" : "public",
 					"type" : "date",
 					"simpleDate" : false
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuoteRef.sName"
+				},
+				{
+					"name" : "quoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuoteRef.quoteNo"
 				}
 			],
 			"events" : 

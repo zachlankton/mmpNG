@@ -74,6 +74,9 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 		});
 	};
 
+    ///////////////////////////////////
+    // GET RELATED PART REVS ROUTING //
+    ///////////////////////////////////
 	csParts.getPartsRouting = function(){
 	    var curPartRev = csParts.currentPartRev;
 
@@ -83,6 +86,52 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	        pageSize: 999999999
 	    });
 	};
+
+    ///////////////////////////////////
+    // ADD PART ROUTING STEP         //
+    ///////////////////////////////////
+	csParts.addPartRoutingStep = function(){
+        var rToAdd = csParts.routeToAdd;
+        if (rToAdd == undefined){return 0;}
+        if (rToAdd.sqLine == undefined){return 0;}
+        var sqLine = rToAdd.sqLine;
+        var partRev = csParts.currentPartRev;
+        var stepNo = rToAdd.stepNo;
+        var opType = rToAdd.opType;
+
+		var newEntity = $wakanda.$ds.Routing.$create({
+                supplierQuoteLine: sqLine,
+                partRev: partRev,
+                stepNo: stepNo,
+                opType: opType
+            });
+
+		newEntity.$save().then(function(e) {
+			
+			csParts.getPartsRouting();
+			csParts.routeToAdd = {};
+			
+		});
+	};
+
+
+    ///////////////////////////////////
+    // SELECT SUPPLIER QUOTE LINE    //
+    ///////////////////////////////////
+	csParts.selectSupplierQuoteLine = function(){
+	    if (csParts.quoteNo == undefined){
+            alert ("You Need to Associate a Customer Quote with this part first!");
+            return 0;
+	    }
+	    //display the confirmation modal
+	    rScope.reusable.modal.templateUrl = "asasd";
+		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/partsRoutingSelect.html";
+		$('#reusable-modal').modal('show');
+	};
+
+
+
+	
 
 	//////////////////////////////
     // SELECT CUSTOMER QUOTE    //
@@ -109,7 +158,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 			csParts.currentRev = {};
 			csParts.getPartRevs();
 			
-		})
+		});
 	};
 
 
@@ -292,6 +341,53 @@ myApp.controller('csPartQuoteLineSelectController', function ($scope, $wakanda, 
         
     };
 } );
+
+
+
+
+
+/////////////////////////////////////////////////////
+// SELECT PARTS ROUTING QUOTE LINE MODAL CONTROLER //
+/////////////////////////////////////////////////////
+myApp.controller('partsRoutingController', function ($scope, $wakanda, $filter, csAppData) {
+
+	$scope.partsRouting = csAppData.getData();
+	var rScope = $scope.partsRouting;
+	var partsRouting = rScope.partsRouting = {};
+	var csParts = rScope.csParts;
+
+
+    //////////////////////////////////////////////////////////////////
+	// GET SUPPLIER QUOTE LINES RELATED TO CURRENT PART REV QUOTE   //
+	//////////////////////////////////////////////////////////////////
+    partsRouting.getQuoteLines = function(){
+		var curPartRevQuoteNo = rScope.csParts.currentPartRev.quoteNo;
+		
+		rScope.collections.prSpQLineSelect = $wakanda.$ds.SupplierQuoteLine.$find({
+			filter:'spQuoteRef.customerSupplierQuotesCollection.csQuoteNo = :1',
+			params:[curPartRevQuoteNo],
+			pageSize:999999999,
+		});	
+	};
+	partsRouting.getQuoteLines();
+
+	///////////////////////////////////
+    // SET PARTS ROUTING QUOTE LINE  //
+    ///////////////////////////////////
+    partsRouting.setPartsRoutingQuoteLine = function(quoteLine){
+        
+        if (csParts.routeToAdd == undefined){csParts.routeToAdd = {};}
+        csParts.routeToAdd.sqLine = quoteLine;
+        rScope.reusable.modal.templateUrl = "";
+        $('#reusable-modal').modal('hide');
+   
+        
+        
+    };
+} );
+
+
+
 
 
 

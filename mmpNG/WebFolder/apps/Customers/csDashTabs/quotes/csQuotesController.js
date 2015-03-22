@@ -216,7 +216,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	csQuotes.showSpQuoteAdd = function() {
 			var searchBox = csQuotes.spQuoteSearch;
 			var collection = rScope.collections.spQuotes;
-			var colAttrToCompare = "quoteNo"; 	
+			var colAttrToCompare = "spQuoteNo"; 	
 
             if (searchBox == "") {
                 return false;  

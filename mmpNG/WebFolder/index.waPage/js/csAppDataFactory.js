@@ -1,3 +1,5 @@
+
+
 //csAppServices and csAppData provide us with a service to pass
 //relevant data back and forth between different controllers in the application.
 //This also sets up some shared info that the application can use for navigation.
@@ -7,6 +9,7 @@ csAppServices.factory('csAppData', function ($wakanda) {
     values.Customers = {};
     values.Suppliers = {};
     values.sideBarVisible = true;
+    values.reusable = {modal: {templateUrl: ""} };
     
     //load all the wakanda data that we want for this application
     values.collections = {};
@@ -31,6 +34,11 @@ csAppServices.factory('csAppData', function ($wakanda) {
     mnTemp.push ( {title: "Quality",          templateUrl: "/apps/Quality/quality.html"       } );
     values.currentMainTemplate = {};
     values.templateToLoad = null;
+
+
+    $('#reusable-modal').on('hide.bs.modal', function (e) {
+        values.reusable.modal.templateUrl = "";
+    });
 
     return{
         getData: function(){
