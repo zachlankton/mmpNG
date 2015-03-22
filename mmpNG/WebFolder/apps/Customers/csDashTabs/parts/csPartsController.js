@@ -119,7 +119,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
     // SELECT SUPPLIER QUOTE LINE    //
     ///////////////////////////////////
 	csParts.selectSupplierQuoteLine = function(){
-	    if (csParts.quoteNo == undefined){
+	    if (csParts.currentPartRev.quoteNo == undefined){
             alert ("You Need to Associate a Customer Quote with this part first!");
             return 0;
 	    }

@@ -148,7 +148,7 @@
                                     <th class="col-md-1 delete-column"></th>
                                 </tr>
                                 <tr ng-repeat="route in csParts.collections.PartsRouting | orderBy: 'stepNo'">
-                                    <td><input ng-model="route.stepNo" class="form-control input-sm" ng-blur="route.$save()"/></td>
+                                    <td><input type="number" ng-model="route.stepNo" class="form-control input-sm" ng-blur="route.$save()"/></td>
                                     <td>
                                         <select class="form-control input-sm" 
                                                 ng-options="type for type in csParts.csParts.opTypes" 
@@ -160,7 +160,7 @@
                                     <td>{{route.poDescription}}</td>
                                     <td>{{route.supplierQuoteNo}}</td>
                                     <td>
-                                        <button ng-click="route.$remove()" type="button" class="btn btn-danger btn-xs">
+                                        <button ng-click="route.$remove(); csParts.csParts.getPartsRouting();" type="button" class="btn btn-danger btn-xs">
                                             <span class="glyphicon glyphicon-trash"></span>
                                         </button>
                                     </td>
