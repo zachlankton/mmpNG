@@ -22,7 +22,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	};
 
 	
-	csQuotes.getQuotes();
+	//csQuotes.getQuotes();
 
 	
 
@@ -106,7 +106,6 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
             });
 
 		newEntity.$save().then(function(e) {
-			console.log(e);
 			csQuotes.currentSupplierQuote = {};
 			csQuotes.relateExistingSupplierQuote(e.rawResult.__ENTITIES[0]);
 			

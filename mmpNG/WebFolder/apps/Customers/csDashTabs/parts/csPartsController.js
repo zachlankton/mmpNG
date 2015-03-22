@@ -1,10 +1,12 @@
 myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csAppData) {
-
+    
 	$scope.csParts = csAppData.getData();
 	var rScope = $scope.csParts;
 	var csParts = rScope.csParts = {};
 	csParts.partSearch = "";
 	csParts.partRevSearch = "";
+    
+    console.log(rScope);
 
 	var ot = csParts.opTypes = [];
 	ot.push("Internal");
@@ -23,7 +25,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 			pageSize:999999999
 		});	
 	};
-	csParts.getParts();
+	//csParts.getParts();
 
 	//////////////////////////
     // ADD CUSTOMER PART    //

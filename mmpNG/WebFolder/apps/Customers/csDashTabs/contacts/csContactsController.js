@@ -31,7 +31,7 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 			pageSize:999999999
 		});	
 	};
-	csContact.getCustomerContacts();
+	//csContact.getCustomerContacts();
 
     //////////////////////////
     // ADD CUSTOMER CONTACT //

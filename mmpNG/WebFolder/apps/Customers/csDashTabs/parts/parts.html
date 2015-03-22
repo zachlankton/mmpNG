@@ -81,7 +81,7 @@
 								<label class="col-sm-3 control-label">Quote No:</label>
 								<div class="col-sm-9">
 									<input readonly type="text" class="input-xs col-md-12 default-cursor" 
-									ng-model="csParts.csParts.currentPartRev.quoteNo"
+									value="{{csParts.csParts.currentPartRev.quoteNo}} (PartNo: {{csParts.csParts.currentPartRev.quotePartNo}})"
 									ng-click="csParts.csParts.selectQuoteLine()">
 								</div>
 							</div>
@@ -157,7 +157,7 @@
                                         </select>
                                     </td>
                                     <td>{{route.supplier}}</td>
-                                    <td>{{route.poDescription}}</td>
+                                    <td>Part No: {{route.partNo}} --- {{route.poDescription}}</td>
                                     <td>{{route.supplierQuoteNo}}</td>
                                     <td>
                                         <button ng-click="route.$remove(); csParts.csParts.getPartsRouting();" type="button" class="btn btn-danger btn-xs">
@@ -174,7 +174,8 @@
                                         </select>
                                     </td>
                                     <td>{{csParts.csParts.routeToAdd.sqLine.sName}}</td>
-                                    <td>{{csParts.csParts.routeToAdd.sqLine.quoteDescription}}</td>
+                                    <td>PartNo: {{csParts.csParts.routeToAdd.sqLine.partNo}} ---
+                                    {{csParts.csParts.routeToAdd.sqLine.quoteDescription}}</td>
                                     <td>
                                         <button ng-click="csParts.csParts.selectSupplierQuoteLine()" type="button" class="btn btn-primary btn-xs">
                                             Select Supplier Op.

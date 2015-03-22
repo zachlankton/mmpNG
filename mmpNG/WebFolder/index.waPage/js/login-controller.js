@@ -14,11 +14,10 @@ myApp.controller('loginController', function ($scope, $wakanda, $filter, csAppDa
 		
 	});
 
-	//set the default login title
-	l.modalTitle = "Please sign in";
 
 	//function to display our login modal
 	l.showLoginModal = function(){
+	    l.modalTitle = "Please sign in...";
 		$('#login-modal').modal('show');
 		setTimeout(function(){$('#inputUsername').focus();},500);
 	};

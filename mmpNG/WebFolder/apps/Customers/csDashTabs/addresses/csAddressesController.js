@@ -18,7 +18,7 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 			pageSize:999999999
 		});	
 	};
-	csAddr.getAddresses();
+	//csAddr.getAddresses();
 
 	//////////////////////////
     // ADD CUSTOMER ADDRESS //
