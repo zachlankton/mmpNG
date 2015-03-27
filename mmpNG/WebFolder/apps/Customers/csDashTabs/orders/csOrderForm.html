@@ -1,0 +1,179 @@
+<!-- CUSTOMER ORDER FORM -->
+        <div class="row">
+            <div class="col-md-3">
+                <h3>Customer Order</h3>
+            </div>
+
+            <div class=" col-md-6 alert alert-success"
+                    ng-show="csOrders.csOrders.currentOrderForm.$pristine">
+                    Last Auto Save: {{csOrders.csOrders.currentOrder.modified | modDate}}
+            </div>
+            <div class=" col-md-6 alert alert-danger"
+                    ng-show="csOrders.csOrders.currentOrderForm.$dirty">
+                    Form Has Been Edited Since Last Save
+            </div>
+            <div class="col-md-2 col-md-offset-1">
+                <button class="btn btn-primary" ng-click="csOrders.csOrders.printCurrentOrder()">
+                Print</button>
+                <button class="btn btn-warning" ng-click="csOrders.csOrders.genPOsForCurrentOrder()">
+                Generate P.O.'s</button>
+                <button class="btn btn-danger" ng-click="csOrders.confirmDelete(csOrders.csOrders.currentOrder, csOrders.csOrders.getOrders)">
+                Delete Order</button>
+            </div>
+        </div> <!-- END ROW -->
+        <div class="row">
+            
+            <div class="col-md-3">
+<!-- ORDER ID -->                
+                <div class="form-group form-group-sm">
+                    <label>Order ID</label>
+                    <input title="Order ID is automatically generated" readonly="true" class="form-control auto-save default-cursor" 
+                            ng-model="csOrders.csOrders.currentOrder.ID">
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- CS ORDER NO -->                
+                <div class="form-group form-group-sm">
+                    <label>Customer Order No</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.orderNo"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- CS ORDER REV -->                
+                <div class="form-group form-group-sm">
+                    <label>Customer Order Revision</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.orderRev"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- CS ORDER DATE -->                
+                <div class="form-group form-group-sm">
+                    <label>Order Date</label>
+                    <input class="form-control auto-save" type="date" 
+                            ng-model="csOrders.csOrders.currentOrder.orderDate"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+        </div><!-- END ROW -->
+        <div class="row">
+            <div class="col-md-3">
+<!-- CS ORDER CONTACT -->                
+                <div class="form-group form-group-sm">
+                    <label>Order Contact</label>
+                    <input readonly class="form-control auto-save default-cursor" 
+                            ng-model="csOrders.csOrders.currentOrder.contactName"
+                            ng-click="csOrders.csOrders.selectContact()">
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- CS ORDER REP -->                
+                <div class="form-group form-group-sm">
+                    <label>Representative</label>
+                    <input readonly class="form-control auto-save default-cursor" 
+                            ng-model="csOrders.csOrders.currentOrder.representative"
+                            >
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- CS ORDER FILE -->                
+                <div class="form-group form-group-sm">
+                    <label>File Link</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.orderFile"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+             <div class="col-md-3">
+<!-- CS ORDER TERMS -->                
+                <div class="form-group form-group-sm">
+                    <label>Order Terms</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.orderTerms"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+        </div><!-- END ROW -->
+        <div class="row">
+            <div class="col-md-3">
+<!-- SHIP VIA -->                
+                <div class="form-group form-group-sm">
+                    <label>Ship Via</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipVia"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>
+            <div class="col-md-3">
+<!-- SHIP SERVICE -->                
+                <div class="form-group form-group-sm">
+                    <label>Ship Service</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipService"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>  
+            <div class="col-md-3">
+<!-- SHIP ACCT -->                
+                <div class="form-group form-group-sm">
+                    <label>Ship Account</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipAcct"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>  
+            <div class="col-md-3">
+<!-- SHIP TERMS -->                
+                <div class="form-group form-group-sm">
+                    <label>Ship Terms</label>
+                    <input class="form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipTerms"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
+                </div>
+            </div>            
+        </div><!-- END ROW -->
+        <div class="row">
+<!-- BILL TO -->        
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Bill To</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.billToAddress"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
+                    </textarea>
+                </div>
+            </div>
+<!-- SHIP TO -->        
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Ship To</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipToAddress"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
+                    </textarea>
+                </div>
+            </div>
+<!-- SHIP INSTRUCTIONS -->        
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Ship Instruction</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.shipInstructions"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
+                    </textarea>
+                </div>
+            </div>    
+<!-- NOTES -->        
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label>Notes</label>
+                    <textarea  class="input-sm form-control auto-save" 
+                            ng-model="csOrders.csOrders.currentOrder.notes"
+                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
+                    </textarea>
+                </div>
+            </div>                        
+        </div><!-- END ROW -->

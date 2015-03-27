@@ -33,7 +33,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -51,12 +51,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 459,
-						"Y" : 31
+						"X" : 25,
+						"Y" : 29
 					}
 				}
 			},
@@ -123,7 +123,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -148,7 +148,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -202,7 +202,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -220,7 +220,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -256,12 +256,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 881,
-						"Y" : 43
+						"X" : 222,
+						"Y" : 143
 					}
 				}
 			},
@@ -274,7 +274,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -292,12 +292,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 1117,
-						"Y" : 385
+						"X" : 362,
+						"Y" : 500
 					}
 				}
 			},
@@ -565,12 +565,63 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
 						"X" : 549,
 						"Y" : 96
+					}
+				}
+			},
+			"PurchaseOrders" : 
+			{
+				"panelColor" : "#C4BD97",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 661,
+						"Y" : 6
+					}
+				}
+			},
+			"POLineItems" : 
+			{
+				"panelColor" : "#4FA997",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 805,
+						"Y" : 20
+					}
+				}
+			},
+			"POLineQtys" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 881,
+						"Y" : 328
 					}
 				}
 			}
@@ -803,6 +854,14 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "address.address"
+				},
+				{
+					"name" : "ordersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrdersCollection",
+					"reversePath" : true,
+					"path" : "contact"
 				}
 			],
 			"events" : 
@@ -1425,14 +1484,6 @@
 					]
 				},
 				{
-					"name" : "ordersCollection",
-					"kind" : "relatedEntities",
-					"scope" : "public",
-					"type" : "OrdersCollection",
-					"reversePath" : true,
-					"path" : "csQuoteRef"
-				},
-				{
 					"name" : "quoteTitle",
 					"kind" : "storage",
 					"scope" : "public",
@@ -2033,23 +2084,32 @@
 					"simpleDate" : false
 				},
 				{
-					"name" : "price",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "number"
-				},
-				{
-					"name" : "unit",
-					"kind" : "storage",
-					"scope" : "public",
-					"type" : "string"
-				},
-				{
 					"name" : "lineRef",
 					"kind" : "relatedEntity",
 					"scope" : "public",
 					"type" : "OrderLineItems",
 					"path" : "OrderLineItems"
+				},
+				{
+					"name" : "orderID",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "lineRef.order.ID"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "balance",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
 				}
 			],
 			"key" : 
@@ -2118,6 +2178,25 @@
 					"type" : "OrderLineItemQtysCollection",
 					"reversePath" : true,
 					"path" : "lineRef"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unit",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
 				}
 			],
 			"key" : 
@@ -2170,6 +2249,13 @@
 							"from" : "$mainModel.Orders.modified.onGet",
 							"userDefined" : true
 						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.modified.onSet",
+							"userDefined" : true
+						}
 					]
 				},
 				{
@@ -2198,13 +2284,6 @@
 					"kind" : "storage",
 					"scope" : "public",
 					"type" : "string"
-				},
-				{
-					"name" : "csQuoteRef",
-					"kind" : "relatedEntity",
-					"scope" : "public",
-					"type" : "CustomerQuotes",
-					"path" : "CustomerQuotes"
 				},
 				{
 					"name" : "representative",
@@ -2237,8 +2316,9 @@
 					"type" : "string"
 				},
 				{
-					"name" : "shopAcct",
+					"name" : "shipAcct",
 					"kind" : "storage",
+					"matchColumn" : "shopAcct",
 					"scope" : "public",
 					"type" : "string"
 				},
@@ -2271,6 +2351,57 @@
 					"kind" : "storage",
 					"scope" : "public",
 					"type" : "string"
+				},
+				{
+					"name" : "firstDueDate",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.firstDueDate.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.firstDueDate.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "csOrder"
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Contact",
+					"path" : "Contact"
+				},
+				{
+					"name" : "contactName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "contact.name"
 				}
 			],
 			"key" : 
@@ -2531,6 +2662,178 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "quoteLineRef.partNo"
+				},
+				{
+					"name" : "pOLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineItemsCollection",
+					"reversePath" : true,
+					"path" : "partRev"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "POLineItems",
+			"className" : "POLineItems",
+			"collectionName" : "POLineItemsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "poRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PurchaseOrders",
+					"path" : "PurchaseOrders"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unite",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pOLineQtysCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineQtysCollection",
+					"reversePath" : true,
+					"path" : "lineRef"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "POLineQtys",
+			"className" : "POLineQtys",
+			"collectionName" : "POLineQtysCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "lineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "POLineItems",
+					"path" : "POLineItems"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "qty",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "due",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "orderID",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "lineRef.poRef.ID"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "cancelled",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "backOrdered",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "qtyAtSupplier",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
 				}
 			],
 			"key" : 
@@ -2625,6 +2928,155 @@
 					"kind" : "storage",
 					"scope" : "public",
 					"type" : "number"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PurchaseOrders",
+			"className" : "PurchaseOrders",
+			"collectionName" : "PurchaseOrdersCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "poDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "supplier",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Supplier",
+					"path" : "Supplier"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplier.name"
+				},
+				{
+					"name" : "csOrder",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Orders",
+					"path" : "Orders"
+				},
+				{
+					"name" : "csOrderNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "csOrder.ID"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "status",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "billTo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipto",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVia",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipService",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipInstructions",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "csOrder.cName"
+				},
+				{
+					"name" : "pOLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineItemsCollection",
+					"reversePath" : true,
+					"path" : "poRef"
+				},
+				{
+					"name" : "quoteRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuotes",
+					"path" : "SupplierQuotes"
 				}
 			],
 			"key" : 
@@ -3196,6 +3648,14 @@
 					"type" : "SpAddressCollection",
 					"reversePath" : true,
 					"path" : "supplier"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "supplier"
 				}
 			],
 			"key" : 
@@ -3585,6 +4045,14 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "customer.name"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "quoteRef"
 				}
 			],
 			"events" : 

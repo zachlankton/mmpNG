@@ -1,0 +1,19 @@
+<h3>{{templates.reusable.modal.title}}</h3>
+<div class="row" >
+    <div class="col-md-12">
+
+        <input class="input full-width" placeholder="{{templates.reusable.modal.searchPlaceHolder}}" ng-model="templates.reusable.modal.search" />
+
+        <ul class="list-group" style="border: 1px solid;height: 200px;overflow: auto;">
+            <a  href="#" 
+                ng-repeat="item in templates.reusable.modal.collection | filter:templates.reusable.modal.search | orderBy:templates.reusable.modal.sortAttr:templates.reusable.modal.sortDesc"
+                ng-click="templates.reusable.modal.callBack(item)" 
+                class="list-group-item" >
+                {{templates.reusable.modal.listItemText(item)}}
+            </a>
+            <li ng-show="templates.reusable.modal.showAdd()" class="list-group-item">
+                <a href="#" ng-click="templates.reusable.modal.addItem()">{{templates.reusable.modal.searchAddText}}: '{{templates.reusable.modal.search}}'</a>
+            </li>
+        </ul>
+    </div> 
+</div>

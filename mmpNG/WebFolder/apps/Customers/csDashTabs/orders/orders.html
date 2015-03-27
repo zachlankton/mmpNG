@@ -1,1 +1,49 @@
-<h1>Orders</h1>
+<div class="row" ng-controller="csOrdersController">
+    <div class="col-md-3" >
+        <div>
+            <p><u>Customer Orders</u></p>
+            <input class="input full-width" placeholder="Search or Add" ng-model="csOrders.csOrders.orderSearch" />
+
+            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+                <a  href="#" 
+                    ng-repeat="order in csOrders.collections.csOrders | filter:csOrders.csOrders.orderSearch | orderBy:'modified':true"
+                    ng-class="{active: csOrders.csOrders.currentOrder == order}" 
+                    ng-click="csOrders.csOrders.setCurrentOrder(order)" 
+                    class="list-group-item" >
+                    {{order.ID}} - {{order.orderNo}}
+                </a>
+                <li ng-show="csOrders.csOrders.showOrderAdd()" class="list-group-item">
+                    <a href="#" ng-click="csOrders.csOrders.addOrder()">ADD ORDER: '{{csOrders.csOrders.orderSearch}}'</a>
+                </li>
+            </ul>
+        </div>
+        <div ng-show="csOrders.csOrders.currentOrder.show">
+            <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
+            <button ng-click="csOrders.csOrders.addSpOrder()" 
+            style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
+            <input class="input full-width" placeholder="Search" ng-model="csOrders.csOrders.spOrderSearch" />
+
+            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
+                <a  href="#" 
+                    ng-repeat="spOrder in csOrders.collections.spOrders | filter:csOrders.csOrders.spOrderSearch | orderBy:'sName' "
+                    ng-class="{active: csOrders.csOrders.currentSupplierOrder == spOrder}" 
+                    ng-click="csOrders.csOrders.setCurrentSpOrder(spOrder)" 
+                    class="list-group-item" >
+                    {{spOrder.ID}}
+                </a>
+            </ul>
+        </div>
+    </div>
+    <div 	ng-form="csOrders.csOrders.currentOrderForm" 
+			class="col-md-9" 
+			ng-show="csOrders.csOrders.currentOrder.show  && !csOrders.csOrders.currentSupplierOrder.show"
+			ng-include="'/apps/Customers/csDashTabs/orders/csOrderForm.html'">
+    </div>
+
+    <div 	ng-form="csOrders.csOrders.currentSpOrderForm" 
+			class="col-md-9" 
+			ng-show="csOrders.csOrders.currentSupplierOrder.show"
+			ng-include="'/apps/Customers/csDashTabs/orders/spOrderForm.html'"
+			ng-controller="spOrderFormController">
+    </div>
+</div>
