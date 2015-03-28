@@ -131,8 +131,9 @@ myApp.controller('csOrdersController', function ($scope, $wakanda, $filter, csAp
     // SELECT CUSTOMER CONTACT  //
     //////////////////////////////
     csOrders.selectContact = function(){
+        var customer = rScope.Customers.currentSelection;
         var entity = csOrders.currentOrder;
-        rScope.SAM.csContacts(entity, "contact");
+        rScope.SAM.csContacts(entity, "contact", customer);
     };
 
 

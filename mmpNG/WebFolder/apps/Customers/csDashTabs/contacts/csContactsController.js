@@ -108,15 +108,7 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 		csContact.getContactInfo();
 	};
 
-	////////////////////////////
-	// DELETE CURRENT CONTACT //
-	////////////////////////////
-	csContact.deleteCurrentContact = function(){
-	    //display the confirmation modal
-		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/contacts/deleteContactsModal.html";
-		$('#reusable-modal').modal('show');
 	
-	};
 
     //////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
@@ -136,23 +128,7 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 			var collection = rScope.collections.Contacts;
 			var colAttrToCompare = "name"; 	
 
-            if (searchBox == "") {
-                return false;  
-            }
-
-            var results = ($filter('filter')(collection, function(val, index) { 
-                if (val[colAttrToCompare] == null) {
-                    return false;   
-                }
-                if (val[colAttrToCompare].toLowerCase() == searchBox.toLowerCase()) {
-                    return true;  
-                }
-            }));
-
-            if (results.length > 0) {
-                return false;  	
-            }
-            return true;  
+            return rScope.showAdd(searchBox, collection, colAttrToCompare);
         };
 
   
@@ -163,26 +139,3 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 
 
 
-
-//////////////////////////////////////////////////
-// DELETE CONTACT MODAL CONFIRMATION CONTROLLER //
-//////////////////////////////////////////////////
-myApp.controller('deleteContactsModalController', function ($scope, $wakanda, $filter, csAppData) {
-
-	$scope.deleteContact = csAppData.getData();
-	var csContact = $scope.deleteContact.csContact;
-	var deleteContact = $scope.deleteContact.deleteContact = {};
-
-	deleteContact.Yes = function(){
-		csContact.currentContact.$remove()
-		.then(function(e){
-			csContact.currentContact = {};
-			csContact.getCustomerContacts();
-			$('#reusable-modal').modal('hide');
-		});
-	};
-
-	deleteContact.No = function(){
-		$('#reusable-modal').modal('hide');
-	};
-} );

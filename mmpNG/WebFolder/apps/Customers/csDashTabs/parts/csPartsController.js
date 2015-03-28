@@ -5,8 +5,6 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	var csParts = rScope.csParts = {};
 	csParts.partSearch = "";
 	csParts.partRevSearch = "";
-    
-    console.log(rScope);
 
 	var ot = csParts.opTypes = [];
 	ot.push("Internal");
@@ -17,6 +15,8 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	// GET CUSTOMER PARTS    //
 	///////////////////////////
     csParts.getParts = function(){
+        csParts.currentPart = {};
+        csParts.currentPartRev = {};
 		var curCustomer = rScope.Customers.currentSelection;
 		
 		rScope.collections.csParts = $wakanda.$ds.PartNumber.$find({
@@ -25,7 +25,6 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 			pageSize:999999999
 		});	
 	};
-	//csParts.getParts();
 
 	//////////////////////////
     // ADD CUSTOMER PART    //
@@ -67,6 +66,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
     // GET RELATED PART REVS    //
     //////////////////////////////
 	csParts.getPartRevs = function(){
+	    csParts.currentPartRev = {};
 		var curPart = csParts.currentPart;
 
 		rScope.collections.csPartRevs = $wakanda.$ds.PartRev.$find({
@@ -121,14 +121,14 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
     // SELECT SUPPLIER QUOTE LINE    //
     ///////////////////////////////////
 	csParts.selectSupplierQuoteLine = function(){
+
 	    if (csParts.currentPartRev.quoteNo == undefined){
             alert ("You Need to Associate a Customer Quote with this part first!");
             return 0;
 	    }
-	    //display the confirmation modal
-	    rScope.reusable.modal.templateUrl = "asasd";
-		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/partsRoutingSelect.html";
-		$('#reusable-modal').modal('show');
+	    var search = csParts.currentPart.partNo;
+	    if (csParts.routeToAdd == undefined){csParts.routeToAdd = {};}
+	    rScope.SAM.partsRoutingQuoteLines(csParts.routeToAdd, search)
 	};
 
 
@@ -139,9 +139,10 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
     // SELECT CUSTOMER QUOTE    //
     //////////////////////////////
     csParts.selectQuoteLine = function(){
-        //display the confirmation modal
-		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/csSelectQuoteLine.html";
-		$('#reusable-modal').modal('show');
+        var search = csParts.currentPart.partNo;
+        var curPartRev = csParts.currentPartRev;
+        var attr = "quoteLineRef"
+        rScope.SAM.csQuoteLines(curPartRev, attr, search);
     };
 
     
@@ -164,28 +165,6 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	};
 
 
-	////////////////////////////
-	// DELETE CURRENT PART    //  //TODO: Make sure Server Side Removes Related Revs
-	////////////////////////////  
-	csParts.deleteCurrentPart = function(){
-	    //display the confirmation modal
-		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/deletePartModal.html";
-		$('#reusable-modal').modal('show');
-	
-	};
-
-
-	/////////////////////////////
-	// DELETE CURRENT PART REV //  //TODO: Make sure Server Side Removes Related Revs
-	/////////////////////////////  
-	csParts.deleteCurrentPartRev = function(){
-	    //display the confirmation modal
-		rScope.reusable.modal.templateUrl = "/apps/Customers/csDashTabs/parts/deletePartRevModal.html";
-		$('#reusable-modal').modal('show');
-	
-	};
-
-
 	//////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
     //////////////////////////////////////////
@@ -204,23 +183,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 			var collection = rScope.collections.csParts;
 			var colAttrToCompare = "partNo"; 	
 
-            if (searchBox == "") {
-                return false;  
-            }
-
-            var results = ($filter('filter')(collection, function(val, index) { 
-                if (val[colAttrToCompare] == null) {
-                    return false;   
-                }
-                if (val[colAttrToCompare].toLowerCase() == searchBox.toLowerCase()) {
-                    return true;  
-                }
-            }));
-
-            if (results.length > 0) {
-                return false;  	
-            }
-            return true;  
+            return rScope.showAdd(searchBox, collection, colAttrToCompare);
         };
 
 
@@ -232,165 +195,11 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 			var collection = rScope.collections.csPartRevs;
 			var colAttrToCompare = "revision"; 	
 
-            if (searchBox == "") {
-                return false;  
-            }
-
-            var results = ($filter('filter')(collection, function(val, index) { 
-                if (val[colAttrToCompare] == null) {
-                    return false;   
-                }
-                if (val[colAttrToCompare].toLowerCase() == searchBox.toLowerCase()) {
-                    return true;  
-                }
-            }));
-
-           
-            if (results.length > 0) {
-                return false;  	
-            }
-            return true;  
+            return rScope.showAdd(searchBox, collection, colAttrToCompare);
         };
 			
   
 });
-
-
-
-//////////////////////////////////////////////////
-// DELETE PART MODAL CONFIRMATION CONTROLLER    //
-//////////////////////////////////////////////////
-myApp.controller('deletePartModalController', function ($scope, $wakanda, $filter, csAppData) {
-
-	$scope.deletePart = csAppData.getData();
-	var csParts = $scope.deletePart.csParts;
-	var deletePart = $scope.deletePart.deletePart = {};
-
-	deletePart.Yes = function(){
-		csParts.currentPart.$remove()
-		.then(function(e){
-			csParts.currentPart = {};
-			csParts.getParts();
-			$('#reusable-modal').modal('hide');
-		});
-	};
-
-	deletePart.No = function(){
-		$('#reusable-modal').modal('hide');
-	};
-} );
-
-
-///////////////////////////////////////////////////
-// DELETE PART REV MODAL CONFIRMATION CONTROLLER //
-///////////////////////////////////////////////////
-myApp.controller('deletePartRevModalController', function ($scope, $wakanda, $filter, csAppData) {
-
-	$scope.deletePartRev = csAppData.getData();
-	var csParts = $scope.deletePartRev.csParts;
-	var deletePartRev = $scope.deletePartRev.deletePartRev = {};
-
-	deletePartRev.Yes = function(){
-		csParts.currentPartRev.$remove()
-		.then(function(e){
-			csParts.currentPartRev = {};
-			csParts.getPartRevs();
-			$('#reusable-modal').modal('hide');
-		});
-	};
-
-	deletePartRev.No = function(){
-		$('#reusable-modal').modal('hide');
-	};
-} );
-
-
-///////////////////////////////////////////////////
-// SELECT QUOTE LINE MODAL CONTROLER             //
-///////////////////////////////////////////////////
-myApp.controller('csPartQuoteLineSelectController', function ($scope, $wakanda, $filter, csAppData) {
-
-	$scope.csPartQuoteLines = csAppData.getData();
-	var rScope = $scope.csPartQuoteLines;
-	var csPartQuoteLines = rScope.csPartQuoteLines = {};
-	var csParts = rScope.csParts;
-
-    /////////////////////////////////
-	// GET CUSTOMER QUOTE LINES    //
-	/////////////////////////////////
-    csPartQuoteLines.getQuoteLines = function(){
-		var curCustomer = rScope.Customers.currentSelection;
-		
-		rScope.collections.csPartQuoteLines = $wakanda.$ds.CsQuoteLineItems.$find({
-			filter:'customerName = :1',
-			params:[curCustomer.name],
-			pageSize:999999999
-		});	
-	};
-	csPartQuoteLines.getQuoteLines();
-
-	//////////////////////////////
-    // SET PART QUOTE LINE     //
-    //////////////////////////////
-    csPartQuoteLines.setPartQuoteLine = function(quoteLine){
-        csParts.currentPartRev.$_entity.quoteLineRef.setValue(quoteLine.$_entity);
-        csParts.currentPartRev.$save()
-        .then(function(){
-            rScope.reusable.modal.templateUrl = "";
-            $('#reusable-modal').modal('hide');
-        });
-        
-        
-    };
-} );
-
-
-
-
-
-/////////////////////////////////////////////////////
-// SELECT PARTS ROUTING QUOTE LINE MODAL CONTROLER //
-/////////////////////////////////////////////////////
-myApp.controller('partsRoutingController', function ($scope, $wakanda, $filter, csAppData) {
-
-	$scope.partsRouting = csAppData.getData();
-	var rScope = $scope.partsRouting;
-	var partsRouting = rScope.partsRouting = {};
-	var csParts = rScope.csParts;
-
-
-    //////////////////////////////////////////////////////////////////
-	// GET SUPPLIER QUOTE LINES RELATED TO CURRENT PART REV QUOTE   //
-	//////////////////////////////////////////////////////////////////
-    partsRouting.getQuoteLines = function(){
-		var curPartRevQuoteNo = rScope.csParts.currentPartRev.quoteNo;
-		
-		rScope.collections.prSpQLineSelect = $wakanda.$ds.SupplierQuoteLine.$find({
-			filter:'spQuoteRef.customerSupplierQuotesCollection.csQuoteNo = :1',
-			params:[curPartRevQuoteNo],
-			pageSize:999999999,
-		});	
-	};
-	partsRouting.getQuoteLines();
-
-	///////////////////////////////////
-    // SET PARTS ROUTING QUOTE LINE  //
-    ///////////////////////////////////
-    partsRouting.setPartsRoutingQuoteLine = function(quoteLine){
-        
-        if (csParts.routeToAdd == undefined){csParts.routeToAdd = {};}
-        csParts.routeToAdd.sqLine = quoteLine;
-        rScope.reusable.modal.templateUrl = "";
-        $('#reusable-modal').modal('hide');
-   
-        
-        
-    };
-} );
-
-
-
-
 
 
 

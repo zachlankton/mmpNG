@@ -46,7 +46,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label"></label>
 								<div class="col-sm-9">
-									<button class="btn btn-danger" type="button" ng-click="csParts.csParts.deleteCurrentPart()">Delete Part</button>
+									<button class="btn btn-danger" type="button" ng-click="csParts.confirmDelete(csParts.csParts.currentPart, csParts.csParts.getParts)">Delete Part</button>
 								</div>
 							</div>
 						</form>
@@ -124,7 +124,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label"></label>
 								<div class="col-sm-9">
-									<button class="btn btn-danger" type="button" ng-click="csParts.csParts.deleteCurrentPartRev()">Delete Part Rev</button>
+									<button class="btn btn-danger" type="button" ng-click="csParts.confirmDelete(csParts.csParts.currentPartRev, csParts.csParts.getPartRevs)">Delete Part Rev</button>
 								</div>
 							</div>
 					

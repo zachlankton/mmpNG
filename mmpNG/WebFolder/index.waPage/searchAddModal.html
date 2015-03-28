@@ -4,7 +4,7 @@
 
         <input class="input full-width" placeholder="{{templates.reusable.modal.searchPlaceHolder}}" ng-model="templates.reusable.modal.search" />
 
-        <ul class="list-group" style="border: 1px solid;height: 200px;overflow: auto;">
+        <ul class="list-group" style="border: 1px solid;height: 300px;overflow: auto;">
             <a  href="#" 
                 ng-repeat="item in templates.reusable.modal.collection | filter:templates.reusable.modal.search | orderBy:templates.reusable.modal.sortAttr:templates.reusable.modal.sortDesc"
                 ng-click="templates.reusable.modal.callBack(item)" 
