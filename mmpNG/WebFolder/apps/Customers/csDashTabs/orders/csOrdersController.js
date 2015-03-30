@@ -44,32 +44,20 @@ myApp.controller('csOrdersController', function ($scope, $wakanda, $filter, csAp
 	});	
 
 
-    ///////////////////////////////////////////////
-    // SHOW THE ADD LINK LOGIC FOR QUOTES        //
-    ///////////////////////////////////////////////
-	csOrders.showOrderAdd = function() {
-			var searchBox = csOrders.orderSearch;
-			var collection = rScope.collections.csOrders;
-			var colAttrToCompare = "orderNo"; 	
+    
 
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
+    //////////////////////////////////////
+    // CREATE OBJECT FOR CUSTOMER ORDER //
+    //////////////////////////////////////
+    csOrders.createCsOrderObj = function(orderNo){
+        var curCustomer = rScope.Customers.currentSelection;
+        return {
+            customer: curCustomer,
+            orderNo: orderNo
+        }
     };
 
-    //////////////////////////
-    // ADD CUSTOMER ORDER   //
-    //////////////////////////
-	csOrders.addOrder = function(){
-		var orderNo = csOrders.orderSearch;
-		var newEntity = $wakanda.$ds.Orders.$create({
-                orderNo: orderNo,
-                customer: rScope.Customers.currentSelection
-            });
-
-		newEntity.$save().then(function(e) {
-			csOrders.currentOrder = {};
-			csOrders.getOrders();
-		})
-	};
+    
 
 
 	/////////////////////////////////

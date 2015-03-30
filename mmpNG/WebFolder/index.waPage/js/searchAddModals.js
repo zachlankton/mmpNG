@@ -2,98 +2,49 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     var values = csAppData.getData();
     values.SAM = {};
 
-    ////////////////////////////////////////////
-    // SHOW ADD LOGIC FOR SEARCH OR ADD LISTS //
-    ////////////////////////////////////////////
-    values.showAdd = function(searchBox, collection, attrToCompare){	
-
-        if (searchBox == "") {
-            return false;  
-        }
-
-        var results = ($filter('filter')(collection, function(val, index) { 
-            if (val[attrToCompare] == null) {
-                return false;   
-            }
-            if (val[attrToCompare].toLowerCase() == searchBox.toLowerCase()) {
-                return true;  
-            }
-        }));
-
-
-        if (results.length > 0) {
-            return false;  	
-        }
-        return true;  
-
-    };
-
     /////////////////////////////
     // REUSABLE MODAL FUNCTION //
     /////////////////////////////
     values.searchAddModal = function(options){
-        
         var rMod = values.reusable.modal;
         rMod.templateUrl = "/index.waPage/searchAddModal.html";
-
+        
+        rMod.collection = options.collection;
+        rMod.selectedItem = options.selectedItem; 
+        rMod.listItemExp = options.listItemExp;
+        rMod.itemClick = options.itemClick;
+        rMod.addItem = options.addItem;
+        rMod.createObj = options.createObj;
         rMod.title = options.title || "Select From The List";
         rMod.searchPlaceHolder = options.searchPlaceHolder || "Search";
-        rMod.search = options.search || "";
-        rMod.sortAttr = options.sortAttr || "ID";
-        rMod.sortDesc = options.sortDesc || false;
-        
-        rMod.addAttr = options.addAttr || false;
+        rMod.search = options.search;
+        rMod.sortAttr = options.sortAttr;
+        rMod.sortDesc = options.sortDesc;
+        rMod.addAttr = options.addAttr;
         rMod.searchAddText = options.searchAddText || "ADD";
-        
-        rMod.listItemText = options.listItemText;
-        
+        rMod.listItemExp = options.listItemExp;
 
-        var defaultCallback = function(cValue){
-            if (options.callBack == undefined){
-                var entity = options.cEntity;
-                var attribute = options.cAttribute;
-                entity[attribute] = cValue;
-                entity.$_entity[attribute].setValue(cValue.$_entity);
-                entity.$save().then(function(){
-                    $('#reusable-modal').modal('hide'); 
-                });  
-            }
+        var defaultItemClick = function(item){
+            var entity = options.entity;
+            var attribute = options.attribute;
+
+            if (entity == undefined){return 0;}
+            entity[attribute] = item;
+            entity.$_entity[attribute].setValue(item.$_entity);
+            entity.$save();
+        }
+
+        options.itemClick = options.itemClick || defaultItemClick;
+
+        rMod.itemClick = function(item){
+            options.itemClick(item);
+            $('#reusable-modal').modal('hide');
         };
 
-        var defaultAddItem = function(value, callBack){
-            if (options.addAttr != undefined){
-                var createObj = {};
-                createObj[options.addAttr] = value;
-                var newEntity = $wakanda.$ds[options.dataClass].$create(createObj).$save().then(function(){
-                    callBack();
-                });
-
-            }
-        };
-
+        if (options.addAttr != undefined){
+            rMod.searchPlaceHolder = options.searchPlaceHolder = "Search or Add";
+        }
         
-        options.addItem = options.addItem || defaultAddItem;
-        rMod.callBack = options.callBack || defaultCallback;
-
-        rMod.addItem = function(){
-            options.addItem(rMod.search, rMod.getList);
-        };
-
-        rMod.showAdd = function(){
-            if (rMod.addAttr === false){return false;}
-            rMod.searchPlaceHolder = options.searchPlaceHolder || "Search or Add";
-            return values.showAdd(rMod.search, rMod.collection, rMod.addAttr);
-        };
-        
-        rMod.getList = function(){
-            rMod.collection = $wakanda.$ds[options.dataClass].$find({
-                filter: options.filter,
-                params: options.params,
-                pageSize: 999999999,
-            });
-        };
-        
-        rMod.getList();
         $('#reusable-modal').modal('show');
     };
 
@@ -103,31 +54,28 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////////////
     values.SAM.csContacts = function(entity, attribute, customer){
         
-        var addItem = function(contactName, callBack){
-            var newEntity = $wakanda.$ds.Contact.$create({
+        var collection = $wakanda.$ds.Contact.$find({
+            filter: "cName = :1",
+            params: [customer.name],
+            pageSize: 999999999,
+        });
+
+        var createObj = function(contactName){
+            return {
                 customer: customer,
                 name: contactName
-            }).$save().then(function(){
-                callBack();
-            });
-        };
-
-        var listItemText = function(contact){
-            if (contact.title == null || contact.title == ""){return contact.name};
-            return contact.name + " ("+ contact.title+")";
-        };
+            };
+        }
 
         values.searchAddModal({
-            dataClass: "Contact",
-            filter:'cName = :1',
-			params:[customer.name],
-			title: "Select Contact",
+            title: "Select Contact",
+            collection: collection,
+            listItemExp: "{{name}} - ({{title}})",
 			sortAttr: "name",
 			addAttr: "name",
-            addItem: addItem,
-			cEntity: entity,
-			cAttribute: attribute,
-			listItemText: listItemText
+            createObj: createObj,
+            entity: entity,
+            attribute: attribute
         });
     };
 
@@ -138,31 +86,28 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////////////
     values.SAM.spContacts = function(entity, attribute, supplier){
 
-        var addItem = function(contactName, callBack){
-            var newEntity = $wakanda.$ds.SpContact.$create({
+        var collection = $wakanda.$ds.SpContact.$find({
+            filter: "sName = :1",
+            params: [supplier.name],
+            pageSize: 999999999
+        });
+
+        var createObj = function(contactName){
+            return {
                 supplier: supplier,
                 name: contactName
-            }).$save().then(function(){
-                callBack();
-            });
-        };
-
-        var listItemText = function(contact){
-            if (contact.title == null || contact.title == ""){return contact.name};
-            return contact.name + " ("+ contact.title+")";
-        };
+            };
+        }
 
         values.searchAddModal({
-            dataClass: "SpContact",
-            filter:'sName = :1',
-			params:[supplier.name],
-			title: "Select Contact",
+            title: "Select Contact",
+            collection: collection,
+            listItemExp: "{{name}} - ({{title}})",
 			sortAttr: "name",
 			addAttr: "name",
-            addItem: addItem,
-			cEntity: entity,
-			cAttribute: attribute,
-			listItemText: listItemText
+            createObj: createObj,
+            entity: entity,
+            attribute: attribute
         });
     };
 
@@ -173,23 +118,23 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     values.SAM.csQuoteLines = function(entity, attribute, search){
         search = search || "";
         var curCustomer = values.Customers.currentSelection;
-        
-        var listItemText = function(qLine){
-            var exp = $interpolate("Quote No: {{quoteLine.quoteNo | number}} --- Part No: {{quoteLine.partNo}} {{quoteLine.partDesc}}");
-            return exp({quoteLine: qLine});
-        };
 
-        values.searchAddModal({
-            dataClass: "CsQuoteLineItems",
+        var collection = $wakanda.$ds.CsQuoteLineItems.$find({
             filter: 'customerName = :1',
             params: [curCustomer.name],
+            pageSize:999999999
+        });
+        
+
+        values.searchAddModal({
+            collection: collection,
+            listItemExp: "Quote No: {{quoteNo | number}} --- Part No: {{partNo}} {{partDesc}}",
+            search: search,
+            entity: entity,
+            attribute: attribute,
             title: "Select Quote Line",
             sortAttr: "quoteNo",
             sortDesc: true,
-            cEntity: entity,
-            cAttribute: attribute,
-            listItemText: listItemText,
-            search: search
         });
     };
 
@@ -204,25 +149,23 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
         search = search || "";
         var curPartRevQuoteNo = values.csParts.currentPartRev.quoteNo;
         
+        var collection = $wakanda.$ds.SupplierQuoteLine.$find({
+            filter: 'spQuoteRef.customerSupplierQuotesCollection.csQuoteNo = :1',
+            params: [curPartRevQuoteNo],
+            pageSize: 999999999
+        });
+
         var setRouteQLine = function(qLine){
             attribute.sqLine = qLine;
-            $('#reusable-modal').modal('hide');
-        };
-
-        var listItemText = function(qLine){
-            var exp = $interpolate("Quote No: {{quoteLine.quoteNo}} --- Supplier: {{quoteLine.sName}} --- Part No: {{quoteLine.partNo}} {{quoteLine.partDesc}}");
-            return exp({quoteLine: qLine});
         };
 
         values.searchAddModal({
-            dataClass: "SupplierQuoteLine",
-            filter: 'spQuoteRef.customerSupplierQuotesCollection.csQuoteNo = :1',
-            params: [curPartRevQuoteNo],
+            collection: collection,
+            listItemExp: "Quote No: {{quoteNo}} --- Supplier: {{sName}} --- Part No: {{partNo}} {{partDesc}}",
+            itemClick: setRouteQLine,
             title: "Select Quote Line",
             sortAttr: "quoteNo",
             sortDesc: true,
-            callBack: setRouteQLine,
-            listItemText: listItemText,
             search: search
         });
     };
@@ -234,24 +177,17 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     ///////////////////////////////////////////////////////
     values.SAM.selectExistingSpQuote = function(callBack, customer){
         
-        var listItemText = function(spQuote){
-            var exp = $interpolate("{{sQuote.quoteNo}} - {{sQuote.sName}}");
-            return exp({sQuote: spQuote});
-        };
-
-        var myCallBack = function(spQuote){
-            callBack(spQuote);
-            $('#reusable-modal').modal('hide');
-        };
-
-        values.searchAddModal({
-            dataClass: "SupplierQuotes",
+        var collection = $wakanda.$ds.SupplierQuotes.$find({
             filter: "cName = :1",
             params: [customer],
+        });
+        
+        values.searchAddModal({
+            collection: collection,
+            listItemExp: "{{quoteNo}} - {{sName}}",
             title: "Select Existing Supplier Quote",
             sortAttr: "quoteNo",
-            callBack: myCallBack,
-            listItemText: listItemText
+            itemClick: callBack,
         });
     };
 
@@ -260,21 +196,116 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////
     values.SAM.selectSupplier = function(entity, attribute){
 
-        var listItemText = function(supplier){
-            var exp = $interpolate("{{supplier.name}}");
-            return exp({supplier: supplier});
-        };
+        var collection = $wakanda.$ds.Supplier.$find({pageSize:999999999});
 
         values.searchAddModal({
-            dataClass: "Supplier",
+            collection:collection,
+            listItemExp: "{{name}}",
             title: "Select a Supplier",
             sortAttr: "name",
             addAttr: "name",
-            listItemText: listItemText,
-            cEntity: entity,
-            cAttribute: attribute
+            entity: entity,
+            attribute: attribute
         });
+
     };
+});
+
+///////////////////////////////
+// SEARCH ADD LIST DIRECTIVE //
+///////////////////////////////
+csAppServices.directive('searchAddList', function() {
+  return {
+    restrict: 'E',
+    scope: {
+        selectedItem: '=',
+        listItemExp: '=',
+        searchPlaceHolder: '@',
+        searchAddText: '@',
+        search: '@',
+        collection: '=',
+        sortAttr: '@',
+        sortDesc: '@',
+        itemClick: '=',
+        addAttr: '@',
+        addItem: '=',
+        createObj: '='
+    },
+    templateUrl: 'search-add-list.html',
+    
+    controller: function($scope, $interpolate, $filter){
+        $scope.search = $scope.search || "";
+        $scope.searchAddText = $scope.searchAddText || "ADD"
+
+        $scope.searchPlaceHolder = $scope.searchPlaceHolder || "Search";
+        if ($scope.addAttr != undefined){
+            $scope.searchPlaceHolder = $scope.searchPlaceHolder = "Search or Add";
+        }
+
+        $scope.listItem = function(item){
+            var exp = $interpolate($scope.listItemExp);
+            return exp(item);
+        };
+
+        $scope._addItem = function(value){
+            if ($scope.addAttr == undefined){return 0;}
+            if ($scope.addItem != undefined){
+                $scope.addItem(value);
+                return 0;
+            }
+            
+            var dataClass = $scope.collection.$_collection._private.dataClass;
+            var createObj = {};
+            if ($scope.createObj != undefined){
+                createObj = $scope.createObj(value);
+            }else{
+                createObj[$scope.addAttr] = value;
+            }
+            
+            var newEntity = dataClass.$create(createObj);
+            newEntity.$save().then(function(){
+                $scope.collection.push(newEntity);
+            });
+        };
 
 
+        $scope._itemClick = function(item){
+            $scope._selectedItem = item;
+            if ($scope.selectedItem != undefined){
+                $scope.selectedItem = item;    
+            }
+            if ($scope.itemClick != undefined){
+                $scope.itemClick(item);    
+            }
+        };
+
+        $scope.showAdd = function(){
+            if ($scope.addAttr == undefined || $scope.addAttr == ""){return false};
+
+            var searchBox = $scope.search; 
+            var collection = $scope.collection;
+            var attrToCompare = $scope.addAttr;
+
+            if (searchBox == "") {
+                return false;  
+            }
+
+            var results = ($filter('filter')(collection, function(val, index) { 
+                if (val[attrToCompare] == null) {
+                    return false;   
+                }
+                if (val[attrToCompare].toLowerCase() == searchBox.toLowerCase()) {
+                    return true;  
+                }
+            }));
+
+
+            if (results.length > 0) {
+                return false;  	
+            }
+            return true;  
+
+        }
+    }
+  };
 });

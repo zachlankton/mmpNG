@@ -31,22 +31,15 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 			pageSize:999999999
 		});	
 	};
-	//csContact.getCustomerContacts();
 
     //////////////////////////
     // ADD CUSTOMER CONTACT //
     //////////////////////////
-	csContact.addContact = function(){
-		var name = csContact.contactSearch;
-		var newEntity = $wakanda.$ds.Contact.$create({
+	csContact.createObj = function(name){
+		return {
                 name: name,
                 customer: rScope.Customers.currentSelection
-            });
-
-		newEntity.$save().then(function(e) {
-			csContact.currentContact = {};
-			csContact.getCustomerContacts();
-		})
+            };
 	};
 
     ////////////////////////////////////////
@@ -117,19 +110,6 @@ myApp.controller('csContactsController', function ($scope, $wakanda, $filter, cs
 		csContact.getCustomerContacts();
 		csContact.currentContact = {};
 	});
-
-
-	
-    /////////////////////////////////////
-    // SHOW THE ADD CONTACT LINK LOGIC //
-    /////////////////////////////////////
-	csContact.showAdd = function() {
-			var searchBox = csContact.contactSearch;
-			var collection = rScope.collections.Contacts;
-			var colAttrToCompare = "name"; 	
-
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
 
   
 });

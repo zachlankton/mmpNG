@@ -1,0 +1,18 @@
+<input  class="input full-width" 
+        placeholder="{{searchPlaceHolder}}" 
+        ng-model="search" />
+
+<ul class="list-group" style="border: 1px solid;height: 300px;overflow: auto;">
+    <a  href="#" 
+        ng-repeat="item in collection | filter:search | orderBy:sortAttr:sortDesc"
+        ng-class="{active: selectedItem == item || _selectedItem == item}"
+        ng-click="_itemClick(item)" 
+        class="list-group-item" >
+        {{listItem(item)}}
+    </a>
+    <li ng-show="showAdd()" class="list-group-item">
+        <a href="#" ng-click="_addItem(search)">
+            {{searchAddText}}: '{{search}}'
+        </a>
+    </li>
+</ul>

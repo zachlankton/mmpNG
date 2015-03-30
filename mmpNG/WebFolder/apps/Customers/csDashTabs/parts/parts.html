@@ -6,20 +6,16 @@
         
 					<div class="col-md-6">
 						<p><u>Parts</u></p>
-						<input class="input full-width" placeholder="Search or Add" ng-model="csParts.csParts.partSearch" />
-   
-						<ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
-							<a  href="#" 
-								ng-repeat="part in csParts.collections.csParts | filter:csParts.csParts.partSearch | orderBy:'partNo'"
-								ng-class="{active: csParts.csParts.currentPart == part}" 
-								ng-click="csParts.csParts.setCurrentPart(part)" 
-								class="list-group-item" >
-								{{part.partNo}} <span ng-show="part.description"> - {{part.description}}</span> 
-							</a>
-							<li ng-show="csParts.csParts.showPartAdd()" class="list-group-item">
-								<a href="#" ng-click="csParts.csParts.addPart()">ADD PART: '{{csParts.csParts.partSearch}}'</a>
-							</li>
-						</ul>
+
+						<search-add-list
+						  collection = "csParts.collections.csParts"
+						  list-item-exp = "'{{partNo}}'"
+						  item-click = "csParts.csParts.setCurrentPart"
+						  sort-attr = "partNo"
+						  add-attr = "partNo"
+						  createObj = "csParts.csParts.createPartObj">
+						</search-add-list>
+
 
 						<form class="form-horizontal" ng-show="csParts.csParts.currentPart.show">
 							<div class="form-group">
@@ -54,20 +50,15 @@
 					
 					<div class="col-md-6" ng-show="csParts.csParts.currentPart.show">
 						<p><u>Revisions</u></p>
-						<input class="input full-width" placeholder="Search or Add" ng-model="csParts.csParts.partRevSearch" />
-			   
-						<ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
-							<a  href="#" 
-								ng-repeat="partRev in csParts.collections.csPartRevs | filter:csParts.csParts.partRevSearch | orderBy:'revision'"
-								ng-class="{active: csParts.csParts.currentPartRev == partRev}" 
-								ng-click="csParts.csParts.setCurrentPartRev(partRev)" 
-								class="list-group-item" >
-								{{partRev.revision}} 
-							</a>
-							<li ng-show="csParts.csParts.showPartRevAdd()" class="list-group-item">
-								<a href="#" ng-click="csParts.csParts.addPartRev()">ADD PART REV: '{{csParts.csParts.partRevSearch}}'</a>
-							</li>
-						</ul>
+
+						<search-add-list
+						  collection = "csParts.collections.csPartRevs"
+						  list-item-exp = "'{{revision}}'"
+						  item-click = "csParts.csParts.setCurrentPartRev"
+						  sort-attr = "revision"
+						  add-attr = "revision"
+						  createObj = "csParts.csParts.createPartRevObj">
+						</search-add-list>
 				
 						<form class="form-horizontal" ng-show="csParts.csParts.currentPartRev.show">
 							<div class="form-group">

@@ -2,36 +2,30 @@
     <div class="col-md-3" >
         <div>
             <p><u>Customer Orders</u></p>
-            <input class="input full-width" placeholder="Search or Add" ng-model="csOrders.csOrders.orderSearch" />
 
-            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
-                <a  href="#" 
-                    ng-repeat="order in csOrders.collections.csOrders | filter:csOrders.csOrders.orderSearch | orderBy:'modified':true"
-                    ng-class="{active: csOrders.csOrders.currentOrder == order}" 
-                    ng-click="csOrders.csOrders.setCurrentOrder(order)" 
-                    class="list-group-item" >
-                    {{order.ID}} - {{order.orderNo}}
-                </a>
-                <li ng-show="csOrders.csOrders.showOrderAdd()" class="list-group-item">
-                    <a href="#" ng-click="csOrders.csOrders.addOrder()">ADD ORDER: '{{csOrders.csOrders.orderSearch}}'</a>
-                </li>
-            </ul>
+             <search-add-list
+                list-item-exp = "'{{ID}} - {{orderNo}}'"
+                collection = "csOrders.collections.csOrders"
+                item-click="csOrders.csOrders.setCurrentOrder"
+                add-attr="orderNo"
+                sort-attr="modified"
+                sort-desc="true"
+                create-obj = "csOrders.csOrders.createCsOrderObj">
+            </search-add-list>
+            
         </div>
         <div ng-show="csOrders.csOrders.currentOrder.show">
             <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
             <button ng-click="csOrders.csOrders.addSpOrder()" 
             style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
-            <input class="input full-width" placeholder="Search" ng-model="csOrders.csOrders.spOrderSearch" />
 
-            <ul class="list-group" style="height: 200px;overflow: auto;border: 1px solid;">
-                <a  href="#" 
-                    ng-repeat="spOrder in csOrders.collections.spOrders | filter:csOrders.csOrders.spOrderSearch | orderBy:'sName' "
-                    ng-class="{active: csOrders.csOrders.currentSupplierOrder == spOrder}" 
-                    ng-click="csOrders.csOrders.setCurrentSpOrder(spOrder)" 
-                    class="list-group-item" >
-                    {{spOrder.ID}}
-                </a>
-            </ul>
+            <search-add-list
+                list-item-exp = "'{{ID}} - {{sName}}'"
+                collection = "csOrders.collections.spOrders"
+                item-click="csOrders.csOrders.setCurrentSpOrder"
+                sort-attr="sName">
+            </search-add-list>
+          
         </div>
     </div>
     <div 	ng-form="csOrders.csOrders.currentOrderForm" 

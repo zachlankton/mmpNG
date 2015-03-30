@@ -2,8 +2,17 @@
     <div class="col-md-12" ng-controller="csAddressesController">
         <div class="row">
             <div class="col-md-3">
+
+            <search-add-list
+                collection = "csAddr.collections.csAddresses"
+                list-item-exp = "'{{title}}'"
+                item-click = "csAddr.csAddr.setCurrentAddress"
+                sort-attr = "title"
+                add-attr = "title"
+                createObj = "csAddr.csAddr.createObj">
+            </search-add-list>
                 
-                <input class="input full-width" placeholder="Search or Add" ng-model="csAddr.csAddr.addressSearch" />
+<!--                 <input class="input full-width" placeholder="Search or Add" ng-model="csAddr.csAddr.addressSearch" />
                
                 <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
                     <a  href="#" 
@@ -16,7 +25,7 @@
                     <li ng-show="csAddr.csAddr.showAdd()" class="list-group-item">
                         <a href="#" ng-click="csAddr.csAddr.addAddress(address)">ADD ADDRESS (Title): '{{csAddr.csAddr.addressSearch}}'</a>
                     </li>
-                </ul>
+                </ul> -->
             </div> 
             <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.show">
                 <h4><u>Address Details</u></h4>

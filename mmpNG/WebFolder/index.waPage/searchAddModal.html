@@ -1,19 +1,19 @@
 <h3>{{templates.reusable.modal.title}}</h3>
 <div class="row" >
     <div class="col-md-12">
-
-        <input class="input full-width" placeholder="{{templates.reusable.modal.searchPlaceHolder}}" ng-model="templates.reusable.modal.search" />
-
-        <ul class="list-group" style="border: 1px solid;height: 300px;overflow: auto;">
-            <a  href="#" 
-                ng-repeat="item in templates.reusable.modal.collection | filter:templates.reusable.modal.search | orderBy:templates.reusable.modal.sortAttr:templates.reusable.modal.sortDesc"
-                ng-click="templates.reusable.modal.callBack(item)" 
-                class="list-group-item" >
-                {{templates.reusable.modal.listItemText(item)}}
-            </a>
-            <li ng-show="templates.reusable.modal.showAdd()" class="list-group-item">
-                <a href="#" ng-click="templates.reusable.modal.addItem()">{{templates.reusable.modal.searchAddText}}: '{{templates.reusable.modal.search}}'</a>
-            </li>
-        </ul>
+        <search-add-list
+            selected-item = 'templates.reusable.modal.selectedItem'
+            list-item-exp = 'templates.reusable.modal.listItemExp'
+            search-place-holder = '{{templates.reusable.modal.searchPlaceHolder}}'
+            search-add-text = '{{templates.reusable.modal.searchAddText}}'
+            search = '{{templates.reusable.modal.search}}'
+            collection = 'templates.reusable.modal.collection'
+            sort-attr = '{{templates.reusable.modal.sortAttr}}'
+            sort-desc = '{{templates.reusable.modal.sortDesc}}'
+            item-click = 'templates.reusable.modal.itemClick'
+            add-attr = '{{templates.reusable.modal.addAttr}}'
+            add-item = 'templates.reusable.modal.addItem'
+            create-obj = 'templates.reusable.modal.createObj'>
+        </search-add-list>
     </div> 
 </div>

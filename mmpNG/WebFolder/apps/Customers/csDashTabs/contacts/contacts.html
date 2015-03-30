@@ -2,21 +2,16 @@
     <div class="col-md-12" ng-controller="csContactsController">
         <div class="row">
             <div class="col-md-3">
+
+            <search-add-list
+                collection = "csContact.collections.Contacts"
+                list-item-exp = "'{{name}}{{title ? &quot; - (&quot; + title + &quot;)&quot;:null}}'"
+                item-click="csContact.csContact.setCurrentContact"
+                sort-attr="name"
+                add-attr="name"
+                create-obj="csContact.csContact.createObj">
+            </search-add-list>
                 
-                <input class="input full-width" placeholder="Search or Add" ng-model="csContact.csContact.contactSearch" />
-               
-                <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
-                    <a  href="#" 
-                        ng-repeat="contact in csContact.collections.Contacts | filter:csContact.csContact.contactSearch | orderBy:'name'"
-                        ng-class="{active: csContact.csContact.currentContact == contact}" 
-                        ng-click="csContact.csContact.setCurrentContact(contact)" 
-                        class="list-group-item" >
-                        {{contact.name}} <span ng-show="contact.title">({{contact.title}})</span>
-                    </a>
-                    <li ng-show="csContact.csContact.showAdd()" class="list-group-item">
-                        <a href="#" ng-click="csContact.csContact.addContact()">ADD CONTACT: '{{csContact.csContact.contactSearch}}'</a>
-                    </li>
-                </ul>
             </div> 
             <div class="col-md-4" ng-show="csContact.csContact.currentContact.show">
                 <h4><u>Contact Details</u></h4>

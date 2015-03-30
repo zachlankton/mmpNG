@@ -29,17 +29,21 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	//////////////////////////
     // ADD CUSTOMER PART    //
     //////////////////////////
-	csParts.addPart = function(){
-		var partNo = csParts.partSearch;
-		var newEntity = $wakanda.$ds.PartNumber.$create({
+	csParts.createPartObj = function(partNo){
+		return {
                 partNo: partNo,
                 customer: rScope.Customers.currentSelection
-            });
+            };
+	};
 
-		newEntity.$save().then(function(e) {
-			csParts.currentPart = {};
-			csParts.getParts();
-		})
+	//////////////////////////////
+    // ADD RELATED PART REV     //
+    //////////////////////////////
+	csParts.createPartRevObj = function(partRev){
+		return {
+                revision: partRev,
+                part: csParts.currentPart
+            };
 	};
 
 	////////////////////////////////////////
@@ -145,25 +149,6 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
         rScope.SAM.csQuoteLines(curPartRev, attr, search);
     };
 
-    
-
-	//////////////////////////////
-    // ADD RELATED PART REV     //
-    //////////////////////////////
-	csParts.addPartRev = function(){
-		var partRev = csParts.partRevSearch;
-		var newEntity = $wakanda.$ds.PartRev.$create({
-                revision: partRev,
-                part: csParts.currentPart
-            });
-
-		newEntity.$save().then(function(e) {
-			csParts.currentRev = {};
-			csParts.getPartRevs();
-			
-		});
-	};
-
 
 	//////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
@@ -174,31 +159,6 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 		csParts.currentPartRev = {};
 	});
 
-
-	///////////////////////////////////////////////
-    // SHOW THE ADD PART LINK LOGIC FOR PARTS //
-    ///////////////////////////////////////////////
-	csParts.showPartAdd = function() {
-			var searchBox = csParts.partSearch;
-			var collection = rScope.collections.csParts;
-			var colAttrToCompare = "partNo"; 	
-
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
-
-
-    ///////////////////////////////////////////////////
-    // SHOW THE ADD PART REV LINK LOGIC FOR PART REVS //
-    ///////////////////////////////////////////////////
-	csParts.showPartRevAdd = function() {
-			var searchBox = csParts.partRevSearch;
-			var collection = rScope.collections.csPartRevs;
-			var colAttrToCompare = "revision"; 	
-
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
-			
-  
 });
 
 

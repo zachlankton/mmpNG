@@ -23,22 +23,6 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	};
 
 
-	//////////////////////////
-    // ADD CUSTOMER QUOTE   //
-    //////////////////////////
-	csQuotes.addQuote = function(){
-		var quoteTitle = csQuotes.quoteSearch;
-		var newEntity = $wakanda.$ds.CustomerQuotes.$create({
-                quoteTitle: quoteTitle,
-                quoteBy: rScope.currentUser.fullName,
-                customer: rScope.Customers.currentSelection
-            });
-
-		newEntity.$save().then(function(e) {
-			csQuotes.currentQuote = {};
-			csQuotes.getQuotes();
-		})
-	};
 
 	////////////////////////////////////////
     // SET THE CURRENTLY SELECTED QUOTE   //
@@ -72,7 +56,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // SET THE CURRENTLY SELECTED SUPPLIER QUOTE //
     ///////////////////////////////////////////////
 	csQuotes.setCurrentSpQuote = function(spQuote){
-		csQuotes.currentSupplierQuote = spQuote;
+		csQuotes.currentSupplierQuote = spQuote.spQuote;
 		csQuotes.currentSupplierQuote.show = true;
 	};
 
@@ -94,9 +78,8 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	/////////////////////////////////
     // ADD RELATED SUPPLIER QUOTE  //
     /////////////////////////////////
-	csQuotes.addSpQuote = function(){
+	csQuotes.addSpQuote = function(spQuoteNo){
 	    var curCustomer = rScope.Customers.currentSelection;
-		var spQuoteNo = csQuotes.spQuoteSearch;
 		var newEntity = $wakanda.$ds.SupplierQuotes.$create({
 		        customer: curCustomer,
                 quoteNo: spQuoteNo,
@@ -165,28 +148,17 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 		csQuotes.currentSupplierQuote = {};
 	});
 
-	///////////////////////////////////////////////
-    // SHOW THE ADD LINK LOGIC FOR QUOTES        //
-    ///////////////////////////////////////////////
-	csQuotes.showQuoteAdd = function() {
-			var searchBox = csQuotes.quoteSearch;
-			var collection = rScope.collections.csQuotes;
-			var colAttrToCompare = "quoteTitle"; 	
 
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
-
-
-    ///////////////////////////////////////////////////
-    // SHOW THE ADD LINK LOGIC FOR SUPPLIER QUOTES   //
-    ///////////////////////////////////////////////////
-	csQuotes.showSpQuoteAdd = function() {
-			var searchBox = csQuotes.spQuoteSearch;
-			var collection = rScope.collections.spQuotes;
-			var colAttrToCompare = "spQuoteNo"; 	
-
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
+    //////////////////////////////////////////
+    // CREATE NEW CUSTOMER QUOTE OBJECT //
+    //////////////////////////////////////////
+	csQuotes.csQuoteCreateObj = function(quoteTitle){
+	    var curCustomer = rScope.Customers.currentSelection;
+	    return {
+	        customer: curCustomer,
+	        quoteTitle: quoteTitle
+	    };
+	};
 			
   
 });

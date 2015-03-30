@@ -22,17 +22,11 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 	//////////////////////////
     // ADD CUSTOMER ADDRESS //
     //////////////////////////
-	csAddr.addAddress = function(){
-		var title = csAddr.addressSearch;
-		var newEntity = $wakanda.$ds.CsAddress.$create({
-                title: title,
-                customer: rScope.Customers.currentSelection
-            });
-
-		newEntity.$save().then(function(e) {
-			csAddr.currentAddress = {};
-			csAddr.getAddresses();
-		})
+	csAddr.createObj = function(title){
+		return {
+            title: title,
+            customer: rScope.Customers.currentSelection
+        };
 	};
 
 	////////////////////////////////////////
@@ -70,16 +64,6 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 		                          "&q=" + address;
     };
 
-	/////////////////////////////////////
-    // SHOW THE ADD CONTACT LINK LOGIC //
-    /////////////////////////////////////
-	csAddr.showAdd = function() {
-			var searchBox = csAddr.addressSearch;
-			var collection = rScope.collections.csAddresses;
-			var colAttrToCompare = "title"; 	
-
-            return rScope.showAdd(searchBox, collection, colAttrToCompare);
-        };
 
     //////////////////////////
     // SAVE CONTACT ADDRESS //
