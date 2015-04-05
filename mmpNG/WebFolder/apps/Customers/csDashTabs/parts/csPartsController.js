@@ -17,7 +17,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
     csParts.getParts = function(){
         csParts.currentPart = {};
         csParts.currentPartRev = {};
-		var curCustomer = rScope.Customers.currentSelection;
+		var curCustomer = rScope.current.Customer;
 		
 		rScope.collections.csParts = $wakanda.$ds.PartNumber.$find({
 			filter:'cName = :1',
@@ -32,7 +32,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	csParts.createPartObj = function(partNo){
 		return {
                 partNo: partNo,
-                customer: rScope.Customers.currentSelection
+                customer: rScope.current.Customer
             };
 	};
 
@@ -153,7 +153,7 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	//////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
     //////////////////////////////////////////
-	$scope.$watch('csParts.Customers.currentSelection', function(newValue, oldValue) {
+	$scope.$watch('csParts.current.Customer', function(newValue, oldValue) {
 		csParts.getParts();
 		csParts.currentPart = {};
 		csParts.currentPartRev = {};

@@ -13,6 +13,7 @@ csAppServices.factory('csAppData', function ($wakanda, $filter) {
     values.sideBarVisible = true;
     values.reusable = {modal: {templateUrl: ""} };
     values.collections = {};
+    values.current = {};
 
 
     ///////////////////////
@@ -21,16 +22,30 @@ csAppServices.factory('csAppData', function ($wakanda, $filter) {
     values.loadAllWAKData = function(){
          
          $wakanda.init().then(function oninit(ds) {
-            values.collections.Customers = ds.Customer.$find({pageSize:999999999});
-            values.collections.Suppliers = ds.Supplier.$find({pageSize:999999999});
+            values.collections.Customer = ds.Customer.$find({pageSize:999999999});
+            values.collections.Supplier = ds.Supplier.$find({pageSize:999999999});
          });
      };
+
+    var removeFromCollection = function(entity, dataClass){
+        var collection = values.collections[dataClass];
+        var i;
+        collection.forEach(function(val, index){
+            if (val.ID == entity.ID){i = index;}
+        });  
+        collection.splice(i, 1);
+    };
 
     values.confirmDelete = function(entity, refresh){
         values.reusable.modal.templateUrl = "/index.waPage/confirmDeleteModal.html";
         values.reusable.modal.confirmDelete = {};
         values.reusable.modal.confirmDelete.Yes = function(){
-            entity.$remove().then(function(){refresh();});
+            entity.$remove().then(function(){
+                if (refresh != undefined){refresh();}
+                var dataClass = entity.$_entity._private.dataClass.$name;
+                values.current[dataClass] = {};
+                removeFromCollection(entity, dataClass);
+            });
             $('#reusable-modal').modal("hide");
         };
         values.reusable.modal.confirmDelete.No = function(){$('#reusable-modal').modal("hide");};
@@ -74,8 +89,13 @@ angular.module('filters-module', [])
     return function(val) {
         return $sce.trustAsResourceUrl(val);
     };
-}])
-.filter('gDriveFolder', function(){
+}]).filter('gMap', function(){
+    return function(input){
+        input = input || "";
+        var mapUrl = "https://www.google.com/maps/embed/v1/place?key=AIzaSyBNr4BWiCJe7q9HyBoNw6c8v7nUzWxeSps&q=" + input;
+        return mapUrl; 
+    } ;
+}).filter('gDriveFolder', function(){
     return function(input){
         input = input || "";
         input = input.replace('/open?', '/embeddedfolderview?');

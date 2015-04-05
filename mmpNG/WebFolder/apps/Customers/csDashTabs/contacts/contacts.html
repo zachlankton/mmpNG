@@ -2,33 +2,31 @@
     <div class="col-md-12" ng-controller="csContactsController">
         <div class="row">
             <div class="col-md-3">
-
-            <search-add-list
-                collection = "csContact.collections.Contacts"
-                list-item-exp = "'{{name}}{{title ? &quot; - (&quot; + title + &quot;)&quot;:null}}'"
-                item-click="csContact.csContact.setCurrentContact"
-                sort-attr="name"
-                add-attr="name"
-                create-obj="csContact.csContact.createObj">
-            </search-add-list>
-                
+            <div wak-data="Contact" filter="Customer">
+                <search-add-list
+                    list-item-exp = "'{{name}}{{title ? &quot; - (&quot; + title + &quot;)&quot;:null}}'"
+                    sort-attr="name"
+                    add-attr="name"
+                    create-obj="createObj">
+                </search-add-list>
+            </div>
             </div> 
-            <div class="col-md-4" ng-show="csContact.csContact.currentContact.show">
+            <div class="col-md-4" wak-data="current.Contact" ng-show="entity.ID">
                 <h4><u>Contact Details</u></h4>
                 <form class="form-horizontal" >
                     <div class="form-group" >
                         <label class="col-sm-3 control-label">Photo</label>
                         <div class="col-sm-9">
-                            <img ng-show="csContact.csContact.currentContact.img" border="0" ng-src="{{csContact.csContact.currentContact.img | gDriveImg}}" 
+                            <img ng-show="entity.img" border="0" ng-src="{{entity.img | gDriveImg}}" 
                             style="width: 100%;">
-                            <input ng-blur="csContact.csContact.currentContact.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csContact.csContact.currentContact.img">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12" 
+                            ng-model="entity.img">
                         </div>
                     </div>
                     <div class="form-group" ng-repeat="field in csContact.csContact.fields">
                         <label class="col-sm-3 control-label">{{field.title}}</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csContact.csContact.currentContact.$save()" type="text" class="input-xs col-md-12" ng-model="csContact.csContact.currentContact[field.name]">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12" ng-model="entity[field.name]">
                         </div>
                     </div>
                     <div class="form-group">
@@ -40,40 +38,41 @@
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Notes</label>
                         <div class="col-sm-9">
-                            <textarea ng-blur="csContact.csContact.currentContact.$save()" class="form-control" rows="3" ng-model="csContact.csContact.currentContact.notes"></textarea>
+                            <textarea ng-blur="save()" class="form-control" rows="3" ng-model="entity.notes"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-9">
-                            <button class="btn btn-danger" type="button" ng-click="csContact.confirmDelete(csContact.csContact.currentContact, csContact.csContact.getCustomerContacts)">Delete Contact</button>
+                            <button class="btn btn-danger" type="button" ng-click="csContact.confirmDelete(entity)">Delete Contact</button>
                         </div>
                     </div>
                 </form>
                 
             </div> 
-            <div class="col-md-5" ng-show="csContact.csContact.currentContact.show">
+            <div class="col-md-5" wak-data="current.Contact" ng-show="entity.ID">
                 <h4><u>Contact Info</u></h4>
                 <ul class="list-group">
-                    <li class="list-group-item" ng-show="csContact.csContact.currentContact.addressAlias">
+                    <li class="list-group-item" ng-show="entity.addressAlias">
                         <iframe
                            
                             frameborder="0" style="border:0;width: 100%;height: 250px;"
-                            ng-src="{{csContact.csContact.addressMapURL | trustAsResourceUrl}}">
+                            ng-src="{{entity.addressAlias | gMap | trustAsResourceUrl}}">
                         </iframe>
                     </li>
-                    <li class="list-group-item" ng-show="csContact.csContact.currentContact.addressAlias">
-                        <textarea class="full-width form-control" rows="5" readonly>{{csContact.csContact.currentContact.addressAlias}}</textarea>
+                    <li class="list-group-item" ng-show="entity.addressAlias">
+                        <textarea class="full-width form-control" rows="5" readonly>{{entity.addressAlias}}</textarea>
                     </li>
-                    <li 
-                        ng-repeat="contactInfo in csContact.collections.ContactInfo | orderBy:'type'"
-                        class="list-group-item" >
-                        {{contactInfo.type}}: {{contactInfo.data}}
-                        <button ng-click="csContact.csContact.removeCInfo(contactInfo)" type="button" class="btn btn-default btn-xs">
-                            <span class="glyphicon glyphicon-trash"></span>
-                        </button>
-                    </li>
-
+                    <div wak-data="ContactInfo" filter="Contact">
+                        <li 
+                            ng-repeat="contactInfo in collection | orderBy:'type'"
+                            class="list-group-item" >
+                            {{contactInfo.type}}: {{contactInfo.data}}
+                            <button ng-click="wakDataDir.confirmDelete(contactInfo)" type="button" class="btn btn-default btn-xs">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </li>
+                    </div>
                     <li class="list-group-item">
                         <form class="form-inline">
                             <div class="form-group">

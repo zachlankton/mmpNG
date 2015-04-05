@@ -10,7 +10,7 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 	// GET CUSTOMER ADDRESSES //
 	////////////////////////////
     csAddr.getAddresses = function(){
-		var curCustomer = rScope.Customers.currentSelection;
+		var curCustomer = rScope.current.Customer;
 		
 		rScope.collections.csAddresses = $wakanda.$ds.CsAddress.$find({
 			filter:'cName = :1',
@@ -25,7 +25,7 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 	csAddr.createObj = function(title){
 		return {
             title: title,
-            customer: rScope.Customers.currentSelection
+            customer: rScope.current.Customer
         };
 	};
 
@@ -43,7 +43,7 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
 	//////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
     //////////////////////////////////////////
-	$scope.$watch('csAddr.Customers.currentSelection', function(newValue, oldValue) {
+	$scope.$watch('csAddr.current.Customer', function(newValue, oldValue) {
 		csAddr.getAddresses();
 		csAddr.currentAddress = {};
 	});
@@ -69,11 +69,11 @@ myApp.controller('csAddressesController', function ($scope, $wakanda, $filter, c
     // SAVE CONTACT ADDRESS //
     //////////////////////////
     csAddr.saveContactAddress = function(address){
-        rScope.csContact.currentContact.$_entity.address.setValue(address.$_entity);
+        rScope.current.Contact.$_entity.address.setValue(address.$_entity);
 
-        rScope.csContact.currentContact.$save()
+        rScope.current.Contact.$save()
         .then(function(e){
-            rScope.csContact.currentContact.addressAlias = address.address;
+            rScope.current.Contact.addressAlias = address.address;
             rScope.csContact.addressMapURL = "https://www.google.com/maps/embed/v1/place?key=" + rScope.googleAPIkey + 
                               "&q=" + address.address;
             rScope.reusable.modal.templateUrl = "";

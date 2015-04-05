@@ -5,9 +5,9 @@
 
 -->
 <ul class="nav nav-sidebar">
-    <div ng-class="cl.Customers.currentSelection.show ? 'input-group' : 'form-group' " >
+    <div ng-class="cl.current.Customer.show ? 'input-group' : 'form-group' " >
         
-             <span  title="Hide Side Bar" ng-show="cl.Customers.currentSelection.show"
+             <span  title="Hide Side Bar" ng-show="cl.current.Customer.show"
                     ng-click="templates.sideBarVisible = false" 
                     class="btn btn-primary input-group-addon glyphicon glyphicon-chevron-left">
              </span>
@@ -20,9 +20,9 @@
 </ul>
 <ul class="nav nav-sidebar" style="height:300px; overflow:auto;">
    
-    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:{lead: 'false'} | filter:cl.Customers.searchText | orderBy:'name') " 
+    <li ng-repeat="customer in testValue=(cl.collections.Customer | filter:{lead: 'false'} | filter:cl.Customers.searchText | orderBy:'name') " 
     ng-click="cl.Customers.selectCS(customer)"
-    ng-class="{active:cl.Customers.currentSelection.name == customer.name}">
+    ng-class="{active:cl.current.Customer.name == customer.name}">
         <a href="#">{{customer.name}}</a>
     </li>
    
@@ -37,9 +37,9 @@
 
 <ul class="nav nav-sidebar" style="height:300px; overflow:auto;">
    
-    <li ng-repeat="customer in testValue=(cl.collections.Customers | filter:{lead: 'true'} | filter:cl.Customers.searchText | orderBy:'name') " 
+    <li ng-repeat="customer in testValue=(cl.collections.Customer | filter:{lead: 'true'} | filter:cl.Customers.searchText | orderBy:'name') " 
     ng-click="cl.Customers.selectCS(customer)"
-    ng-class="{active:cl.Customers.currentSelection.name == customer.name}">
+    ng-class="{active:cl.current.Customer.name == customer.name}">
         <a href="#">{{customer.name}}</a>
     </li>
    

@@ -1,17 +1,17 @@
-<div ng-show="cd.Customers.currentSelection.show">
+<div ng-show="cd.current.Customer.ID">
     <div style="display:inline;" ng-class="templates.sideBarVisible ? 'hidden' : ''">
         <button title="Show Side Bar" type="button" class="btn btn-primary" ng-click="templates.sideBarVisible = true">
              <span class="glyphicon glyphicon-chevron-right"></span>
         </button>
     </div>
-    {{cd.Customers.currentSelection.name}}
+    {{cd.current.Customer.name}}
 </div>
 
-<ul ng-show="cd.Customers.currentSelection.show"
+<ul ng-show="cd.current.Customer.ID"
 class="nav nav-tabs nav-justified">
     <li role="presentation" ng-repeat="tab in cd.csTabs" ng-class="{active:cd.Customers.activeTab(tab)}"
     ng-click="cd.Customers.currentTab = tab">
         <a href="#">{{tab.title}}</a>
     </li>   
 </ul>
-<div ng-show="cd.Customers.currentSelection.show" class="well container-fluid" ng-include="cd.Customers.currentTab.templateUrl"></div>
+<div ng-show="cd.current.Customer.ID" class="well container-fluid" ng-include="cd.Customers.currentTab.templateUrl"></div>

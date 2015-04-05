@@ -12,20 +12,6 @@
                 createObj = "csAddr.csAddr.createObj">
             </search-add-list>
                 
-<!--                 <input class="input full-width" placeholder="Search or Add" ng-model="csAddr.csAddr.addressSearch" />
-               
-                <ul class="list-group" style="border: 1px solid;height: 500px;overflow: auto;">
-                    <a  href="#" 
-                        ng-repeat="address in csAddr.collections.csAddresses | filter:csAddr.csAddr.addressSearch | orderBy:'title'"
-                        ng-class="{active: csAddr.csAddr.currentAddress == address}" 
-                        ng-click="csAddr.csAddr.setCurrentAddress(address)" 
-                        class="list-group-item" >
-                        {{address.title}}
-                    </a>
-                    <li ng-show="csAddr.csAddr.showAdd()" class="list-group-item">
-                        <a href="#" ng-click="csAddr.csAddr.addAddress(address)">ADD ADDRESS (Title): '{{csAddr.csAddr.addressSearch}}'</a>
-                    </li>
-                </ul> -->
             </div> 
             <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.show">
                 <h4><u>Address Details</u></h4>

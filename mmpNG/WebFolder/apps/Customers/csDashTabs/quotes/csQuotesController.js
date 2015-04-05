@@ -13,7 +13,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	///////////////////////////
     csQuotes.getQuotes = function(){
         csQuotes.currentQuote = {};
-		var curCustomer = rScope.Customers.currentSelection;
+		var curCustomer = rScope.current.Customer;
 		
 		rScope.collections.csQuotes = $wakanda.$ds.CustomerQuotes.$find({
 			filter:'cName = :1',
@@ -79,7 +79,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // ADD RELATED SUPPLIER QUOTE  //
     /////////////////////////////////
 	csQuotes.addSpQuote = function(spQuoteNo){
-	    var curCustomer = rScope.Customers.currentSelection;
+	    var curCustomer = rScope.current.Customer;
 		var newEntity = $wakanda.$ds.SupplierQuotes.$create({
 		        customer: curCustomer,
                 quoteNo: spQuoteNo,
@@ -115,7 +115,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // SELECT EXISTING SUPPLIER QUOTE  //
     /////////////////////////////////////
 	csQuotes.selectExistingSupplierQuote = function(spQuote){
-        var curCustomer = rScope.Customers.currentSelection.name;
+        var curCustomer = rScope.current.Customer.name;
         rScope.SAM.selectExistingSpQuote(csQuotes.relateExistingSupplierQuote, curCustomer);
 	};
 
@@ -135,14 +135,14 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     //////////////////////////////////////////
 	csQuotes.selectCustomerContact = function(){
 	    var entity = csQuotes.currentQuote;
-	    var customer = rScope.Customers.currentSelection;
+	    var customer = rScope.current.Customer;
         rScope.SAM.csContacts(entity, "contact", customer);
 	};
 
 	//////////////////////////////////////////
     // WATCH FOR CUSTOMER SELECTION CHANGES //
     //////////////////////////////////////////
-	$scope.$watch('csQuotes.Customers.currentSelection', function(newValue, oldValue) {
+	$scope.$watch('csQuotes.current.Customer', function(newValue, oldValue) {
 		csQuotes.getQuotes();
 		csQuotes.currentQuote = {};
 		csQuotes.currentSupplierQuote = {};
@@ -153,7 +153,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // CREATE NEW CUSTOMER QUOTE OBJECT //
     //////////////////////////////////////////
 	csQuotes.csQuoteCreateObj = function(quoteTitle){
-	    var curCustomer = rScope.Customers.currentSelection;
+	    var curCustomer = rScope.current.Customer;
 	    return {
 	        customer: curCustomer,
 	        quoteTitle: quoteTitle

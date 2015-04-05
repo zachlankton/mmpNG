@@ -11,7 +11,6 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
         
         rMod.collection = options.collection;
         rMod.selectedItem = options.selectedItem; 
-        rMod.listItemExp = options.listItemExp;
         rMod.itemClick = options.itemClick;
         rMod.addItem = options.addItem;
         rMod.createObj = options.createObj;
@@ -223,7 +222,7 @@ csAppServices.directive('searchAddList', function() {
         searchPlaceHolder: '@',
         searchAddText: '@',
         search: '@',
-        collection: '=',
+        collection: '=?',
         sortAttr: '@',
         sortDesc: '@',
         itemClick: '=',
@@ -233,7 +232,21 @@ csAppServices.directive('searchAddList', function() {
     },
     templateUrl: 'search-add-list.html',
     
-    controller: function($scope, $interpolate, $filter){
+    compile: function(tElement, tAttrs){
+        if (tAttrs.collection == undefined){
+            tAttrs.collection = "collection";
+        }
+        if (tAttrs.listItemExp == undefined){
+            tAttrs.listItemExp = "'{{ID}}'";
+        }
+    },
+
+    controller: function($scope, $interpolate, $timeout, $filter, csAppData){
+        
+        $scope.rScope = csAppData.getData();
+        var rScope = $scope.rScope;
+
+        
         $scope.search = $scope.search || "";
         $scope.searchAddText = $scope.searchAddText || "ADD"
 
@@ -258,13 +271,14 @@ csAppServices.directive('searchAddList', function() {
             var createObj = {};
             if ($scope.createObj != undefined){
                 createObj = $scope.createObj(value);
-            }else{
-                createObj[$scope.addAttr] = value;
             }
+                createObj[$scope.addAttr] = value;
+            
             
             var newEntity = dataClass.$create(createObj);
             newEntity.$save().then(function(){
                 $scope.collection.push(newEntity);
+                $scope._itemClick(newEntity);
             });
         };
 
@@ -272,11 +286,16 @@ csAppServices.directive('searchAddList', function() {
         $scope._itemClick = function(item){
             $scope._selectedItem = item;
             if ($scope.selectedItem != undefined){
-                $scope.selectedItem = item;    
+                $scope.selectedItem = item;
+                return 0;    
             }
             if ($scope.itemClick != undefined){
                 $scope.itemClick(item);    
+                return 0;
             }
+            var dataClass = $scope.collection.$_collection._private.dataClass.$name;
+            rScope.current[dataClass] = {};
+            $timeout(function(){rScope.current[dataClass] = item;},0);
         };
 
         $scope.showAdd = function(){
