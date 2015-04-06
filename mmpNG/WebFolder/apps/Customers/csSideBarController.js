@@ -11,7 +11,12 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
         	sc.current.Customer = {};	
         }
 		
-		sc.Customers.selectCS = function(customer){
+		sc.Customers.selectCS = function(customer){    
+		    for (key in sc.current){
+                if (key != "Customer"){
+                    delete(sc.current[key]);
+                }
+		    }
 			sc.current.Customer = customer;
 		};
 

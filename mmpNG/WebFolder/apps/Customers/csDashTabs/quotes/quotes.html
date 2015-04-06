@@ -1,44 +1,41 @@
-<div class="row" ng-controller="csQuotesController">
+<div wak-data="Customer" class="row" ng-controller="csQuotesController">
     <div class="col-md-3" >
         <div>
             <p><u>Quotes</u></p>
-            
-            <search-add-list
-                collection="csQuotes.collections.csQuotes"
-                list-item-exp="'{{quoteTitle}} - {{ID}}'"
-                item-click="csQuotes.csQuotes.setCurrentQuote"
-                sort-attr="modified"
-                sort-desc="true"
-                add-attr="quoteTitle"
-                create-obj="csQuotes.csQuotes.csQuoteCreateObj">
-            </search-add-list>
-
+            <div wak-data="CustomerQuotes" filter="Customer">
+                <search-add-list
+                    list-item-exp="'{{quoteTitle}} - {{ID}}'"
+                    sort-attr="modified"
+                    sort-desc="true"
+                    add-attr="quoteTitle"
+                    create-obj="createObj">
+                </search-add-list>
+            </div>
         </div>
-        <div ng-show="csQuotes.csQuotes.currentQuote.show">
+        <div    wak-data="CustomerSupplierQuotes" filter="CustomerQuotes" 
+                wak-select="spQuote" ng-show="current.CustomerQuotes.ID">
             <p style="display: inline-block"><u>Supplier Quotes</u></p> 
             <button ng-click="csQuotes.csQuotes.selectExistingSupplierQuote()" 
             style="float:right;" class="btn btn-xs btn-primary">Add Existing</button>
 
             <search-add-list
-                collection="csQuotes.collections.spQuotes"
                 list-item-exp="'{{spQuote.quoteNo}} - {{spQuote.sName}}'"
-                item-click="csQuotes.csQuotes.setCurrentSpQuote"
                 sort-attr="sName"
-                add-attr="quoteNo"
-                add-item="csQuotes.csQuotes.addSpQuote">
+                add-attr="spQuote.quoteNo"
+                create-obj="createObj">
             </search-add-list>
             
         </div>
     </div>
-    <div 	ng-form="csQuotes.csQuotes.currentQuoteForm" 
+    <div 	
 			class="col-md-9" 
-			ng-show="csQuotes.csQuotes.currentQuote.show  && !csQuotes.csQuotes.currentSupplierQuote.show"
+			ng-show="current.CustomerQuotes.ID  && !current.CustomerSupplierQuotes.ID"
 			ng-include="'/apps/Customers/csDashTabs/quotes/csQuoteForm.html'">
     </div>
 
-    <div 	ng-form="csQuotes.csQuotes.currentSpQuoteForm" 
+    <div 	 
 			class="col-md-9" 
-			ng-show="csQuotes.csQuotes.currentSupplierQuote.show"
+			ng-show="current.CustomerSupplierQuotes.ID"
 			ng-include="'/apps/Customers/csDashTabs/quotes/spQuoteForm.html'"
 			ng-controller="spQuoteFormController">
     </div>

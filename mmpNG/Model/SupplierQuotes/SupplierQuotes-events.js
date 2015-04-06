@@ -14,3 +14,4 @@ model.SupplierQuotes.events.remove = function(event) {
 	this.supplierQuoteLineCollection.remove();
 	this.customerSupplierQuotesCollection.remove();
 };
+

@@ -9,155 +9,29 @@ myApp.controller('csPartsController', function ($scope, $wakanda, $filter, csApp
 	var ot = csParts.opTypes = [];
 	ot.push("Internal");
 	ot.push("External");
-   
-   
-    ///////////////////////////
-	// GET CUSTOMER PARTS    //
-	///////////////////////////
-    csParts.getParts = function(){
-        csParts.currentPart = {};
-        csParts.currentPartRev = {};
-		var curCustomer = rScope.current.Customer;
-		
-		rScope.collections.csParts = $wakanda.$ds.PartNumber.$find({
-			filter:'cName = :1',
-			params:[curCustomer.name],
-			pageSize:999999999
-		});	
-	};
-
-	//////////////////////////
-    // ADD CUSTOMER PART    //
-    //////////////////////////
-	csParts.createPartObj = function(partNo){
-		return {
-                partNo: partNo,
-                customer: rScope.current.Customer
-            };
-	};
-
-	//////////////////////////////
-    // ADD RELATED PART REV     //
-    //////////////////////////////
-	csParts.createPartRevObj = function(partRev){
-		return {
-                revision: partRev,
-                part: csParts.currentPart
-            };
-	};
-
-	////////////////////////////////////////
-    // SET THE CURRENTLY SELECTED PART    //
-    ////////////////////////////////////////
-	csParts.setCurrentPart = function(part){
-		csParts.currentPart = part;
-		csParts.currentPart.show = true;
-		csParts.getPartRevs();
-		csParts.currentPartRev = {};
-	};
-
-	/////////////////////////////////////////
-    // SET THE CURRENTLY SELECTED PART REV //
-    /////////////////////////////////////////
-	csParts.setCurrentPartRev = function(partRev){
-		csParts.currentPartRev = partRev;
-		csParts.currentPartRev.show = true;
-		csParts.getPartsRouting();
-	};
-
-
-	//////////////////////////////
-    // GET RELATED PART REVS    //
-    //////////////////////////////
-	csParts.getPartRevs = function(){
-	    csParts.currentPartRev = {};
-		var curPart = csParts.currentPart;
-
-		rScope.collections.csPartRevs = $wakanda.$ds.PartRev.$find({
-			filter: 'partNo = :1',
-			params: [curPart.partNo],
-			pageSize: 999999999
-		});
-	};
-
-    ///////////////////////////////////
-    // GET RELATED PART REVS ROUTING //
-    ///////////////////////////////////
-	csParts.getPartsRouting = function(){
-	    var curPartRev = csParts.currentPartRev;
-
-	    rScope.collections.PartsRouting = $wakanda.$ds.Routing.$find({
-	        filter: 'partRev.ID = :1',
-	        params: [curPartRev.ID],
-	        pageSize: 999999999
-	    });
-	};
-
-    ///////////////////////////////////
-    // ADD PART ROUTING STEP         //
-    ///////////////////////////////////
-	csParts.addPartRoutingStep = function(){
-        var rToAdd = csParts.routeToAdd;
-        if (rToAdd == undefined){return 0;}
-        if (rToAdd.sqLine == undefined){return 0;}
-        var sqLine = rToAdd.sqLine;
-        var partRev = csParts.currentPartRev;
-        var stepNo = rToAdd.stepNo;
-        var opType = rToAdd.opType;
-
-		var newEntity = $wakanda.$ds.Routing.$create({
-                supplierQuoteLine: sqLine,
-                partRev: partRev,
-                stepNo: stepNo,
-                opType: opType
-            });
-
-		newEntity.$save().then(function(e) {
-			
-			csParts.getPartsRouting();
-			csParts.routeToAdd = {};
-			
-		});
-	};
-
-
+  
     ///////////////////////////////////
     // SELECT SUPPLIER QUOTE LINE    //
     ///////////////////////////////////
-	csParts.selectSupplierQuoteLine = function(){
+	csParts.selectSupplierQuoteLine = function(routeToAddObj){
 
-	    if (csParts.currentPartRev.quoteNo == undefined){
+	    if (rScope.current.PartRev.quoteNo == undefined){
             alert ("You Need to Associate a Customer Quote with this part first!");
             return 0;
 	    }
-	    var search = csParts.currentPart.partNo;
-	    if (csParts.routeToAdd == undefined){csParts.routeToAdd = {};}
-	    rScope.SAM.partsRoutingQuoteLines(csParts.routeToAdd, search)
+	    var search = rScope.current.PartNumber.partNo;
+	    rScope.SAM.partsRoutingQuoteLines(routeToAddObj, search)
 	};
-
-
-
-	
 
 	//////////////////////////////
     // SELECT CUSTOMER QUOTE    //
     //////////////////////////////
     csParts.selectQuoteLine = function(){
-        var search = csParts.currentPart.partNo;
-        var curPartRev = csParts.currentPartRev;
+        var search = rScope.current.PartNumber.partNo;
+        var curPartRev = rScope.current.PartRev;
         var attr = "quoteLineRef"
         rScope.SAM.csQuoteLines(curPartRev, attr, search);
     };
-
-
-	//////////////////////////////////////////
-    // WATCH FOR CUSTOMER SELECTION CHANGES //
-    //////////////////////////////////////////
-	$scope.$watch('csParts.current.Customer', function(newValue, oldValue) {
-		csParts.getParts();
-		csParts.currentPart = {};
-		csParts.currentPartRev = {};
-	});
 
 });
 

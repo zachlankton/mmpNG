@@ -116,7 +116,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     ////////////////////////////////
     values.SAM.csQuoteLines = function(entity, attribute, search){
         search = search || "";
-        var curCustomer = values.Customers.currentSelection;
+        var curCustomer = values.current.Customer;
 
         var collection = $wakanda.$ds.CsQuoteLineItems.$find({
             filter: 'customerName = :1',
@@ -146,7 +146,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////////////////////////////
     values.SAM.partsRoutingQuoteLines = function(attribute, search){
         search = search || "";
-        var curPartRevQuoteNo = values.csParts.currentPartRev.quoteNo;
+        var curPartRevQuoteNo = values.current.PartRev.quoteNo;
         
         var collection = $wakanda.$ds.SupplierQuoteLine.$find({
             filter: 'spQuoteRef.customerSupplierQuotesCollection.csQuoteNo = :1',
@@ -155,7 +155,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
         });
 
         var setRouteQLine = function(qLine){
-            attribute.sqLine = qLine;
+            attribute.supplierQuoteLine = qLine;
         };
 
         values.searchAddModal({
@@ -232,6 +232,9 @@ csAppServices.directive('searchAddList', function() {
     },
     templateUrl: 'search-add-list.html',
     
+    /////////////
+    // COMPILE //
+    /////////////
     compile: function(tElement, tAttrs){
         if (tAttrs.collection == undefined){
             tAttrs.collection = "collection";
@@ -241,12 +244,14 @@ csAppServices.directive('searchAddList', function() {
         }
     },
 
+    ////////////////
+    // CONTROLLER //
+    ////////////////
     controller: function($scope, $interpolate, $timeout, $filter, csAppData){
         
         $scope.rScope = csAppData.getData();
         var rScope = $scope.rScope;
 
-        
         $scope.search = $scope.search || "";
         $scope.searchAddText = $scope.searchAddText || "ADD"
 
@@ -255,18 +260,35 @@ csAppServices.directive('searchAddList', function() {
             $scope.searchPlaceHolder = $scope.searchPlaceHolder = "Search or Add";
         }
 
+        ///////////////
+        // LIST ITEM //
+        ///////////////
         $scope.listItem = function(item){
             var exp = $interpolate($scope.listItemExp);
             return exp(item);
         };
 
+        //////////////
+        // ADD ITEM //
+        //////////////
         $scope._addItem = function(value){
             if ($scope.addAttr == undefined){return 0;}
             if ($scope.addItem != undefined){
                 $scope.addItem(value);
                 return 0;
             }
+
+            var nameSpaces = $scope.addAttr.split(".");
+            if (nameSpaces.length > 2){console.log("Cannot Nest more than 2 add attributes!"); return 0;}
+            if (nameSpaces.length == 1){simpleAdd(value);}
+            if (nameSpaces.length == 2){advancedAdd(value, nameSpaces);}
             
+        };
+
+        ////////////////
+        // SIMPLE ADD //
+        ////////////////
+        var simpleAdd = function(value){
             var dataClass = $scope.collection.$_collection._private.dataClass;
             var createObj = {};
             if ($scope.createObj != undefined){
@@ -279,10 +301,37 @@ csAppServices.directive('searchAddList', function() {
             newEntity.$save().then(function(){
                 $scope.collection.push(newEntity);
                 $scope._itemClick(newEntity);
+            });    
+        };
+
+        //////////////////
+        // ADVANCED ADD //
+        //////////////////
+        var advancedAdd = function(value, nameSpace){
+            var parentClass = $scope.collection.$_collection._private.dataClass;
+            var childClass = $scope.collection.$_collection._private.dataClass[nameSpace[0]].relatedClass
+            var createObj = {};
+            if ($scope.createObj != undefined){
+                createObj = $scope.createObj(value);
+            }
+                  
+
+            var childCreateObj = {};
+            childCreateObj[nameSpace[1]] = value;
+            var newChild = childClass.$create(childCreateObj);
+            newChild.$save().then(function(){
+                createObj[nameSpace[0]] = newChild;
+                var newEntity = parentClass.$create(createObj);
+                newEntity.$save().then(function(){
+                    $scope.collection.push(newEntity);
+                    $scope._itemClick(newEntity);
+                });
             });
         };
 
-
+        ////////////////
+        // ITEM CLICK //
+        ////////////////
         $scope._itemClick = function(item){
             $scope._selectedItem = item;
             if ($scope.selectedItem != undefined){
@@ -298,6 +347,9 @@ csAppServices.directive('searchAddList', function() {
             $timeout(function(){rScope.current[dataClass] = item;},0);
         };
 
+        ///////////////////
+        // SHOW ADD LINK //
+        ///////////////////
         $scope.showAdd = function(){
             if ($scope.addAttr == undefined || $scope.addAttr == ""){return false};
 
@@ -310,10 +362,16 @@ csAppServices.directive('searchAddList', function() {
             }
 
             var results = ($filter('filter')(collection, function(val, index) { 
-                if (val[attrToCompare] == null) {
+                var nameSpaces = attrToCompare.split(".");
+                var attrVal = val[nameSpaces[0]];
+                nameSpaces.forEach(function(name, indx){
+                    if (indx != 0){attrVal = attrVal[name];}
+                });
+
+                if (attrVal == null) {
                     return false;   
                 }
-                if (val[attrToCompare].toLowerCase() == searchBox.toLowerCase()) {
+                if (attrVal.toLowerCase() == searchBox.toLowerCase()) {
                     return true;  
                 }
             }));

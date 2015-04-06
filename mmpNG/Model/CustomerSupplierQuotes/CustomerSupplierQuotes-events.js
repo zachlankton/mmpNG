@@ -16,3 +16,12 @@ model.CustomerSupplierQuotes.events.validate = function(event) {
 
 	return true;
 };
+
+
+model.CustomerSupplierQuotes.events.save = function(event) {
+	if (this.spQuote.customer == undefined){
+		var customer = this.csQuote.customer;
+		this.spQuote.customer = customer;
+		this.spQuote.save();
+	}
+};

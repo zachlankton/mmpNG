@@ -1,96 +1,95 @@
 <div class="row">
     <div class="col-md-12" ng-controller="csAddressesController">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" wak-data="CsAddress" filter="Customer">
 
-            <search-add-list
-                collection = "csAddr.collections.csAddresses"
-                list-item-exp = "'{{title}}'"
-                item-click = "csAddr.csAddr.setCurrentAddress"
-                sort-attr = "title"
-                add-attr = "title"
-                createObj = "csAddr.csAddr.createObj">
-            </search-add-list>
+                <search-add-list
+                    list-item-exp = "'{{title}}'"
+                    sort-attr = "title"
+                    add-attr = "title"
+                    create-obj = "createObj">
+                </search-add-list>
+            
                 
             </div> 
-            <div class="col-md-4" ng-show="csAddr.csAddr.currentAddress.show">
+            <div class="col-md-4" ng-form="wakDataForm" wak-data="current.CsAddress" ng-show="entity.ID">
                 <h4><u>Address Details</u></h4>
                 <form class="form-horizontal" >
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Title</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csAddr.csAddr.currentAddress.title">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12 auto-save" 
+                            ng-model="entity.title">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Address</label>
                         <div class="col-sm-9">
                             <textarea ng-change="csAddr.csAddr.updateMap()" 
-                            ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="5" 
-                            ng-model="csAddr.csAddr.currentAddress.address"></textarea>
+                            ng-blur="save()" class="form-control auto-save" rows="5" 
+                            ng-model="entity.address"></textarea>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Description</label>
                         <div class="col-sm-9">
-                            <textarea ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="3" 
-                            ng-model="csAddr.csAddr.currentAddress.description"></textarea>
+                            <textarea ng-blur="save()" class="form-control auto-save" rows="3" 
+                            ng-model="entity.description"></textarea>
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label class="col-sm-3 control-label">Notes</label>
                         <div class="col-sm-9">
-                            <textarea ng-blur="csAddr.csAddr.currentAddress.$save()" class="form-control" rows="3" 
-                            ng-model="csAddr.csAddr.currentAddress.notes"></textarea>
+                            <textarea ng-blur="save()" class="form-control auto-save" rows="3" 
+                            ng-model="entity.notes"></textarea>
                         </div>
                     </div>
                     
                      <div class="form-group">
                         <label class="col-sm-3 control-label">Ship Vendor</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csAddr.csAddr.currentAddress.shipVendor">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12 auto-save" 
+                            ng-model="entity.shipVendor">
                         </div>
                     </div>
                      <div class="form-group">
                         <label class="col-sm-3 control-label">Ship Acct</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csAddr.csAddr.currentAddress.shipAcct">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12 auto-save" 
+                            ng-model="entity.shipAcct">
                         </div>
                     </div>
                      <div class="form-group">
                         <label class="col-sm-3 control-label">Ship Method</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csAddr.csAddr.currentAddress.shipMethod">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12 auto-save" 
+                            ng-model="entity.shipMethod">
                         </div>
                     </div>
                      <div class="form-group">
                         <label class="col-sm-3 control-label">Ship Terms</label>
                         <div class="col-sm-9">
-                            <input ng-blur="csAddr.csAddr.currentAddress.$save()" type="text" class="input-xs col-md-12" 
-                            ng-model="csAddr.csAddr.currentAddress.shipTerms">
+                            <input ng-blur="save()" type="text" class="input-xs col-md-12 auto-save" 
+                            ng-model="entity.shipTerms">
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-3 control-label"></label>
                         <div class="col-sm-9">
-                            <button class="btn btn-danger" type="button" ng-click="csAddr.confirmDelete(csAddr.csAddr.currentAddress, csAddr.csAddr.getAddresses)">Delete Address</button>
+                            <button class="btn btn-danger" type="button" ng-click="wakDataDir.confirmDelete(entity)">Delete Address</button>
                         </div>
                     </div>
                 </form>
                 
             </div> 
-            <div class="col-md-5" ng-show="csAddr.csAddr.currentAddress.show">
+            <div class="col-md-5" wak-data="current.CsAddress" ng-show="entity.ID">
                 <ul class="list-group">
-                    <li class="list-group-item" ng-show="csAddr.csAddr.currentAddress.address">
+                    <li class="list-group-item" ng-show="entity.address">
                         <iframe
                             
                             frameborder="0" style="border:0;width: 100%;height: 400px;"
-                            ng-src="{{csAddr.csAddr.addressMapURL | trustAsResourceUrl}}">
+                            ng-src="{{entity.address | gMap | trustAsResourceUrl}}">
                         </iframe>
                     </li>
                     

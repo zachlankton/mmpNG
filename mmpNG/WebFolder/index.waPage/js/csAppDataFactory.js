@@ -27,7 +27,7 @@ csAppServices.factory('csAppData', function ($wakanda, $filter) {
          });
      };
 
-    var removeFromCollection = function(entity, dataClass){
+    values.removeFromCollection = function(entity, dataClass){
         var collection = values.collections[dataClass];
         var i;
         collection.forEach(function(val, index){
@@ -44,7 +44,7 @@ csAppServices.factory('csAppData', function ($wakanda, $filter) {
                 if (refresh != undefined){refresh();}
                 var dataClass = entity.$_entity._private.dataClass.$name;
                 values.current[dataClass] = {};
-                removeFromCollection(entity, dataClass);
+                values.removeFromCollection(entity, dataClass);
             });
             $('#reusable-modal').modal("hide");
         };
