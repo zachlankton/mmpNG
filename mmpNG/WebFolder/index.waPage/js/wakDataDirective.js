@@ -11,6 +11,7 @@ csAppServices.directive('wakData', function(){
             $scope.wakDataDir = csAppData.getData();
             var rScope = $scope.wakDataDir;
             $scope.current = rScope.current;
+            $scope.collection = {};
 
             //////////
             // INIT //
@@ -20,6 +21,7 @@ csAppServices.directive('wakData', function(){
                 if (testData == undefined){  //if it is undefined it is expected that it is a wkDataClass Name
                     try{
                         var test = rScope.current[$attrs.wakData].ID; // Check if data has already been loaded and selected
+                        if (test == undefined){throwUndefinedErrorFunction();}
                         $scope.collection = rScope.collections[$attrs.wakData];  // if so reuse it
                     }catch(err){
                         $scope.getCollection();    // if not, call the server to fetch the collection
@@ -49,8 +51,15 @@ csAppServices.directive('wakData', function(){
             var getDataClassName = function(){
                 var test = testDataAttr();
                 if (test == undefined){return $attrs.wakData;}
-                else {return test.$_entity._private.dataClass.$name;}
+                if (test.$_entity != undefined) {
+                    return test.$_entity._private.dataClass.$name;
+                } return undefined;
             };
+
+            /////////////////
+            // CONSOLE LOG //
+            /////////////////
+            $scope.console = function(obj){console.log(obj);}
 
 
             ////////////////////
@@ -58,10 +67,13 @@ csAppServices.directive('wakData', function(){
             ////////////////////
             $scope.getCollection = function(){
                 var dClass = $attrs.wakData;
+                if ($wakanda.$ds[dClass] == undefined){return 0;}
                 var filterObj = getFilterObj();
                 filterObj.pageSize = 999999999;
 
                 rScope.current[dClass] = {};
+
+                if (filterObj == "PARAMS_NOT_AVAILABLE"){return 0;}
 
                 $scope.collection = 
                 rScope.collections[dClass] = $wakanda.$ds[dClass].$find(filterObj);
@@ -75,9 +87,8 @@ csAppServices.directive('wakData', function(){
                 var typeOfFilter = getTypeOfFilter();
                 var filterObj = {};
                 if (typeOfFilter == undefined){ filterObj =  getAdvancedFilter(); }
-
-                filterObj = getSimpleFilter(typeOfFilter);
-
+                else { filterObj = getSimpleFilter(typeOfFilter); }
+                
                 if ($attrs.wakSelect != undefined){
                     filterObj.select = $attrs.wakSelect;
                 }
@@ -124,7 +135,7 @@ csAppServices.directive('wakData', function(){
                 if ($attrs.params != undefined && $attrs.params == "") {return 0;}
 
                 var iParams = getParams();
-                if(testParams(iParams) == false){return 0;}
+                if(testParams(iParams) == false){return "PARAMS_NOT_AVAILABLE";}
                 filterObj.params = iParams; 
                 return filterObj;
             };
@@ -157,7 +168,7 @@ csAppServices.directive('wakData', function(){
                         var intrp = $interpolate("{{"+val+"}}");
                         iParams.push(intrp($scope));
                     });
-
+                    
                     return iParams;
                 }
             }
@@ -180,6 +191,8 @@ csAppServices.directive('wakData', function(){
             /////////////////////////////////////
             $scope.getAllData = function(data){
                 $scope.entity = data;
+                var dClass = getDataClassName();
+                $scope.collection = rScope.collections[dClass];
             };
 
             ///////////////////
@@ -204,7 +217,7 @@ csAppServices.directive('wakData', function(){
                 var dClass = getDataClassName();
                 var newEntity = $wakanda.$ds[dClass].$create(createObj);
                 newEntity.$save().then(function(){
-                    rScope.collections[dClass].push(newEntity);
+                    $scope.collection.push(newEntity);
                     clearFormObject(cObject);
                 });
             };
@@ -223,11 +236,22 @@ csAppServices.directive('wakData', function(){
             /////////////////////
             $scope.remove = function(entity){
                 entity = entity || $scope.entity;
-                var dClass = getDataClassName();
                 entity.$remove().then(function(){
-                    rScope.removeFromCollection(entity, dClass);    
+                    removeFromLocalCollection(entity);    
                 });
             };
+
+            //////////////////////////////////
+            // REMOVE FROM LOCAL COLLECTION //
+            //////////////////////////////////
+            var removeFromLocalCollection = function(entity){
+                var collection = $scope.collection;
+                var i;
+                collection.forEach(function(val, index){
+                    if (val.ID == entity.ID){i = index;}
+                });  
+                collection.splice(i, 1);
+            }
 
             ////////////////////////////
             // CREATE OBJECT FUNCTION //

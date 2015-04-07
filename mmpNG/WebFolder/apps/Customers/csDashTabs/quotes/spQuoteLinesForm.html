@@ -1,15 +1,15 @@
 <h5>Line Items</h5>
-<div class="row" style="border:1px solid;" ng-repeat="qLine in spQuotes.collections.spQuoteLines | orderBy:'lineID'">
+<div class="row" style="border:1px solid;" ng-repeat="qLine in collection | orderBy:'lineID'">
 
     <div class="col-md-1 less-col-padding">
         <div class="form-group form-group-tiny">
             <label>Line No</label>
             <input type="number" class="form-control auto-save input-tiny"
                     ng-model="qLine.lineID"
-                    ng-blur="spQuotes.spQuotes.saveQuoteLine(qLine)">
+                    ng-blur="save(qLine)">
         </div>
         
-        <button type="button" class="btn btn-danger" ng-click="spQuotes.spQuotes.remove(qLine)">
+        <button type="button" class="btn btn-danger" ng-click="remove(qLine)">
             <span class="glyphicon glyphicon-trash"></span>
         </button>
     </div> <!-- End Column -->
@@ -19,19 +19,19 @@
             <label>Part No</label>
             <input class="form-control auto-save input-tiny"
                     ng-model="qLine.partNo"
-                    ng-blur="spQuotes.spQuotes.saveQuoteLine(qLine)">
+                    ng-blur="save(qLine)">
         </div>
         <div class="form-group form-group-tiny">
             <label>Part Rev</label>
             <input class="form-control auto-save input-tiny"
                     ng-model="qLine.partRev"
-                    ng-blur="spQuotes.spQuotes.saveQuoteLine(qLine)">
+                    ng-blur="save(qLine)">
         </div>
         <div class="form-group form-group-tiny">
             <label>Part Description</label>
             <input class="form-control auto-save input-tiny"
                     ng-model="qLine.partDesc"
-                    ng-blur="spQuotes.spQuotes.saveQuoteLine(qLine)">
+                    ng-blur="save(qLine)">
         </div>
     </div>  <!-- End Column -->
         
@@ -40,7 +40,7 @@
             <label>Quote Description</label>
             <textarea rows="5" class="form-control auto-save"
                     ng-model="qLine.quoteDescription"
-                    ng-blur="spQuotes.spQuotes.saveQuoteLine(qLine)"></textarea>
+                    ng-blur="save(qLine)"></textarea>
         </div>
     </div> <!-- End Column -->
     <div class="col-md-4">
@@ -55,45 +55,45 @@
 
             <div class="col-xs-1 less-col-padding text-centered"></div>
         </div> <!-- End Row -->
+        <div wak-data="SupplierQuotePriceBreak" filter="quoteLineRef.ID = :1" params="qLine.ID">
+            <div class="row" ng-repeat="qliq in collection | orderBy:'ID'">
 
-        <div class="row" ng-repeat="qliq in qLine.supplierQuoteLineQtysCollection | orderBy:'ID'">
+                <div class="col-xs-4 less-col-padding">
+                    <input type="number" min="0" class="form-control auto-save input-tiny tiny-font"
+                            ng-model="qliq.qty"
+                            ng-blur="save(qliq)">
+                </div>
 
-            <div class="col-xs-4 less-col-padding">
-                <input type="number" min="0" class="form-control auto-save input-tiny tiny-font"
-                        ng-model="qliq.qty"
-                        ng-blur="spQuotes.spQuotes.saveQLIQ(qliq)">
-            </div>
+                <div class="col-xs-5 less-col-padding">
+                    <input type="number" step="0.0001" min="0" class="form-control auto-save input-tiny tiny-font"
+                            ng-model="qliq.price"
+                            ng-blur="save(qliq)">   
+                </div>
 
-            <div class="col-xs-5 less-col-padding">
-                <input type="number" step="0.0001" min="0" class="form-control auto-save input-tiny tiny-font"
-                        ng-model="qliq.price"
-                        ng-blur="spQuotes.spQuotes.saveQLIQ(qliq)">   
-            </div>
+                <div class="col-xs-2 less-col-padding">
+                    <input  class="form-control auto-save input-tiny tiny-font"
+                            ng-model="qliq.unit"
+                            ng-blur="save(qliq)">
+                </div>
 
-            <div class="col-xs-2 less-col-padding">
-                <input  class="form-control auto-save input-tiny tiny-font"
-                        ng-model="qliq.unit"
-                        ng-blur="spQuotes.spQuotes.saveQLIQ(qliq)">
-            </div>
+                <div class="col-xs-1 less-col-padding">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="remove(qliq)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </button>
+                </div>
 
-            <div class="col-xs-1 less-col-padding">
-                <button type="button" class="btn btn-danger btn-xs" ng-click="spQuotes.spQuotes.removeQLIQ(qliq)">
-                    <span class="glyphicon glyphicon-trash"></span>
-                </button>
-            </div>
-        
-        </div> <!-- End Row -->
+            </div> <!-- End Row -->
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-xs-offset-11 col-xs-1 less-col-padding">
-                <button type="button" class="btn btn-primary btn-xs" ng-click="spQuotes.spQuotes.addQLIQ(qLine)">
-                    <span class="glyphicon glyphicon-plus-sign"></span>
-                </button>
-            </div>
-        
-        </div> <!-- End Row -->
+                <div class="col-xs-offset-11 col-xs-1 less-col-padding">
+                    <button type="button" class="btn btn-primary btn-xs" ng-click="add({quoteLineRef: qLine})">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                    </button>
+                </div>
 
+            </div> <!-- End Row -->
+        </div> <!-- END WAK DATA -->
 
     </div> <!-- End Column -->
 </div> <!-- End Row -->
@@ -101,6 +101,6 @@
 <div class="row">
     <div class="col-md-10"></div>
     <div class="col-md-2">
-        <button type="button" class="btn btn-primary" ng-click="spQuotes.spQuotes.addQLine()">Add Line</button>
+        <button type="button" class="btn btn-primary" ng-click="add({spQuoteRef: entity.spQuote})">Add Line</button>
     </div>
 </div> <!-- End Row -->

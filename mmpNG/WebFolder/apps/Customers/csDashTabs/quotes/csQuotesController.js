@@ -45,10 +45,29 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // SELECT CUSTOMER CONTACT (QUOTE FOR)  //
     //////////////////////////////////////////
 	csQuotes.selectCustomerContact = function(){
-	    var entity = csQuotes.currentQuote;
+	    var entity = rScope.current.CustomerQuotes;
 	    var customer = rScope.current.Customer;
         rScope.SAM.csContacts(entity, "contact", customer);
 	};
+
+
+	///////////////////////////////
+	// SELECT SUPPLIER FOR QUOTE //
+	///////////////////////////////
+    csQuotes.selectSupplier = function(){
+        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
+        rScope.SAM.selectSupplier(spQuote, "supplier");
+    };
+
+
+    ///////////////////////////////
+	// SELECT SUPPLIER CONTACT   //
+	///////////////////////////////
+    csQuotes.selectSupplierContact = function(){
+        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
+        var supplier = spQuote.supplier;
+        rScope.SAM.spContacts(spQuote, "contact", supplier);
+    };
 
   
 });
