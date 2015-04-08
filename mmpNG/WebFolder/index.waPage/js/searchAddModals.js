@@ -47,7 +47,27 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
         $('#reusable-modal').modal('show');
     };
 
+    //////////////////
+    // SELECT PARTS //
+    //////////////////
+    values.SAM.selectParts = function(entity, attribute){
 
+        var collection = $wakanda.$ds.PartRev.$find({
+            filter: "part.cName = :1",
+            params: [values.current.Customer.name],
+            pageSize: 999999999
+        });
+
+        values.searchAddModal({
+            listItemExp: "{{partNo}} {{partDesc}} Rev: {{revision}}",
+            collection: collection,
+            entity: entity,
+            attribute: attribute,
+            title: "Select a Part Revision",
+            sortAttr: "partNo"
+        });
+    };
+    
     //////////////////////////////
     // SELECT CUSTOMER CONTACT  //
     //////////////////////////////
