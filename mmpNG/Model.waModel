@@ -1,1 +1,4225 @@
-﻿{	"toJSON": true,	"extraProperties": {		"version": "2",		"classes": {			"Customer": {				"panelColor": "#BFBFBF",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 287,						"Y": 41					}				}			},			"Contact": {				"panelColor": "#C4BD97",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 219,						"Y": 29					}				}			},			"Orders": {				"panelColor": "#B7DDE8",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 25,						"Y": 29					}				}			},			"ContactInfo": {				"panelColor": "#B7DDE8",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": false,					"position": {						"X": 30,						"Y": 386					}				}			},			"PartNumber": {				"panelColor": "#B7DDE8",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 57,						"Y": 5					}				}			},			"Molds": {				"panelColor": "#996699",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 939,						"Y": 303					}				}			},			"Routing": {				"panelColor": "#fff",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 51,						"Y": 559					}				},				"attributes": {					"opType": {						"note": "opType is for determining inHouse Operation vs Outside operation so when routing is looped through to generate related data so in house ops can be handled differently than outside ops."					}				}			},			"PartRev": {				"panelColor": "#D8D8D8",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 398,						"Y": 5					}				}			},			"ControlPlan": {				"panelColor": "#eee",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 923,						"Y": 20					}				}			},			"Supplier": {				"panelColor": "#996699",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "true",					"pathVisible": false,					"position": {						"X": 17,						"Y": 12					}				}			},			"SupplierQuotes": {				"panelColor": "#996699",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "true",					"pathVisible": true,					"position": {						"X": 23,						"Y": 26					}				}			},			"SupplierQuoteLine": {				"panelColor": "#B8CCE4",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 17,						"Y": 39					}				}			},			"SupplierQuotePriceBreak": {				"panelColor": "#7F7F7F",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 38,						"Y": 1366					}				}			},			"OrderLineItems": {				"panelColor": "#548DD4",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 222,						"Y": 143					}				}			},			"CustomerQuotes": {				"panelColor": "#eee",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 22,						"Y": 139					}				}			},			"OrderLineItemQtys": {				"panelColor": "#B8CCE4",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 362,						"Y": 500					}				}			},			"CsQuoteLineItems": {				"panelColor": "#BFBFBF",				"methVisible": "true",				"methodInhVisible": "true",				"inheritedVisible": "true",				"scalarVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 25,						"Y": 276					}				}			},			"CsQuoteLineItemQtys": {				"panelColor": "#fff",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 20,						"Y": 228					}				}			},			"CsAddress": {				"panelColor": "#D7E3BC",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 131,						"Y": 30					}				}			},			"SpContact": {				"panelColor": "#B7DDE8",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 10,						"Y": 30					}				}			},			"SpContactInfo": {				"panelColor": "#4FA997",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": false,					"position": {						"X": 260,						"Y": 386					}				}			},			"SpAddress": {				"panelColor": "#BFBFBF",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": false,					"position": {						"X": 32,						"Y": 345					}				}			},			"Employees": {				"panelColor": "#4FA997",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 49,						"Y": 21					}				}			},			"Departments": {				"panelColor": "#C3D69B",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 751,						"Y": 17					}				}			},			"DepartmentEmployees": {				"panelColor": "#D88CFF",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 961,						"Y": 280					}				}			},			"Titles": {				"panelColor": "#8DB3E2",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 48,						"Y": 608					}				}			},			"Salaries": {				"panelColor": "#76923C",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 957,						"Y": 600					}				}			},			"EmployeeReviews": {				"panelColor": "#548DD4",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 525,						"Y": 35					}				}			},			"PTOAccrualRates": {				"panelColor": "#C4BD97",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 710,						"Y": 235					}				}			},			"TimeCard": {				"panelColor": "#eee",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 364,						"Y": 604					}				}			},			"PTOUsedLog": {				"panelColor": "#fff",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 697,						"Y": 479					}				}			},			"CustomerSupplierQuotes": {				"panelColor": "#70CCC2",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "true",					"pathVisible": true,					"position": {						"X": 549,						"Y": 96					}				}			},			"PurchaseOrders": {				"panelColor": "#C4BD97",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 661,						"Y": 6					}				}			},			"POLineItems": {				"panelColor": "#4FA997",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 805,						"Y": 20					}				}			},			"POLineQtys": {				"panelColor": "#B7DDE8",				"scalarVisible": "true",				"inheritedVisible": "true",				"methVisible": "true",				"panel": {					"isOpen": "false",					"pathVisible": true,					"position": {						"X": 881,						"Y": 328					}				}			}		},		"model": {			"scriptMode": "manual",			"workspaceLeft": 0,			"workspaceTop": 0,			"methodShowMode": "true",			"methodInhShowMode": "true",			"inhShowMode": "true",			"scalShowMode": "true",			"lastScriptLocation": {				"Customer": {					"computed": "Customer/Customer-events.js"				},				"SupplierQuotes": {					"computed": "SupplierQuotes/SupplierQuotes-events.js",					"events": "SupplierQuotes/SupplierQuotes-events.js"				},				"Supplier": {					"computed": "Supplier/Supplier-events.js"				},				"SupplierQuoteLine": {					"computed": "SupplierQuoteLine/SupplierQuoteLine-events.js",					"events": "SupplierQuoteLine/SupplierQuoteLine-events.js"				},				"ControlPlan": {					"computed": "ControlPlan/ControlPlan-events.js"				},				"PartRev": {					"computed": "PartRev/PartRev-events.js"				},				"PartNumber": {					"computed": "PartNumber/PartNumber-events.js",					"events": "PartNumber/PartNumber-events.js"				},				"Routing": {					"computed": "Routing/Routing-events.js"				},				"Orders": {					"computed": "Orders/Orders-events.js"				},				"Molds": {					"computed": "Molds/Molds-events.js"				},				"ContactInfo": {					"computed": "ContactInfo/ContactInfo-events.js"				},				"Contact": {					"computed": "Contact/Contact-events.js",					"events": "Contact/Contact-events.js"				},				"SupplierQuotePriceBreak": {					"computed": "SupplierQuotePriceBreak/SupplierQuotePriceBreak-events.js"				},				"OrderLineItems": {					"computed": "OrderLineItems/OrderLineItems-events.js"				},				"CustomerQuotes": {					"computed": "CustomerQuotes/CustomerQuotes-events.js",					"events": "CustomerQuotes/CustomerQuotes-events.js"				},				"OrderLineItemQtys": {					"computed": "OrderLineItemQtys/OrderLineItemQtys-events.js"				},				"CsQuoteLineItems": {					"computed": "CsQuoteLineItems/CsQuoteLineItems-events.js",					"events": "CsQuoteLineItems/CsQuoteLineItems-events.js"				},				"csQuoteLineItemQtys": {					"computed": "CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js"				},				"CsQuoteLineItemQtys": {					"computed": "CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js"				},				"CsAddress": {					"computed": "CsAddress/CsAddress-events.js"				},				"SpContact": {					"computed": "SpContact/SpContact-events.js",					"events": "SpContact/SpContact-events.js"				},				"SpContactInfo": {					"computed": "SpContactInfo/SpContactInfo-events.js"				},				"SpAddress": {					"computed": "SpAddress/SpAddress-events.js"				},				"CustomerSupplierQuotes": {					"events": "CustomerSupplierQuotes/CustomerSupplierQuotes-events.js"				}			},			"relationCurve": {				"run": true,				"mode": 2			}		}	},	"dataClasses": [		{			"name": "Contact",			"className": "Contact",			"collectionName": "ContactCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "name",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "dept",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "contactInfoCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "ContactInfoCollection",					"reversePath": true,					"path": "contact"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Contact.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Contact.modified.onSet",							"userDefined": true						}					]				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				},				{					"name": "address",					"kind": "relatedEntity",					"scope": "public",					"type": "CsAddress",					"path": "CsAddress"				},				{					"name": "img",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "addressAlias",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "address.address"				},				{					"name": "ordersCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "OrdersCollection",					"reversePath": true,					"path": "contact"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.Contact.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "ContactInfo",			"className": "ContactInfo",			"collectionName": "ContactInfoCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "contact",					"kind": "relatedEntity",					"scope": "public",					"type": "Contact",					"path": "Contact"				},				{					"name": "type",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "data",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.ContactInfo.modified.onGet",							"userDefined": true						}					]				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "contact.name"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "ControlPlan",			"className": "ControlPlan",			"collectionName": "ControlPlanCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "partRev",					"kind": "relatedEntity",					"scope": "public",					"type": "PartRev",					"path": "PartRev"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.ControlPlan.modified.onGet",							"userDefined": true						}					]				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "CsAddress",			"className": "CsAddress",			"collectionName": "CsAddressCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.CsAddress.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.CsAddress.modified.onSet",							"userDefined": true						}					]				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "address",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "description",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipVendor",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipAcct",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipMethod",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "contactCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "ContactCollection",					"reversePath": true,					"path": "address"				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "CsQuoteLineItemQtys",			"className": "CsQuoteLineItemQtys",			"collectionName": "CsQuoteLineItemQtysCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.CsQuoteLineItemQtys.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.CsQuoteLineItemQtys.modified.onSet",							"userDefined": true						}					]				},				{					"name": "quoteLine",					"kind": "relatedEntity",					"scope": "public",					"type": "CsQuoteLineItems",					"path": "CsQuoteLineItems"				},				{					"name": "qty",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "price",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "unit",					"kind": "storage",					"scope": "public",					"type": "string"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "CsQuoteLineItems",			"className": "CsQuoteLineItems",			"collectionName": "CsQuoteLineItemsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.CsQuoteLineItems.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.CsQuoteLineItems.modified.onSet",							"userDefined": true						}					]				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "quoteDescription",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "quoteRef",					"kind": "relatedEntity",					"scope": "public",					"type": "CustomerQuotes",					"path": "CustomerQuotes"				},				{					"name": "csQuoteLineItemQtysCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CsQuoteLineItemQtysCollection",					"reversePath": true,					"path": "quoteLine"				},				{					"name": "quoteNo",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "quoteRef.ID"				},				{					"name": "partNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partRev",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partDesc",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partRevCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PartRevCollection",					"reversePath": true,					"path": "quoteLineRef"				},				{					"name": "customerName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "quoteRef.cName"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.CsQuoteLineItems.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Customer",			"className": "Customer",			"collectionName": "CustomerCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "name",					"kind": "storage",					"scope": "public",					"unique": true,					"type": "string",					"indexKind": "btree"				},				{					"name": "contactCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "ContactCollection",					"reversePath": true,					"path": "customer"				},				{					"name": "ordersCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "OrdersCollection",					"reversePath": true,					"path": "customer"				},				{					"name": "productTypeRef",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "terms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "representative",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "einNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partNumberCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PartNumberCollection",					"reversePath": true,					"path": "customer"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Customer.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Customer.modified.onSet",							"userDefined": true						}					]				},				{					"name": "customerQuotesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CustomerQuotesCollection",					"reversePath": true,					"path": "customer"				},				{					"name": "csAddressCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CsAddressCollection",					"reversePath": true,					"path": "customer"				},				{					"name": "lead",					"kind": "storage",					"matchColumn": "leadOrCovertedCustomer",					"scope": "public",					"type": "string"				},				{					"name": "supplierQuotesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SupplierQuotesCollection",					"reversePath": true,					"path": "customer"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "CustomerQuotes",			"className": "CustomerQuotes",			"collectionName": "CustomerQuotesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.CustomerQuotes.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.CustomerQuotes.modified.onSet",							"userDefined": true						}					]				},				{					"name": "quoteTitle",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "quoteDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "quoteExpires",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "contact",					"kind": "relatedEntity",					"scope": "public",					"type": "Contact",					"path": "Contact"				},				{					"name": "representative",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.representative"				},				{					"name": "FOB",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "delivery",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "csQuoteLineItemsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CsQuoteLineItemsCollection",					"reversePath": true,					"path": "quoteRef"				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				},				{					"name": "quoteBy",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "tempModAttr",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "contactName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "contact.name"				},				{					"name": "terms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "address",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "customerSupplierQuotesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CustomerSupplierQuotesCollection",					"reversePath": true,					"path": "csQuote"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.CustomerQuotes.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "CustomerSupplierQuotes",			"className": "CustomerSupplierQuotes",			"collectionName": "CustomerSupplierQuotesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree",					"primKey": true				},				{					"name": "csQuote",					"kind": "relatedEntity",					"scope": "public",					"type": "CustomerQuotes",					"path": "CustomerQuotes"				},				{					"name": "spQuote",					"kind": "relatedEntity",					"scope": "public",					"type": "SupplierQuotes",					"path": "SupplierQuotes"				},				{					"name": "csQuoteNo",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "csQuote.ID"				},				{					"name": "spQuoteNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "spQuote.quoteNo"				},				{					"name": "customer",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "csQuote.cName"				},				{					"name": "supplier",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "spQuote.sName"				}			],			"events": [				{					"kind": "save",					"from": "$mainModel.CustomerSupplierQuotes.events.save",					"userDefined": true				},				{					"kind": "validate",					"from": "$mainModel.CustomerSupplierQuotes.events.validate",					"userDefined": true				}			]		},		{			"name": "DepartmentEmployees",			"className": "DepartmentEmployees",			"collectionName": "DepartmentEmployeesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "dept",					"kind": "relatedEntity",					"scope": "public",					"type": "Departments",					"path": "Departments"				},				{					"name": "employee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "fromDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "startDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Departments",			"className": "Departments",			"collectionName": "DepartmentsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "deptName",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "departmentEmployeesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "DepartmentEmployeesCollection",					"reversePath": true,					"path": "dept"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "EmployeeReviews",			"className": "EmployeeReviews",			"collectionName": "EmployeeReviewsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "employoee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "reviewDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "files",					"kind": "storage",					"scope": "public",					"type": "string"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Employees",			"className": "Employees",			"collectionName": "EmployeesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "name",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "birthDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "hireDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "gender",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "salaries",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "departmentEmployeesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "DepartmentEmployeesCollection",					"reversePath": true,					"path": "employee"				},				{					"name": "titlesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "TitlesCollection",					"reversePath": true,					"path": "employee"				},				{					"name": "salariesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SalariesCollection",					"reversePath": true,					"path": "employee"				},				{					"name": "employeeReviewsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "EmployeeReviewsCollection",					"reversePath": true,					"path": "employoee"				},				{					"name": "timeCardCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "TimeCardCollection",					"reversePath": true,					"path": "employee"				},				{					"name": "pTOUsedLogCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PTOUsedLogCollection",					"reversePath": true,					"path": "employee"				},				{					"name": "terminationDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Molds",			"className": "Molds",			"collectionName": "MoldsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "toolID",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "description",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "manufacturer",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Molds.modified.onGet",							"userDefined": true						}					]				},				{					"name": "shotWeight",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "cycleTimeInSeconds",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "numOfCavities",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "partNo",					"kind": "relatedEntity",					"scope": "public",					"type": "PartRev",					"path": "PartRev"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "OrderLineItemQtys",			"className": "OrderLineItemQtys",			"collectionName": "OrderLineItemQtysCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.OrderLineItemQtys.modified.onGet",							"userDefined": true						}					]				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "qty",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "due",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "lineRef",					"kind": "relatedEntity",					"scope": "public",					"type": "OrderLineItems",					"path": "OrderLineItems"				},				{					"name": "orderID",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "lineRef.order.ID"				},				{					"name": "status",					"kind": "calculated",					"scope": "public",					"type": "string",					"scriptKind": "javascript"				},				{					"name": "balance",					"kind": "calculated",					"scope": "public",					"type": "number",					"scriptKind": "javascript"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "OrderLineItems",			"className": "OrderLineItems",			"collectionName": "OrderLineItemsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.OrderLineItems.modified.onGet",							"userDefined": true						}					]				},				{					"name": "order",					"kind": "relatedEntity",					"scope": "public",					"type": "Orders",					"path": "Orders"				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "partRev",					"kind": "relatedEntity",					"scope": "public",					"type": "PartRev",					"path": "PartRev"				},				{					"name": "orderLineItemQtysCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "OrderLineItemQtysCollection",					"reversePath": true,					"path": "lineRef"				},				{					"name": "price",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "unit",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "status",					"kind": "calculated",					"scope": "public",					"type": "string",					"scriptKind": "javascript"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Orders",			"className": "Orders",			"collectionName": "OrdersCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "orderNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Orders.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Orders.modified.onSet",							"userDefined": true						}					]				},				{					"name": "orderLineItemsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "OrderLineItemsCollection",					"reversePath": true,					"path": "order"				},				{					"name": "orderRev",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "orderDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "orderTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "representative",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "billToAddress",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipToAddress",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipVia",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipService",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipAcct",					"kind": "storage",					"matchColumn": "shopAcct",					"scope": "public",					"type": "string"				},				{					"name": "shipTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipInstructions",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "status",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "orderFile",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "firstDueDate",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Orders.firstDueDate.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Orders.firstDueDate.onSet",							"userDefined": true						}					]				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				},				{					"name": "purchaseOrdersCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PurchaseOrdersCollection",					"reversePath": true,					"path": "csOrder"				},				{					"name": "contact",					"kind": "relatedEntity",					"scope": "public",					"type": "Contact",					"path": "Contact"				},				{					"name": "contactName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "contact.name"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "PartNumber",			"className": "PartNumber",			"collectionName": "PartNumberCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "partNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partRevCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PartRevCollection",					"reversePath": true,					"path": "part"				},				{					"name": "description",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.PartNumber.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.PartNumber.modified.onSet",							"userDefined": true						}					]				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.PartNumber.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "PartRev",			"className": "PartRev",			"collectionName": "PartRevCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "part",					"kind": "relatedEntity",					"scope": "public",					"type": "PartNumber",					"path": "PartNumber"				},				{					"name": "partNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "part.partNo"				},				{					"name": "revision",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "routingCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "RoutingCollection",					"reversePath": true,					"path": "partRev"				},				{					"name": "img",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partWeight",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "controlPlanCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "ControlPlanCollection",					"reversePath": true,					"path": "partRev"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.PartRev.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.PartRev.modified.onSet",							"userDefined": true						}					]				},				{					"name": "moldsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "MoldsCollection",					"reversePath": true,					"path": "partNo"				},				{					"name": "alloyUsed",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "orderLineItemsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "OrderLineItemsCollection",					"reversePath": true,					"path": "partRev"				},				{					"name": "googleDriveFolder",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "quoteLineRef",					"kind": "relatedEntity",					"scope": "public",					"type": "CsQuoteLineItems",					"path": "CsQuoteLineItems"				},				{					"name": "quoteNo",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "quoteLineRef.quoteNo"				},				{					"name": "quotePriceBreaks",					"kind": "calculated",					"scope": "public",					"type": "string",					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.PartRev.quotePriceBreaks.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.PartRev.quotePriceBreaks.onSet",							"userDefined": true						}					]				},				{					"name": "quotePartNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "quoteLineRef.partNo"				},				{					"name": "pOLineItemsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "POLineItemsCollection",					"reversePath": true,					"path": "partRev"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "POLineItems",			"className": "POLineItems",			"collectionName": "POLineItemsCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "poRef",					"kind": "relatedEntity",					"scope": "public",					"type": "PurchaseOrders",					"path": "PurchaseOrders"				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "partRev",					"kind": "relatedEntity",					"scope": "public",					"type": "PartRev",					"path": "PartRev"				},				{					"name": "price",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "unite",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "pOLineQtysCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "POLineQtysCollection",					"reversePath": true,					"path": "lineRef"				},				{					"name": "status",					"kind": "calculated",					"scope": "public",					"type": "string",					"scriptKind": "javascript"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "POLineQtys",			"className": "POLineQtys",			"collectionName": "POLineQtysCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "lineRef",					"kind": "relatedEntity",					"scope": "public",					"type": "POLineItems",					"path": "POLineItems"				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "qty",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "due",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "orderID",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "lineRef.poRef.ID"				},				{					"name": "status",					"kind": "calculated",					"scope": "public",					"type": "string",					"scriptKind": "javascript"				},				{					"name": "cancelled",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "backOrdered",					"kind": "calculated",					"scope": "public",					"type": "number",					"scriptKind": "javascript"				},				{					"name": "qtyAtSupplier",					"kind": "calculated",					"scope": "public",					"type": "number",					"scriptKind": "javascript"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "PTOAccrualRates",			"className": "PTOAccrualRates",			"collectionName": "PTOAccrualRatesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "ptoEarnedPerHour",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "limitPerWeek",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "ptoRateTitle",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "daysOfSeniorityRequired",					"kind": "storage",					"scope": "public",					"type": "number"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "PTOUsedLog",			"className": "PTOUsedLog",			"collectionName": "PTOUsedLogCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "employee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "dateUsed",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "hoursUsed",					"kind": "storage",					"scope": "public",					"type": "number"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "PurchaseOrders",			"className": "PurchaseOrders",			"collectionName": "PurchaseOrdersCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "poDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "supplier",					"kind": "relatedEntity",					"scope": "public",					"type": "Supplier",					"path": "Supplier"				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplier.name"				},				{					"name": "csOrder",					"kind": "relatedEntity",					"scope": "public",					"type": "Orders",					"path": "Orders"				},				{					"name": "csOrderNo",					"kind": "alias",					"scope": "public",					"type": "long",					"path": "csOrder.ID"				},				{					"name": "terms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "status",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "billTo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipto",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipVia",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipService",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipAcct",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipInstructions",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "csOrder.cName"				},				{					"name": "pOLineItemsCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "POLineItemsCollection",					"reversePath": true,					"path": "poRef"				},				{					"name": "quoteRef",					"kind": "relatedEntity",					"scope": "public",					"type": "SupplierQuotes",					"path": "SupplierQuotes"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Routing",			"className": "Routing",			"collectionName": "RoutingCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "supplierQuoteLine",					"kind": "relatedEntity",					"scope": "public",					"type": "SupplierQuoteLine",					"path": "SupplierQuoteLine"				},				{					"name": "partRev",					"kind": "relatedEntity",					"scope": "public",					"type": "PartRev",					"path": "PartRev"				},				{					"name": "stepNo",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "opType",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplier",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplierQuoteLine.spQuoteRef.supplier.name"				},				{					"name": "supplierQuoteNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplierQuoteLine.spQuoteRef.quoteNo"				},				{					"name": "poDescription",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplierQuoteLine.quoteDescription"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Routing.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Routing.modified.onSet",							"userDefined": true						}					]				},				{					"name": "partNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplierQuoteLine.partNo"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Salaries",			"className": "Salaries",			"collectionName": "SalariesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "salary",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "hourlyWage",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "employee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "fromDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "toDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "SpAddress",			"className": "SpAddress",			"collectionName": "SpAddressCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SpAddress.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SpAddress.modified.onSet",							"userDefined": true						}					]				},				{					"name": "supplier",					"kind": "relatedEntity",					"scope": "public",					"type": "Supplier",					"path": "Supplier"				},				{					"name": "address",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "description",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipVendor",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipAcct",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipMethod",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "shipTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplier.name"				},				{					"name": "spContactCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SpContactCollection",					"reversePath": true,					"path": "address"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "SpContact",			"className": "SpContact",			"collectionName": "SpContactCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "name",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplier",					"kind": "relatedEntity",					"scope": "public",					"type": "Supplier",					"path": "Supplier"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "dept",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplier.name"				},				{					"name": "img",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "spContactInfoCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SpContactInfoCollection",					"reversePath": true,					"path": "spContact"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SpContact.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SpContact.modified.onSet",							"userDefined": true						}					]				},				{					"name": "address",					"kind": "relatedEntity",					"scope": "public",					"type": "SpAddress",					"path": "SpAddress"				},				{					"name": "addressAlias",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "address.address"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.SpContact.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "SpContactInfo",			"className": "SpContactInfo",			"collectionName": "SpContactInfoCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "spContact",					"kind": "relatedEntity",					"scope": "public",					"type": "SpContact",					"path": "SpContact"				},				{					"name": "type",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "data",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "spContact.name"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SpContactInfo.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SpContactInfo.modified.onSet",							"userDefined": true						}					]				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Supplier",			"className": "Supplier",			"collectionName": "SupplierCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree",					"primKey": true				},				{					"name": "name",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplierType",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplierStatus",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplierTerms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "supplierQuotesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SupplierQuotesCollection",					"reversePath": true,					"path": "supplier"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.Supplier.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.Supplier.modified.onSet",							"userDefined": true						}					]				},				{					"name": "spContactCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SpContactCollection",					"reversePath": true,					"path": "supplier"				},				{					"name": "spAddressCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SpAddressCollection",					"reversePath": true,					"path": "supplier"				},				{					"name": "purchaseOrdersCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PurchaseOrdersCollection",					"reversePath": true,					"path": "supplier"				}			]		},		{			"name": "SupplierQuoteLine",			"className": "SupplierQuoteLine",			"collectionName": "SupplierQuoteLineCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "spQuoteRef",					"kind": "relatedEntity",					"scope": "public",					"type": "SupplierQuotes",					"path": "SupplierQuotes"				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "quoteDescription",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "routingCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "RoutingCollection",					"reversePath": true,					"path": "supplierQuoteLine"				},				{					"name": "partsProducablePerDay",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SupplierQuoteLine.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SupplierQuoteLine.modified.onSet",							"userDefined": true						}					]				},				{					"name": "supplierQuoteLineQtysCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SupplierQuotePriceBreakCollection",					"reversePath": true,					"path": "quoteLineRef"				},				{					"name": "partNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partRev",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "partDesc",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "spQuoteID",					"kind": "alias",					"matchColumn": "quoteNo",					"scope": "public",					"type": "long",					"path": "spQuoteRef.ID"				},				{					"name": "tempModAttr",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "spQuoteRef.sName"				},				{					"name": "quoteNo",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "spQuoteRef.quoteNo"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.SupplierQuoteLine.events.remove",					"userDefined": true				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "SupplierQuotePriceBreak",			"className": "SupplierQuotePriceBreak",			"collectionName": "SupplierQuotePriceBreakCollection",			"matchTable": "SupplierQuoteLineQtys",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SupplierQuotePriceBreak.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SupplierQuotePriceBreak.modified.onSet",							"userDefined": true						}					]				},				{					"name": "quoteLineRef",					"kind": "relatedEntity",					"scope": "public",					"type": "SupplierQuoteLine",					"path": "SupplierQuoteLine"				},				{					"name": "lineID",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "price",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "qty",					"kind": "storage",					"scope": "public",					"type": "number"				},				{					"name": "unit",					"kind": "storage",					"scope": "public",					"type": "string"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "SupplierQuotes",			"className": "SupplierQuotes",			"collectionName": "SupplierQuotesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree",					"primKey": true				},				{					"name": "supplier",					"kind": "relatedEntity",					"scope": "public",					"type": "Supplier",					"path": "Supplier"				},				{					"name": "quoteNo",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "quoteDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "expireDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "contact",					"kind": "relatedEntity",					"scope": "public",					"type": "SpContact",					"path": "SpContact"				},				{					"name": "FOB",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "delivery",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "notes",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "modified",					"kind": "calculated",					"scope": "public",					"type": "date",					"simpleDate": false,					"scriptKind": "javascript",					"onGet": [						{							"from": "$mainModel.SupplierQuotes.modified.onGet",							"userDefined": true						}					],					"onSet": [						{							"from": "$mainModel.SupplierQuotes.modified.onSet",							"userDefined": true						}					]				},				{					"name": "supplierQuoteLineCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "SupplierQuoteLineCollection",					"reversePath": true,					"path": "spQuoteRef"				},				{					"name": "sName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "supplier.name"				},				{					"name": "spQuoteFileLink",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "enteredBy",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "contactName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "contact.name"				},				{					"name": "terms",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "address",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "customerSupplierQuotesCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "CustomerSupplierQuotesCollection",					"reversePath": true,					"path": "spQuote"				},				{					"name": "customer",					"kind": "relatedEntity",					"scope": "public",					"type": "Customer",					"path": "Customer"				},				{					"name": "cName",					"kind": "alias",					"scope": "public",					"type": "string",					"path": "customer.name"				},				{					"name": "purchaseOrdersCollection",					"kind": "relatedEntities",					"scope": "public",					"type": "PurchaseOrdersCollection",					"reversePath": true,					"path": "quoteRef"				}			],			"events": [				{					"kind": "remove",					"from": "$mainModel.SupplierQuotes.events.remove",					"userDefined": true				}			]		},		{			"name": "TimeCard",			"className": "TimeCard",			"collectionName": "TimeCardCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "employee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "weekEnding",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "totalHours",					"kind": "storage",					"scope": "public",					"type": "number"				}			],			"key": [				{					"name": "ID"				}			]		},		{			"name": "Titles",			"className": "Titles",			"collectionName": "TitlesCollection",			"scope": "public",			"attributes": [				{					"name": "ID",					"kind": "storage",					"scope": "public",					"unique": true,					"autosequence": true,					"type": "long",					"indexKind": "btree"				},				{					"name": "title",					"kind": "storage",					"scope": "public",					"type": "string"				},				{					"name": "employee",					"kind": "relatedEntity",					"scope": "public",					"type": "Employees",					"path": "Employees"				},				{					"name": "fromDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				},				{					"name": "toDate",					"kind": "storage",					"scope": "public",					"type": "date",					"simpleDate": false				}			],			"key": [				{					"name": "ID"				}			]		}	]}
+
+{
+	"toJSON" : true,
+	"extraProperties" : 
+	{
+		"version" : "2",
+		"classes" : 
+		{
+			"Customer" : 
+			{
+				"panelColor" : "#BFBFBF",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 287,
+						"Y" : 41
+					}
+				}
+			},
+			"Contact" : 
+			{
+				"panelColor" : "#C4BD97",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 219,
+						"Y" : 29
+					}
+				}
+			},
+			"Orders" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 25,
+						"Y" : 29
+					}
+				}
+			},
+			"ContactInfo" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : false,
+					"position" : 
+					{
+						"X" : 30,
+						"Y" : 386
+					}
+				}
+			},
+			"PartNumber" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 440,
+						"Y" : 84
+					}
+				}
+			},
+			"Molds" : 
+			{
+				"panelColor" : "#996699",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 939,
+						"Y" : 303
+					}
+				}
+			},
+			"Routing" : 
+			{
+				"panelColor" : "#fff",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 51,
+						"Y" : 559
+					}
+				},
+				"attributes" : 
+				{
+					"opType" : 
+					{
+						"note" : "opType is for determining inHouse Operation vs Outside operation so when routing is looped through to generate related data so in house ops can be handled differently than outside ops."
+					}
+				}
+			},
+			"PartRev" : 
+			{
+				"panelColor" : "#D8D8D8",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 575,
+						"Y" : 30
+					}
+				}
+			},
+			"ControlPlan" : 
+			{
+				"panelColor" : "#eee",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 923,
+						"Y" : 20
+					}
+				}
+			},
+			"Supplier" : 
+			{
+				"panelColor" : "#996699",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : false,
+					"position" : 
+					{
+						"X" : 17,
+						"Y" : 12
+					}
+				}
+			},
+			"SupplierQuotes" : 
+			{
+				"panelColor" : "#996699",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 23,
+						"Y" : 26
+					}
+				}
+			},
+			"SupplierQuoteLine" : 
+			{
+				"panelColor" : "#B8CCE4",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 17,
+						"Y" : 39
+					}
+				}
+			},
+			"SupplierQuotePriceBreak" : 
+			{
+				"panelColor" : "#7F7F7F",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 38,
+						"Y" : 1366
+					}
+				}
+			},
+			"OrderLineItems" : 
+			{
+				"panelColor" : "#548DD4",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 10,
+						"Y" : 76
+					}
+				}
+			},
+			"CustomerQuotes" : 
+			{
+				"panelColor" : "#eee",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 22,
+						"Y" : 139
+					}
+				}
+			},
+			"OrderLineItemQtys" : 
+			{
+				"panelColor" : "#B8CCE4",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 14,
+						"Y" : 470
+					}
+				}
+			},
+			"CsQuoteLineItems" : 
+			{
+				"panelColor" : "#BFBFBF",
+				"methVisible" : "true",
+				"methodInhVisible" : "true",
+				"inheritedVisible" : "true",
+				"scalarVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 25,
+						"Y" : 276
+					}
+				}
+			},
+			"CsQuoteLineItemQtys" : 
+			{
+				"panelColor" : "#fff",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 20,
+						"Y" : 228
+					}
+				}
+			},
+			"CsAddress" : 
+			{
+				"panelColor" : "#D7E3BC",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 131,
+						"Y" : 30
+					}
+				}
+			},
+			"SpContact" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 10,
+						"Y" : 30
+					}
+				}
+			},
+			"SpContactInfo" : 
+			{
+				"panelColor" : "#4FA997",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : false,
+					"position" : 
+					{
+						"X" : 260,
+						"Y" : 386
+					}
+				}
+			},
+			"SpAddress" : 
+			{
+				"panelColor" : "#BFBFBF",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : false,
+					"position" : 
+					{
+						"X" : 32,
+						"Y" : 345
+					}
+				}
+			},
+			"Employees" : 
+			{
+				"panelColor" : "#4FA997",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 49,
+						"Y" : 21
+					}
+				}
+			},
+			"Departments" : 
+			{
+				"panelColor" : "#C3D69B",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 751,
+						"Y" : 17
+					}
+				}
+			},
+			"DepartmentEmployees" : 
+			{
+				"panelColor" : "#D88CFF",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 961,
+						"Y" : 280
+					}
+				}
+			},
+			"Titles" : 
+			{
+				"panelColor" : "#8DB3E2",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 48,
+						"Y" : 608
+					}
+				}
+			},
+			"Salaries" : 
+			{
+				"panelColor" : "#76923C",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 957,
+						"Y" : 600
+					}
+				}
+			},
+			"EmployeeReviews" : 
+			{
+				"panelColor" : "#548DD4",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 525,
+						"Y" : 35
+					}
+				}
+			},
+			"PTOAccrualRates" : 
+			{
+				"panelColor" : "#C4BD97",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 710,
+						"Y" : 235
+					}
+				}
+			},
+			"TimeCard" : 
+			{
+				"panelColor" : "#eee",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 364,
+						"Y" : 604
+					}
+				}
+			},
+			"PTOUsedLog" : 
+			{
+				"panelColor" : "#fff",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 697,
+						"Y" : 479
+					}
+				}
+			},
+			"CustomerSupplierQuotes" : 
+			{
+				"panelColor" : "#70CCC2",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 549,
+						"Y" : 96
+					}
+				}
+			},
+			"PurchaseOrders" : 
+			{
+				"panelColor" : "#C4BD97",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 661,
+						"Y" : 6
+					}
+				}
+			},
+			"POLineItems" : 
+			{
+				"panelColor" : "#4FA997",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 805,
+						"Y" : 20
+					}
+				}
+			},
+			"POLineQtys" : 
+			{
+				"panelColor" : "#B7DDE8",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "false",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 881,
+						"Y" : 328
+					}
+				}
+			}
+		},
+		"model" : 
+		{
+			"scriptMode" : "manual",
+			"workspaceLeft" : 0,
+			"workspaceTop" : 0,
+			"methodShowMode" : "true",
+			"methodInhShowMode" : "true",
+			"inhShowMode" : "true",
+			"scalShowMode" : "true",
+			"lastScriptLocation" : 
+			{
+				"Customer" : 
+				{
+					"computed" : "Customer/Customer-events.js"
+				},
+				"SupplierQuotes" : 
+				{
+					"computed" : "SupplierQuotes/SupplierQuotes-events.js",
+					"events" : "SupplierQuotes/SupplierQuotes-events.js"
+				},
+				"Supplier" : 
+				{
+					"computed" : "Supplier/Supplier-events.js"
+				},
+				"SupplierQuoteLine" : 
+				{
+					"computed" : "SupplierQuoteLine/SupplierQuoteLine-events.js",
+					"events" : "SupplierQuoteLine/SupplierQuoteLine-events.js"
+				},
+				"ControlPlan" : 
+				{
+					"computed" : "ControlPlan/ControlPlan-events.js"
+				},
+				"PartRev" : 
+				{
+					"computed" : "PartRev/PartRev-events.js"
+				},
+				"PartNumber" : 
+				{
+					"computed" : "PartNumber/PartNumber-events.js",
+					"events" : "PartNumber/PartNumber-events.js"
+				},
+				"Routing" : 
+				{
+					"computed" : "Routing/Routing-events.js"
+				},
+				"Orders" : 
+				{
+					"computed" : "Orders/Orders-events.js"
+				},
+				"Molds" : 
+				{
+					"computed" : "Molds/Molds-events.js"
+				},
+				"ContactInfo" : 
+				{
+					"computed" : "ContactInfo/ContactInfo-events.js"
+				},
+				"Contact" : 
+				{
+					"computed" : "Contact/Contact-events.js",
+					"events" : "Contact/Contact-events.js"
+				},
+				"SupplierQuotePriceBreak" : 
+				{
+					"computed" : "SupplierQuotePriceBreak/SupplierQuotePriceBreak-events.js"
+				},
+				"OrderLineItems" : 
+				{
+					"computed" : "OrderLineItems/OrderLineItems-events.js"
+				},
+				"CustomerQuotes" : 
+				{
+					"computed" : "CustomerQuotes/CustomerQuotes-events.js",
+					"events" : "CustomerQuotes/CustomerQuotes-events.js"
+				},
+				"OrderLineItemQtys" : 
+				{
+					"computed" : "OrderLineItemQtys/OrderLineItemQtys-events.js"
+				},
+				"CsQuoteLineItems" : 
+				{
+					"computed" : "CsQuoteLineItems/CsQuoteLineItems-events.js",
+					"events" : "CsQuoteLineItems/CsQuoteLineItems-events.js"
+				},
+				"csQuoteLineItemQtys" : 
+				{
+					"computed" : "CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js"
+				},
+				"CsQuoteLineItemQtys" : 
+				{
+					"computed" : "CsQuoteLineItemQtys/CsQuoteLineItemQtys-events.js"
+				},
+				"CsAddress" : 
+				{
+					"computed" : "CsAddress/CsAddress-events.js"
+				},
+				"SpContact" : 
+				{
+					"computed" : "SpContact/SpContact-events.js",
+					"events" : "SpContact/SpContact-events.js"
+				},
+				"SpContactInfo" : 
+				{
+					"computed" : "SpContactInfo/SpContactInfo-events.js"
+				},
+				"SpAddress" : 
+				{
+					"computed" : "SpAddress/SpAddress-events.js"
+				},
+				"CustomerSupplierQuotes" : 
+				{
+					"events" : "CustomerSupplierQuotes/CustomerSupplierQuotes-events.js"
+				}
+			},
+			"relationCurve" : 
+			{
+				"run" : true,
+				"mode" : 2
+			}
+		}
+	},
+	"dataClasses" : 
+	[
+		{
+			"name" : "Contact",
+			"className" : "Contact",
+			"collectionName" : "ContactCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "dept",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "contactInfoCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "ContactInfoCollection",
+					"reversePath" : true,
+					"path" : "contact"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Contact.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Contact.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				},
+				{
+					"name" : "address",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CsAddress",
+					"path" : "CsAddress"
+				},
+				{
+					"name" : "img",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "addressAlias",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "address.address"
+				},
+				{
+					"name" : "ordersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrdersCollection",
+					"reversePath" : true,
+					"path" : "contact"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.Contact.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "ContactInfo",
+			"className" : "ContactInfo",
+			"collectionName" : "ContactInfoCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Contact",
+					"path" : "Contact"
+				},
+				{
+					"name" : "type",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "data",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.ContactInfo.modified.onGet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "contact.name"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "ControlPlan",
+			"className" : "ControlPlan",
+			"collectionName" : "ControlPlanCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.ControlPlan.modified.onGet",
+							"userDefined" : true
+						}
+					]
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CsAddress",
+			"className" : "CsAddress",
+			"collectionName" : "CsAddressCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.CsAddress.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.CsAddress.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "description",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVendor",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipMethod",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "contactCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "ContactCollection",
+					"reversePath" : true,
+					"path" : "address"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CsQuoteLineItemQtys",
+			"className" : "CsQuoteLineItemQtys",
+			"collectionName" : "CsQuoteLineItemQtysCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.CsQuoteLineItemQtys.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.CsQuoteLineItemQtys.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "quoteLine",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CsQuoteLineItems",
+					"path" : "CsQuoteLineItems"
+				},
+				{
+					"name" : "qty",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unit",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CsQuoteLineItems",
+			"className" : "CsQuoteLineItems",
+			"collectionName" : "CsQuoteLineItemsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.CsQuoteLineItems.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.CsQuoteLineItems.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "quoteDescription",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "quoteRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CustomerQuotes",
+					"path" : "CustomerQuotes"
+				},
+				{
+					"name" : "csQuoteLineItemQtysCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CsQuoteLineItemQtysCollection",
+					"reversePath" : true,
+					"path" : "quoteLine"
+				},
+				{
+					"name" : "quoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "quoteRef.ID"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partRevCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PartRevCollection",
+					"reversePath" : true,
+					"path" : "quoteLineRef"
+				},
+				{
+					"name" : "customerName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "quoteRef.cName"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.CsQuoteLineItems.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Customer",
+			"className" : "Customer",
+			"collectionName" : "CustomerCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"type" : "string",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "contactCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "ContactCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				},
+				{
+					"name" : "ordersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrdersCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				},
+				{
+					"name" : "productTypeRef",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "representative",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "einNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partNumberCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PartNumberCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Customer.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Customer.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "customerQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CustomerQuotesCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				},
+				{
+					"name" : "csAddressCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CsAddressCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				},
+				{
+					"name" : "lead",
+					"kind" : "storage",
+					"matchColumn" : "leadOrCovertedCustomer",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "customer"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CustomerQuotes",
+			"className" : "CustomerQuotes",
+			"collectionName" : "CustomerQuotesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.CustomerQuotes.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.CustomerQuotes.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "quoteTitle",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "quoteDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "quoteExpires",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Contact",
+					"path" : "Contact"
+				},
+				{
+					"name" : "representative",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.representative"
+				},
+				{
+					"name" : "FOB",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "delivery",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "csQuoteLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CsQuoteLineItemsCollection",
+					"reversePath" : true,
+					"path" : "quoteRef"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				},
+				{
+					"name" : "quoteBy",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "tempModAttr",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "contactName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "contact.name"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customerSupplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CustomerSupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "csQuote"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.CustomerQuotes.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "CustomerSupplierQuotes",
+			"className" : "CustomerSupplierQuotes",
+			"collectionName" : "CustomerSupplierQuotesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "csQuote",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CustomerQuotes",
+					"path" : "CustomerQuotes"
+				},
+				{
+					"name" : "spQuote",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuotes",
+					"path" : "SupplierQuotes"
+				},
+				{
+					"name" : "csQuoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "csQuote.ID"
+				},
+				{
+					"name" : "spQuoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuote.quoteNo"
+				},
+				{
+					"name" : "customer",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "csQuote.cName"
+				},
+				{
+					"name" : "supplier",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuote.sName"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "save",
+					"from" : "$mainModel.CustomerSupplierQuotes.events.save",
+					"userDefined" : true
+				},
+				{
+					"kind" : "validate",
+					"from" : "$mainModel.CustomerSupplierQuotes.events.validate",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "DepartmentEmployees",
+			"className" : "DepartmentEmployees",
+			"collectionName" : "DepartmentEmployeesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "dept",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Departments",
+					"path" : "Departments"
+				},
+				{
+					"name" : "employee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "fromDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "startDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Departments",
+			"className" : "Departments",
+			"collectionName" : "DepartmentsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "deptName",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "departmentEmployeesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "DepartmentEmployeesCollection",
+					"reversePath" : true,
+					"path" : "dept"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "EmployeeReviews",
+			"className" : "EmployeeReviews",
+			"collectionName" : "EmployeeReviewsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "employoee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "reviewDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "files",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Employees",
+			"className" : "Employees",
+			"collectionName" : "EmployeesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "birthDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "hireDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "gender",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "salaries",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "departmentEmployeesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "DepartmentEmployeesCollection",
+					"reversePath" : true,
+					"path" : "employee"
+				},
+				{
+					"name" : "titlesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "TitlesCollection",
+					"reversePath" : true,
+					"path" : "employee"
+				},
+				{
+					"name" : "salariesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SalariesCollection",
+					"reversePath" : true,
+					"path" : "employee"
+				},
+				{
+					"name" : "employeeReviewsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "EmployeeReviewsCollection",
+					"reversePath" : true,
+					"path" : "employoee"
+				},
+				{
+					"name" : "timeCardCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "TimeCardCollection",
+					"reversePath" : true,
+					"path" : "employee"
+				},
+				{
+					"name" : "pTOUsedLogCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PTOUsedLogCollection",
+					"reversePath" : true,
+					"path" : "employee"
+				},
+				{
+					"name" : "terminationDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Molds",
+			"className" : "Molds",
+			"collectionName" : "MoldsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "toolID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "description",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "manufacturer",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Molds.modified.onGet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "shotWeight",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "cycleTimeInSeconds",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "numOfCavities",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "OrderLineItemQtys",
+			"className" : "OrderLineItemQtys",
+			"collectionName" : "OrderLineItemQtysCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.OrderLineItemQtys.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.OrderLineItemQtys.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "qty",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "due",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "lineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "OrderLineItems",
+					"path" : "OrderLineItems"
+				},
+				{
+					"name" : "orderID",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "lineRef.order.ID"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "balance",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "OrderLineItems",
+			"className" : "OrderLineItems",
+			"collectionName" : "OrderLineItemsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.OrderLineItems.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.OrderLineItems.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "order",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Orders",
+					"path" : "Orders"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				},
+				{
+					"name" : "orderLineItemQtysCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrderLineItemQtysCollection",
+					"reversePath" : true,
+					"path" : "lineRef"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unit",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.partNo"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.part.description"
+				},
+				{
+					"name" : "quotedPrice",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "revision",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.revision"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Orders",
+			"className" : "Orders",
+			"collectionName" : "OrdersCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "orderNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "orderLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrderLineItemsCollection",
+					"reversePath" : true,
+					"path" : "order"
+				},
+				{
+					"name" : "orderRev",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "orderDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "orderTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "representative",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "billToAddress",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipToAddress",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVia",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipService",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"matchColumn" : "shopAcct",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipInstructions",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "status",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "orderFile",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "firstDueDate",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.firstDueDate.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Orders.firstDueDate.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "csOrder"
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Contact",
+					"path" : "Contact"
+				},
+				{
+					"name" : "contactName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "contact.name"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PartNumber",
+			"className" : "PartNumber",
+			"collectionName" : "PartNumberCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partRevCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PartRevCollection",
+					"reversePath" : true,
+					"path" : "part"
+				},
+				{
+					"name" : "description",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PartNumber.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PartNumber.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.PartNumber.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PartRev",
+			"className" : "PartRev",
+			"collectionName" : "PartRevCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "part",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartNumber",
+					"path" : "PartNumber"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "part.partNo"
+				},
+				{
+					"name" : "revision",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "routingCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "RoutingCollection",
+					"reversePath" : true,
+					"path" : "partRev"
+				},
+				{
+					"name" : "img",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partWeight",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "controlPlanCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "ControlPlanCollection",
+					"reversePath" : true,
+					"path" : "partRev"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "moldsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "MoldsCollection",
+					"reversePath" : true,
+					"path" : "partNo"
+				},
+				{
+					"name" : "alloyUsed",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "orderLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "OrderLineItemsCollection",
+					"reversePath" : true,
+					"path" : "partRev"
+				},
+				{
+					"name" : "googleDriveFolder",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "quoteLineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "CsQuoteLineItems",
+					"path" : "CsQuoteLineItems"
+				},
+				{
+					"name" : "quoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "quoteLineRef.quoteNo"
+				},
+				{
+					"name" : "quotePriceBreaks",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.quotePriceBreaks.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PartRev.quotePriceBreaks.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "quotePartNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "quoteLineRef.partNo"
+				},
+				{
+					"name" : "pOLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineItemsCollection",
+					"reversePath" : true,
+					"path" : "partRev"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "part.description"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "POLineItems",
+			"className" : "POLineItems",
+			"collectionName" : "POLineItemsCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "poRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PurchaseOrders",
+					"path" : "PurchaseOrders"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unite",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "pOLineQtysCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineQtysCollection",
+					"reversePath" : true,
+					"path" : "lineRef"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "POLineQtys",
+			"className" : "POLineQtys",
+			"collectionName" : "POLineQtysCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "lineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "POLineItems",
+					"path" : "POLineItems"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "qty",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "due",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "orderID",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "lineRef.poRef.ID"
+				},
+				{
+					"name" : "status",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "cancelled",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "backOrdered",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "qtyAtSupplier",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "number",
+					"scriptKind" : "javascript"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PTOAccrualRates",
+			"className" : "PTOAccrualRates",
+			"collectionName" : "PTOAccrualRatesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "ptoEarnedPerHour",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "limitPerWeek",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "ptoRateTitle",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "daysOfSeniorityRequired",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PTOUsedLog",
+			"className" : "PTOUsedLog",
+			"collectionName" : "PTOUsedLogCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "employee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "dateUsed",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "hoursUsed",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PurchaseOrders",
+			"className" : "PurchaseOrders",
+			"collectionName" : "PurchaseOrdersCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "poDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "supplier",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Supplier",
+					"path" : "Supplier"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplier.name"
+				},
+				{
+					"name" : "csOrder",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Orders",
+					"path" : "Orders"
+				},
+				{
+					"name" : "csOrderNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "csOrder.ID"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "status",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "billTo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipto",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVia",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipService",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipInstructions",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "csOrder.cName"
+				},
+				{
+					"name" : "pOLineItemsCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "POLineItemsCollection",
+					"reversePath" : true,
+					"path" : "poRef"
+				},
+				{
+					"name" : "quoteRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuotes",
+					"path" : "SupplierQuotes"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Routing",
+			"className" : "Routing",
+			"collectionName" : "RoutingCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "supplierQuoteLine",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuoteLine",
+					"path" : "SupplierQuoteLine"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PartRev",
+					"path" : "PartRev"
+				},
+				{
+					"name" : "stepNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "opType",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplier",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplierQuoteLine.spQuoteRef.supplier.name"
+				},
+				{
+					"name" : "supplierQuoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplierQuoteLine.spQuoteRef.quoteNo"
+				},
+				{
+					"name" : "poDescription",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplierQuoteLine.quoteDescription"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Routing.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Routing.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "partNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplierQuoteLine.partNo"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Salaries",
+			"className" : "Salaries",
+			"collectionName" : "SalariesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "salary",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "hourlyWage",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "employee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "fromDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "toDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SpAddress",
+			"className" : "SpAddress",
+			"collectionName" : "SpAddressCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SpAddress.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SpAddress.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "supplier",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Supplier",
+					"path" : "Supplier"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "description",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVendor",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipMethod",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplier.name"
+				},
+				{
+					"name" : "spContactCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SpContactCollection",
+					"reversePath" : true,
+					"path" : "address"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SpContact",
+			"className" : "SpContact",
+			"collectionName" : "SpContactCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplier",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Supplier",
+					"path" : "Supplier"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "dept",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplier.name"
+				},
+				{
+					"name" : "img",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "spContactInfoCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SpContactInfoCollection",
+					"reversePath" : true,
+					"path" : "spContact"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SpContact.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SpContact.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "address",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SpAddress",
+					"path" : "SpAddress"
+				},
+				{
+					"name" : "addressAlias",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "address.address"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.SpContact.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SpContactInfo",
+			"className" : "SpContactInfo",
+			"collectionName" : "SpContactInfoCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "spContact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SpContact",
+					"path" : "SpContact"
+				},
+				{
+					"name" : "type",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "data",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spContact.name"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SpContactInfo.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SpContactInfo.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Supplier",
+			"className" : "Supplier",
+			"collectionName" : "SupplierCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "name",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplierType",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplierStatus",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplierTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "supplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "supplier"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Supplier.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Supplier.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "spContactCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SpContactCollection",
+					"reversePath" : true,
+					"path" : "supplier"
+				},
+				{
+					"name" : "spAddressCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SpAddressCollection",
+					"reversePath" : true,
+					"path" : "supplier"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "supplier"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SupplierQuoteLine",
+			"className" : "SupplierQuoteLine",
+			"collectionName" : "SupplierQuoteLineCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "spQuoteRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuotes",
+					"path" : "SupplierQuotes"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "quoteDescription",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "routingCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "RoutingCollection",
+					"reversePath" : true,
+					"path" : "supplierQuoteLine"
+				},
+				{
+					"name" : "partsProducablePerDay",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuoteLine.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuoteLine.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "supplierQuoteLineQtysCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuotePriceBreakCollection",
+					"reversePath" : true,
+					"path" : "quoteLineRef"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "spQuoteID",
+					"kind" : "alias",
+					"matchColumn" : "quoteNo",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "spQuoteRef.ID"
+				},
+				{
+					"name" : "tempModAttr",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuoteRef.sName"
+				},
+				{
+					"name" : "quoteNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spQuoteRef.quoteNo"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.SupplierQuoteLine.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SupplierQuotePriceBreak",
+			"className" : "SupplierQuotePriceBreak",
+			"collectionName" : "SupplierQuotePriceBreakCollection",
+			"matchTable" : "SupplierQuoteLineQtys",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuotePriceBreak.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuotePriceBreak.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "quoteLineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SupplierQuoteLine",
+					"path" : "SupplierQuoteLine"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "price",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "qty",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unit",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "SupplierQuotes",
+			"className" : "SupplierQuotes",
+			"collectionName" : "SupplierQuotesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "supplier",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Supplier",
+					"path" : "Supplier"
+				},
+				{
+					"name" : "quoteNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "quoteDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "expireDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SpContact",
+					"path" : "SpContact"
+				},
+				{
+					"name" : "FOB",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "delivery",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuotes.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.SupplierQuotes.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "supplierQuoteLineCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "SupplierQuoteLineCollection",
+					"reversePath" : true,
+					"path" : "spQuoteRef"
+				},
+				{
+					"name" : "sName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "supplier.name"
+				},
+				{
+					"name" : "spQuoteFileLink",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "enteredBy",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "contactName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "contact.name"
+				},
+				{
+					"name" : "terms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "address",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "customerSupplierQuotesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "CustomerSupplierQuotesCollection",
+					"reversePath" : true,
+					"path" : "spQuote"
+				},
+				{
+					"name" : "customer",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Customer",
+					"path" : "Customer"
+				},
+				{
+					"name" : "cName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "customer.name"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "quoteRef"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.SupplierQuotes.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "TimeCard",
+			"className" : "TimeCard",
+			"collectionName" : "TimeCardCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "employee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "weekEnding",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "totalHours",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "Titles",
+			"className" : "Titles",
+			"collectionName" : "TitlesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "title",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "employee",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Employees",
+					"path" : "Employees"
+				},
+				{
+					"name" : "fromDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "toDate",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		}
+	]
+}
