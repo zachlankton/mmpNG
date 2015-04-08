@@ -24,13 +24,5 @@ myApp.controller('csOrdersController', function ($scope, $wakanda, $filter, csAp
 	};
 
 
-    //////////////////////////////
-    // SELECT CUSTOMER CONTACT  //
-    //////////////////////////////
-    csOrders.selectContact = function(){
-        var customer = rScope.current.Customer;
-        var entity = rScope.current.Orders;
-        rScope.SAM.csContacts(entity, "contact", customer);
-    };
 
 });
