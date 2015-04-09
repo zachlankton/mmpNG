@@ -320,3 +320,45 @@ csAppServices.directive('wakData', function(){
         
     };
 });
+
+csAppServices.directive('wi', function(){
+    return {
+        templateUrl: "/index.waPage/wiTemplate.html",
+        replace: true,
+        scope: {
+            wBlur: "=",
+            wLabel: "@",
+            wCol: "@",
+            wModel: "=",
+            blurArgs: "=",
+            wType: "@"
+        },
+        controller: function($scope, $element, $attrs){
+            $scope.screen = "md";
+            $scope.lessColPadding = "";
+            $scope.formGroupSize = "form-group-sm";
+            $scope.inputTag = "input";
+
+            
+            if ($attrs.readonly != undefined){$scope.defaultCursor = "default-cursor";}
+            if ($attrs.xs != undefined){$scope.screen = "xs";}
+            if ($attrs.tf != undefined){$scope.tinyFont = "tiny-font";}
+            if ($attrs.tiny != undefined){$scope.inputTiny = "input-tiny"; $scope.formGroupSize = "form-group-tiny"; $scope.lessColPadding = "less-col-padding"}
+            if ($attrs.text != undefined){$scope.inputTag = "textarea"; $scope.formGroupSize = ""; $scope.inputTiny = "input-sm";}
+            if ($attrs.wCol == undefined){$scope.lessColPadding = "";}
+            
+            $scope._blur = function(){
+                if ($scope.blurArgs == undefined){
+                    $scope.wBlur();
+                }else{
+                    $scope.wBlur($scope.blurArgs);
+                }
+            };
+        },
+
+        compile: function(tElement, tAttrs){
+            if (tAttrs.wBlur == undefined){tAttrs.wBlur = "save";}
+            if (tAttrs.readonly != undefined){tElement.find('.form-control').attr("readonly", "");}
+        }
+    };
+});

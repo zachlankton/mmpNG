@@ -1,0 +1,12 @@
+<div class="col-{{screen}}-{{wCol}}  {{lessColPadding}}">              
+    <div class="form-group {{formGroupSize}}">
+        <label ng-show="wLabel">{{wLabel}}</label>
+        <input ng-show="inputTag == 'input'" class="form-control auto-save {{defaultCursor}} {{inputTiny}} {{tinyFont}}"  type="{{wType}}"
+                ng-model="wModel"
+                ng-blur="_blur()">
+
+        <textarea ng-show="inputTag == 'textarea'" class="form-control auto-save input-sm {{defaultCursor}} {{tinyFont}}"
+                ng-model="wModel" rows="5"
+                ng-blur="_blur()"></textarea>
+    </div>
+</div>

@@ -2,110 +2,49 @@
 <div class="row" style="border:1px solid;" ng-repeat="oLine in collection | orderBy:'lineID'">
 
     <div class="col-md-1 less-col-padding">
-        <div class="form-group form-group-tiny">
-            <label>Line No</label>
-            <input type="number" class="form-control auto-save input-tiny"
-                    ng-model="oLine.lineID"
-                    ng-blur="save(oLine)">
-        </div>
+        
+        <wi tiny w-label="Line No" w-model="oLine.lineID" blur-args="oLine"></wi>
         
         <button type="button" class="btn btn-danger" ng-click="remove(oLine)">
             <span class="glyphicon glyphicon-trash"></span>
         </button>
+
     </div> <!-- End Column -->
 
     <div class="col-md-2  less-col-padding">
-        <div class="form-group  form-group-tiny">
-            <label>Part No</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.partNo"
-                    ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Part Rev</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.revision"
-                    ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Part Description</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.partDesc"
-                    ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')">
-        </div>
+        <wi tiny w-label="Part No"          w-model="oLine.partNo"   blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
+        <wi tiny w-label="Part Rev"         w-model="oLine.revision" blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
+        <wi tiny w-label="Part Description" w-model="oLine.partDesc" blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
     </div>  <!-- End Column -->
         
     <div class="col-md-2 less-col-padding">
-        <div class="form-group form-group-tiny">
-            <label>Status</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.status">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Order Price</label>
-            <input class="form-control auto-save input-tiny"
-                    ng-model="oLine.price"
-                    ng-blur="save(oLine)">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Quoted Price</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.quotedPrice">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Unit</label>
-            <input class="form-control auto-save input-tiny default-cursor" readonly
-                    ng-model="oLine.unit">
-        </div>
+
+        <wi tiny w-label="Status"       w-model="oLine.status"      readonly></wi>
+        <wi tiny w-label="Order Price"  w-model="oLine.price"       blur-args="oLine"></wi>
+        <wi tiny w-label="Quoted Price" w-model="oLine.quotedPrice" readonly></wi>
+        <wi tiny w-label="Unit"         w-model="oLine.unit"        readonly></wi>
+
     </div> <!-- End Column -->
     <div class="col-md-7">
 
         <div class="row">
 
             <div class="col-xs-1 less-col-padding text-centered">ID</div>
-
             <div class="col-xs-2 less-col-padding text-centered">Qty</div>
-
             <div class="col-xs-3 less-col-padding text-centered">Due</div>
-
             <div class="col-xs-2 less-col-padding text-centered">Balance</div>
-
             <div class="col-xs-3 less-col-padding text-centered">Status</div>
-
             <div class="col-xs-1 less-col-padding text-centered"></div>
+
         </div> <!-- End Row -->
         <div wak-data="OrderLineItemQtys" filter="lineRef.ID = :1" params="oLine.ID">
             <div class="row" ng-repeat="oliq in collection | orderBy:'due'">
 
-                <div class="col-xs-1 less-col-padding">
-                    <input class="form-control auto-save input-tiny tiny-font"
-                            ng-model="oliq.lineID"
-                            ng-blur="save(oliq)">
-                </div>
-
-                <div class="col-xs-2 less-col-padding text-centered">
-                    <input class="form-control auto-save input-tiny tiny-font"
-                            ng-model="oliq.qty"
-                            ng-blur="save(oliq)">
-                </div>
-
-                <div class="col-xs-3 less-col-padding text-centered">
-                    <input type="date" class="form-control auto-save input-tiny tiny-font"
-                            ng-model="oliq.due"
-                            ng-blur="save(oliq)">
-                </div>
-
-                <div class="col-xs-2 less-col-padding text-centered">
-                    <input class="form-control auto-save input-tiny tiny-font default-cursor" readonly
-                            ng-model="oliq.balance">
-                </div>
-
-                <div class="col-xs-3 less-col-padding text-centered">
-                    <input class="form-control auto-save input-tiny tiny-font default-cursor" readonly
-                            ng-model="oliq.status">
-                </div>
-
-              
+                <wi tiny tf xs w-col="1" w-model="oliq.lineID"      blur-args="oliq"                  ></wi>
+                <wi tiny tf xs w-col="2" w-model="oliq.qty"         blur-args="oliq"                  ></wi>
+                <wi tiny tf xs w-col="3" w-model="oliq.due"         blur-args="oliq"    w-type="date" ></wi>
+                <wi tiny tf xs w-col="2" w-model="oliq.balance"     blur-args="oliq"    readonly      ></wi>
+                <wi tiny tf xs w-col="3" w-model="oliq.status"      blur-args="oliq"    readonly      ></wi>              
 
                 <div class="col-xs-1 less-col-padding">
                     <button type="button" class="btn btn-danger btn-xs" ng-click="remove(oliq)">
