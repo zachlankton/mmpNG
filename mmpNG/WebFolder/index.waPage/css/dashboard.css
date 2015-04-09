@@ -9,6 +9,8 @@ body {
   
 }
 
+textarea {resize:none;}
+
 .float-right {
     float:right;
 }
