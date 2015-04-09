@@ -362,3 +362,17 @@ csAppServices.directive('wi', function(){
         }
     };
 });
+
+
+csAppServices.directive('wakModInfo', function () {
+    return {
+
+        templateUrl: "/index.waPage/wakModInfoTemplate.html", 
+        replace: true,
+        scope: false,
+        controller: function($scope, $element, $attrs, $transclude) {
+            $scope.col = $attrs.col;
+        },
+
+    }
+});
