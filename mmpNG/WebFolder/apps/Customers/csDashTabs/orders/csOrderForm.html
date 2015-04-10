@@ -4,15 +4,7 @@
             <div class="col-md-3">
                 <h3>Customer Order</h3>
             </div>
-
-            <div class=" col-md-6 alert alert-success"
-                    ng-show="wakDataForm.$pristine">
-                    Last Auto Save: {{entity.modified | modDate}}
-            </div>
-            <div class=" col-md-6 alert alert-danger"
-                    ng-show="wakDataForm.$dirty">
-                    Form Has Been Edited Since Last Save
-            </div>
+            <wak-mod-info col="6"></wak-mod-info>
             <div class="col-md-2 col-md-offset-1">
                 <button class="btn btn-primary" ng-click="csOrders.csOrders.printCurrentOrder()">
                 Print</button>
