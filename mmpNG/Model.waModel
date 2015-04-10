@@ -87,7 +87,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -148,7 +148,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -256,7 +256,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -292,7 +292,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -582,12 +582,12 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 661,
-						"Y" : 6
+						"X" : 60,
+						"Y" : 30
 					}
 				}
 			},
@@ -599,12 +599,12 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 805,
-						"Y" : 20
+						"X" : 532,
+						"Y" : 133
 					}
 				}
 			},
@@ -739,6 +739,10 @@
 				"CustomerSupplierQuotes" : 
 				{
 					"events" : "CustomerSupplierQuotes/CustomerSupplierQuotes-events.js"
+				},
+				"PurchaseOrders" : 
+				{
+					"computed" : "PurchaseOrders/PurchaseOrders-events.js"
 				}
 			},
 			"relationCurve" : 
@@ -2784,8 +2788,9 @@
 					"type" : "number"
 				},
 				{
-					"name" : "unite",
+					"name" : "unit",
 					"kind" : "storage",
+					"matchColumn" : "unite",
 					"scope" : "public",
 					"type" : "string"
 				},
@@ -2803,6 +2808,27 @@
 					"scope" : "public",
 					"type" : "string",
 					"scriptKind" : "javascript"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.partNo"
+				},
+				{
+					"name" : "revision",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.revision"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "partRev.partDesc"
 				}
 			],
 			"key" : 
@@ -3010,10 +3036,25 @@
 				},
 				{
 					"name" : "modified",
-					"kind" : "storage",
+					"kind" : "calculated",
 					"scope" : "public",
 					"type" : "date",
-					"simpleDate" : false
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PurchaseOrders.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PurchaseOrders.modified.onSet",
+							"userDefined" : true
+						}
+					]
 				},
 				{
 					"name" : "poDate",
@@ -3131,6 +3172,20 @@
 					"scope" : "public",
 					"type" : "SupplierQuotes",
 					"path" : "SupplierQuotes"
+				},
+				{
+					"name" : "spContact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "SpContact",
+					"path" : "SpContact"
+				},
+				{
+					"name" : "spContactName",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "spContact.name"
 				}
 			],
 			"key" : 
@@ -3520,6 +3575,14 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "address.address"
+				},
+				{
+					"name" : "purchaseOrdersCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PurchaseOrdersCollection",
+					"reversePath" : true,
+					"path" : "spContact"
 				}
 			],
 			"events" : 
