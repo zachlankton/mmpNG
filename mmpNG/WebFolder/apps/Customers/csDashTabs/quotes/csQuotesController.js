@@ -4,100 +4,13 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 	$scope.csQuotes = csAppData.getData();
 	var rScope = $scope.csQuotes;
 	var csQuotes = rScope.csQuotes = {};
-	csQuotes.quoteSearch = "";
-	csQuotes.spQuoteSearch = "";
-   
 
-    ///////////////////////////
-	// GET CUSTOMER QUOTES   //
-	///////////////////////////
-    csQuotes.getQuotes = function(){
-        csQuotes.currentQuote = {};
-		var curCustomer = rScope.Customers.currentSelection;
-		
-		rScope.collections.csQuotes = $wakanda.$ds.CustomerQuotes.$find({
-			filter:'cName = :1',
-			params:[curCustomer.name],
-			pageSize:999999999
-		});	
-	};
-
-
-
-	////////////////////////////////////////
-    // SET THE CURRENTLY SELECTED QUOTE   //
-    ////////////////////////////////////////
-	csQuotes.setCurrentQuote = function(quote){
-		csQuotes.currentQuote = quote;
-		csQuotes.currentQuote.show = true;
-		csQuotes.getSupplierQuotes();
-		csQuotes.currentSupplierQuote = {};
-
-	};
-
-	////////////////////////////////////////
-    // SAVE THE CURRENTLY SELECTED QUOTE   //
-    ////////////////////////////////////////
-	csQuotes.saveCurrentQuote = function(){
-		var quote = csQuotes.currentQuote;
-		
-		quote.$save()
-		.then(function(a){
-		    csQuotes.currentQuoteForm.$setPristine();
-		})
-		.catch(function(error){
-            console.log(error);
-		});
-
-	};
-
-
-	///////////////////////////////////////////////
-    // SET THE CURRENTLY SELECTED SUPPLIER QUOTE //
-    ///////////////////////////////////////////////
-	csQuotes.setCurrentSpQuote = function(spQuote){
-		csQuotes.currentSupplierQuote = spQuote.spQuote;
-		csQuotes.currentSupplierQuote.show = true;
-	};
-
-	////////////////////////////////////
-    // GET RELATED SUPPLIER QUOTES    //
-    ////////////////////////////////////
-	csQuotes.getSupplierQuotes = function(){
-	    csQuotes.currentSupplierQuote = {};
-		var curQuote = csQuotes.currentQuote;
-
-		rScope.collections.spQuotes = $wakanda.$ds.CustomerSupplierQuotes.$find({
-			filter: 'csQuoteNo = :1',
-			params: [curQuote.ID],
-			pageSize: 999999999,
-			select: "spQuote.supplier"
-		});
-	};
-
-	/////////////////////////////////
-    // ADD RELATED SUPPLIER QUOTE  //
-    /////////////////////////////////
-	csQuotes.addSpQuote = function(spQuoteNo){
-	    var curCustomer = rScope.Customers.currentSelection;
-		var newEntity = $wakanda.$ds.SupplierQuotes.$create({
-		        customer: curCustomer,
-                quoteNo: spQuoteNo,
-                enteredBy: rScope.currentUser.fullName,
-            });
-
-		newEntity.$save().then(function(e) {
-			csQuotes.currentSupplierQuote = {};
-			csQuotes.relateExistingSupplierQuote(e.rawResult.__ENTITIES[0]);
-			
-		})
-	};
 
     /////////////////////////////////////
     // RELATE EXISTING SUPPLIER QUOTE  //
     /////////////////////////////////////
 	csQuotes.relateExistingSupplierQuote = function(spQuote){
-	    var curQuote = csQuotes.currentQuote;
+	    var curQuote = rScope.current.CustomerQuotes
 
         var newEntity = $wakanda.$ds.CustomerSupplierQuotes.$create({
                 csQuote: curQuote,
@@ -105,9 +18,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
             });
 
 		newEntity.$save().then(function(e) {
-			csQuotes.currentSupplierQuote = {};
-			csQuotes.getSupplierQuotes();
-			
+			rScope.collections.CustomerSupplierQuotes.push(newEntity);
 		})
 	};
 
@@ -115,7 +26,7 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // SELECT EXISTING SUPPLIER QUOTE  //
     /////////////////////////////////////
 	csQuotes.selectExistingSupplierQuote = function(spQuote){
-        var curCustomer = rScope.Customers.currentSelection.name;
+        var curCustomer = rScope.current.Customer.name;
         rScope.SAM.selectExistingSpQuote(csQuotes.relateExistingSupplierQuote, curCustomer);
 	};
 
@@ -134,31 +45,29 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
     // SELECT CUSTOMER CONTACT (QUOTE FOR)  //
     //////////////////////////////////////////
 	csQuotes.selectCustomerContact = function(){
-	    var entity = csQuotes.currentQuote;
-	    var customer = rScope.Customers.currentSelection;
+	    var entity = rScope.current.CustomerQuotes;
+	    var customer = rScope.current.Customer;
         rScope.SAM.csContacts(entity, "contact", customer);
 	};
 
-	//////////////////////////////////////////
-    // WATCH FOR CUSTOMER SELECTION CHANGES //
-    //////////////////////////////////////////
-	$scope.$watch('csQuotes.Customers.currentSelection', function(newValue, oldValue) {
-		csQuotes.getQuotes();
-		csQuotes.currentQuote = {};
-		csQuotes.currentSupplierQuote = {};
-	});
+
+	///////////////////////////////
+	// SELECT SUPPLIER FOR QUOTE //
+	///////////////////////////////
+    csQuotes.selectSupplier = function(){
+        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
+        rScope.SAM.selectSupplier(spQuote, "supplier");
+    };
 
 
-    //////////////////////////////////////////
-    // CREATE NEW CUSTOMER QUOTE OBJECT //
-    //////////////////////////////////////////
-	csQuotes.csQuoteCreateObj = function(quoteTitle){
-	    var curCustomer = rScope.Customers.currentSelection;
-	    return {
-	        customer: curCustomer,
-	        quoteTitle: quoteTitle
-	    };
-	};
-			
+    ///////////////////////////////
+	// SELECT SUPPLIER CONTACT   //
+	///////////////////////////////
+    csQuotes.selectSupplierContact = function(){
+        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
+        var supplier = spQuote.supplier;
+        rScope.SAM.spContacts(spQuote, "contact", supplier);
+    };
+
   
 });

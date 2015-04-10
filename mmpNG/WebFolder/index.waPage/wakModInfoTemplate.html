@@ -1,0 +1,10 @@
+<div class="col-md-{{col}}">
+    <div class="alert alert-success"
+            ng-show="wakDataForm.$pristine">
+            Last Auto Save: {{entity.modified | modDate}}
+    </div>
+    <div class="alert alert-danger"
+            ng-show="wakDataForm.$dirty">
+            Form Has Been Edited Since Last Save
+    </div>
+</div>

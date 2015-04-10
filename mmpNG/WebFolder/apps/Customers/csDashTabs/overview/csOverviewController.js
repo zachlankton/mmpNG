@@ -3,9 +3,9 @@ myApp.controller('csOverviewController', function ($scope, $wakanda, $filter, cs
 	$scope.csOverview = csAppData.getData();
 	var rScope = $scope.csOverview;
 	var csOverview = rScope.csOverview = {};
-
+    
     csOverview.saveCustomer = function(){
-        rScope.Customers.currentSelection.$save().then(function(){
+        rScope.current.Customer.$save().then(function(){
             csOverview.overviewForm.$setPristine();
         });
     };

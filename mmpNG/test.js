@@ -1,0 +1,1 @@
+﻿ds.SupplierQuotes.all()[0].customer

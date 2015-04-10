@@ -7,13 +7,17 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
         if (sc.Customers.searchText == undefined){  // we first check if it is undefined so we do not overwrite a previously set value
         	sc.Customers.searchText = "";	
         }
-        if (sc.Customers.currentSelection == undefined){
-        	sc.Customers.currentSelection = {};	
+        if (sc.current.Customer == undefined){
+        	sc.current.Customer = {};	
         }
 		
-		sc.Customers.selectCS = function(customer){
-			sc.Customers.currentSelection = customer;
-			sc.Customers.currentSelection.show = true;
+		sc.Customers.selectCS = function(customer){    
+		    for (key in sc.current){
+                if (key != "Customer"){
+                    delete(sc.current[key]);
+                }
+		    }
+			sc.current.Customer = customer;
 		};
 
         sc.Customers.addLead = function(){
@@ -26,12 +30,12 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
             
             newEntity.$save().then(function(e) {
 
-                sc.collections.Customers = $wakanda.$ds.Customer.$find({pageSize:9999});
-                sc.collections.Customers.$promise //Wait for the $find function to finish and then select the newly created Customer
+                sc.collections.Customer = $wakanda.$ds.Customer.$find({pageSize:9999});
+                sc.collections.Customer.$promise //Wait for the $find function to finish and then select the newly created Customer
                 .then(function(e) {
                 	
                 	//select the newly created Customer
-                    sc.Customers.currentSelection = ($filter('filter')(sc.collections.Customers, function(val, index) {
+                    sc.current.Customer = ($filter('filter')(sc.collections.Customer, function(val, index) {
 						if (val.name == null) {
 							return false;
 						}
@@ -55,12 +59,12 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
             
             newEntity.$save().then(function(e) {
 
-                sc.collections.Customers = $wakanda.$ds.Customer.$find({pageSize:9999});
-                sc.collections.Customers.$promise //Wait for the $find function to finish and then select the newly created Customer
+                sc.collections.Customer = $wakanda.$ds.Customer.$find({pageSize:9999});
+                sc.collections.Customer.$promise //Wait for the $find function to finish and then select the newly created Customer
                 .then(function(e) {
                 	
                 	//select the newly created Customer
-                    sc.Customers.currentSelection = ($filter('filter')(sc.collections.Customers, function(val, index) {
+                    sc.current.Customer = ($filter('filter')(sc.collections.Customer, function(val, index) {
 						if (val.name == null) {
 							return false;
 						}
@@ -79,7 +83,7 @@ myApp.controller('customerList', function($scope, $wakanda, $filter, csAppData) 
                 return false;
             }
 
-            var results = ($filter('filter')(sc.collections.Customers, function(val, index) {
+            var results = ($filter('filter')(sc.collections.Customer, function(val, index) {
                 if (val.name == null) {
                     return false;
                 }

@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-md-12 alert alert-success"
                 ng-show="csOverview.csOverview.overviewForm.$pristine">
-                Last Auto Save: {{csOverview.Customers.currentSelection.modified | modDate}}
+                Last Auto Save: {{csOverview.current.Customer.modified | modDate}}
         </div>
         <div class="col-md-12 alert alert-danger"
                 ng-show="csOverview.csOverview.overviewForm.$dirty">
@@ -16,7 +16,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">Customer Name</label>
             <div class="col-sm-8">
                 <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
-                ng-model="csOverview.Customers.currentSelection.name">
+                ng-model="csOverview.current.Customer.name">
             </div>
         </div>
 
@@ -26,7 +26,7 @@
             </label>
             <div class="col-sm-8">
                 <input type="checkbox" 
-                ng-model="csOverview.Customers.currentSelection.lead" 
+                ng-model="csOverview.current.Customer.lead" 
                 ng-change="csOverview.csOverview.saveCustomer()"
                 ng-true-value="'true'"
                 ng-false-value="'false'">
@@ -38,7 +38,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">Product Type</label>
             <div class="col-sm-8">
                 <select class="form-control input-sm auto-save" ng-options="type for type in csOverview.csOverview.productTypes" 
-                ng-model="csOverview.Customers.currentSelection.productTypeRef"
+                ng-model="csOverview.current.Customer.productTypeRef"
                 ng-change="csOverview.csOverview.saveCustomer()"></select>
             </div>
         </div>
@@ -47,7 +47,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">EIN No</label>
             <div class="col-sm-8">
                 <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
-                ng-model="csOverview.Customers.currentSelection.einNo">
+                ng-model="csOverview.current.Customer.einNo">
             </div>
         </div>
 
@@ -55,7 +55,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">Terms</label>
             <div class="col-sm-8">
                 <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
-                ng-model="csOverview.Customers.currentSelection.terms">
+                ng-model="csOverview.current.Customer.terms">
             </div>
         </div>
 
@@ -63,7 +63,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">Representative</label>
             <div class="col-sm-8">
                 <input ng-blur="csOverview.csOverview.saveCustomer()" class="input-sm form-control auto-save" 
-                ng-model="csOverview.Customers.currentSelection.representative">
+                ng-model="csOverview.current.Customer.representative">
             </div>
         </div>
 
@@ -71,7 +71,7 @@
             <label for="inputEmail3" class="col-sm-4 control-label">Notes</label>
             <div class="col-sm-8">
                 <textarea ng-blur="csOverview.csOverview.saveCustomer()" class="form-control auto-save" rows="5"
-                ng-model="csOverview.Customers.currentSelection.notes"></textarea>
+                ng-model="csOverview.current.Customer.notes"></textarea>
             </div>
         </div>
         

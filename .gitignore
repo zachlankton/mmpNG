@@ -1,4 +1,4 @@
-﻿# OS X
+# OS X
 *.DS_Store
 ._*
 # Wakanda data
@@ -29,3 +29,7 @@ sessionID.json
 /mmpNG/DataFolder/journal.waJournal
 
 /mmpNG/DataFolder/journal.waJournal
+
+mmpNG/Settings.waSettings
+
+mmpNG/Backups/backup_2015-02-27_11-54-13/DataFolder/data.WakTDef

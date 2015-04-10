@@ -1,179 +1,45 @@
+<div ng-form="wakDataForm" wak-data="current.Orders">
 <!-- CUSTOMER ORDER FORM -->
         <div class="row">
             <div class="col-md-3">
                 <h3>Customer Order</h3>
             </div>
-
-            <div class=" col-md-6 alert alert-success"
-                    ng-show="csOrders.csOrders.currentOrderForm.$pristine">
-                    Last Auto Save: {{csOrders.csOrders.currentOrder.modified | modDate}}
-            </div>
-            <div class=" col-md-6 alert alert-danger"
-                    ng-show="csOrders.csOrders.currentOrderForm.$dirty">
-                    Form Has Been Edited Since Last Save
-            </div>
+            <wak-mod-info col="6"></wak-mod-info>
             <div class="col-md-2 col-md-offset-1">
                 <button class="btn btn-primary" ng-click="csOrders.csOrders.printCurrentOrder()">
                 Print</button>
                 <button class="btn btn-warning" ng-click="csOrders.csOrders.genPOsForCurrentOrder()">
                 Generate P.O.'s</button>
-                <button class="btn btn-danger" ng-click="csOrders.confirmDelete(csOrders.csOrders.currentOrder, csOrders.csOrders.getOrders)">
+                <button class="btn btn-danger" ng-click="csOrders.confirmDelete(entity)">
                 Delete Order</button>
             </div>
         </div> <!-- END ROW -->
         <div class="row">
-            
-            <div class="col-md-3">
-<!-- ORDER ID -->                
-                <div class="form-group form-group-sm">
-                    <label>Order ID</label>
-                    <input title="Order ID is automatically generated" readonly="true" class="form-control auto-save default-cursor" 
-                            ng-model="csOrders.csOrders.currentOrder.ID">
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- CS ORDER NO -->                
-                <div class="form-group form-group-sm">
-                    <label>Customer Order No</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.orderNo"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- CS ORDER REV -->                
-                <div class="form-group form-group-sm">
-                    <label>Customer Order Revision</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.orderRev"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- CS ORDER DATE -->                
-                <div class="form-group form-group-sm">
-                    <label>Order Date</label>
-                    <input class="form-control auto-save" type="date" 
-                            ng-model="csOrders.csOrders.currentOrder.orderDate"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
+                <wi w-label="Order ID"          w-model="entity.ID"             w-col="3"       readonly        ></wi>
+                <wi w-label="Customer Order No" w-model="entity.orderNo"        w-col="3"                       ></wi>
+                <wi w-label="Order Revision"    w-model="entity.orderRev"       w-col="3"                       ></wi>
+                <wi w-label="Order Date"        w-model="entity.orderDate"      w-col="3"       w-type="date"   ></wi>
         </div><!-- END ROW -->
         <div class="row">
-            <div class="col-md-3">
-<!-- CS ORDER CONTACT -->                
-                <div class="form-group form-group-sm">
-                    <label>Order Contact</label>
-                    <input readonly class="form-control auto-save default-cursor" 
-                            ng-model="csOrders.csOrders.currentOrder.contactName"
-                            ng-click="csOrders.csOrders.selectContact()">
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- CS ORDER REP -->                
-                <div class="form-group form-group-sm">
-                    <label>Representative</label>
-                    <input readonly class="form-control auto-save default-cursor" 
-                            ng-model="csOrders.csOrders.currentOrder.representative"
-                            >
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- CS ORDER FILE -->                
-                <div class="form-group form-group-sm">
-                    <label>File Link</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.orderFile"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
-             <div class="col-md-3">
-<!-- CS ORDER TERMS -->                
-                <div class="form-group form-group-sm">
-                    <label>Order Terms</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.orderTerms"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
+                <wi w-label="Order Contact"     w-model="entity.contactName"    w-col="3"       readonly     ng-click="wakDataDir.SAM.csContacts(entity, 'contact', current.Customer);"></wi>
+                <wi w-label="Representative"    w-model="entity.representative" w-col="3"       readonly        ></wi>
+                <wi w-label="File Link"         w-model="entity.orderFile"      w-col="3"                       ></wi>
+                <wi w-label="Order Terms"       w-model="entity.orderTerms"     w-col="3"                       ></wi>
         </div><!-- END ROW -->
         <div class="row">
-            <div class="col-md-3">
-<!-- SHIP VIA -->                
-                <div class="form-group form-group-sm">
-                    <label>Ship Via</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipVia"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>
-            <div class="col-md-3">
-<!-- SHIP SERVICE -->                
-                <div class="form-group form-group-sm">
-                    <label>Ship Service</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipService"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>  
-            <div class="col-md-3">
-<!-- SHIP ACCT -->                
-                <div class="form-group form-group-sm">
-                    <label>Ship Account</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipAcct"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>  
-            <div class="col-md-3">
-<!-- SHIP TERMS -->                
-                <div class="form-group form-group-sm">
-                    <label>Ship Terms</label>
-                    <input class="form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipTerms"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()">
-                </div>
-            </div>            
+                <wi w-label="Ship Via"          w-model="entity.shipVia"        w-col="3"                       ></wi>
+                <wi w-label="Ship Service"      w-model="entity.shipService"    w-col="3"                       ></wi>
+                <wi w-label="Ship Account"      w-model="entity.shipAcct"    w-col="3"                       ></wi>
+                <wi w-label="Ship Terms"        w-model="entity.shipTerms"      w-col="3"                       ></wi>         
         </div><!-- END ROW -->
         <div class="row">
-<!-- BILL TO -->        
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Bill To</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.billToAddress"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
-                    </textarea>
-                </div>
-            </div>
-<!-- SHIP TO -->        
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Ship To</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipToAddress"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
-                    </textarea>
-                </div>
-            </div>
-<!-- SHIP INSTRUCTIONS -->        
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Ship Instruction</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.shipInstructions"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
-                    </textarea>
-                </div>
-            </div>    
-<!-- NOTES -->        
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Notes</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csOrders.csOrders.currentOrder.notes"
-                            ng-blur="csOrders.csOrders.saveCurrentOrder()" rows="5">
-                    </textarea>
-                </div>
-            </div>                        
+                <wi text w-label="Bill To"              w-model="entity.billToAddress"    w-col="3"     ></wi>
+                <wi text w-label="Ship To"              w-model="entity.shipToAddress"    w-col="3"     ></wi>
+                <wi text w-label="Ship Instructions"    w-model="entity.shipInstructions" w-col="3"     ></wi>
+                <wi text w-label="Notes"                w-model="entity.notes"            w-col="3"     ></wi>   
+              
         </div><!-- END ROW -->
+        <div wak-data="OrderLineItems" filter="Orders">
+            <div ng-include="'/apps/Customers/csDashTabs/orders/csOrderLines.html'"></div>
+        </div><!-- END ROW -->
+</div>

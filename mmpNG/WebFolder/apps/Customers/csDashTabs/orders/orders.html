@@ -2,41 +2,38 @@
     <div class="col-md-3" >
         <div>
             <p><u>Customer Orders</u></p>
-
-             <search-add-list
-                list-item-exp = "'{{ID}} - {{orderNo}}'"
-                collection = "csOrders.collections.csOrders"
-                item-click="csOrders.csOrders.setCurrentOrder"
-                add-attr="orderNo"
-                sort-attr="modified"
-                sort-desc="true"
-                create-obj = "csOrders.csOrders.createCsOrderObj">
-            </search-add-list>
-            
+            <div wak-data="Orders", filter="Customer">
+                <search-add-list
+                    list-item-exp = "'{{ID}} - {{orderNo}}'"
+                    add-attr="orderNo"
+                    sort-attr="modified"
+                    sort-desc="true"
+                    create-obj = "createObj">
+                </search-add-list>
+            </div>
         </div>
-        <div ng-show="csOrders.csOrders.currentOrder.show">
+        <div wak-data="PurchaseOrders" filter="Orders" 
+            ng-show="current.Orders.ID">
             <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
-            <button ng-click="csOrders.csOrders.addSpOrder()" 
+            <button ng-click="add()" 
             style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
 
             <search-add-list
                 list-item-exp = "'{{ID}} - {{sName}}'"
-                collection = "csOrders.collections.spOrders"
-                item-click="csOrders.csOrders.setCurrentSpOrder"
                 sort-attr="sName">
             </search-add-list>
           
         </div>
     </div>
-    <div 	ng-form="csOrders.csOrders.currentOrderForm" 
+    <div 	 
 			class="col-md-9" 
-			ng-show="csOrders.csOrders.currentOrder.show  && !csOrders.csOrders.currentSupplierOrder.show"
+			ng-show="csOrders.current.Orders.ID  && !csOrders.current.PurchaseOrders.ID"
 			ng-include="'/apps/Customers/csDashTabs/orders/csOrderForm.html'">
     </div>
 
-    <div 	ng-form="csOrders.csOrders.currentSpOrderForm" 
+    <div 	
 			class="col-md-9" 
-			ng-show="csOrders.csOrders.currentSupplierOrder.show"
+			ng-show="csOrders.current.PurchaseOrders.ID"
 			ng-include="'/apps/Customers/csDashTabs/orders/spOrderForm.html'"
 			ng-controller="spOrderFormController">
     </div>

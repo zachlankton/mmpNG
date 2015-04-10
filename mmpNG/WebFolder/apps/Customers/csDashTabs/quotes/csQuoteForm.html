@@ -5,15 +5,15 @@
             </div>
 
             <div class=" col-md-6 alert alert-success"
-                    ng-show="csQuotes.csQuotes.currentQuoteForm.$pristine">
-                    Last Auto Save: {{csQuotes.csQuotes.currentQuote.modified | modDate}}
+                    ng-show="wakDataForm.$pristine">
+                    Last Auto Save: {{entity.modified | modDate}}
             </div>
             <div class=" col-md-6 alert alert-danger"
-                    ng-show="csQuotes.csQuotes.currentQuoteForm.$dirty">
+                    ng-show="wakDataForm.$dirty">
                     Form Has Been Edited Since Last Save
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <button class="btn btn-danger" ng-click="csQuotes.confirmDelete(csQuotes.csQuotes.currentQuote, csQuotes.csQuotes.getQuotes)">
+                <button class="btn btn-danger" ng-click="wakDataDir.confirmDelete(entity)">
                 Delete Quote</button>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="form-group form-group-sm">
                     <label>Quote No</label>
                     <input title="Quote No is automatically generated" readonly="true" class="form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentQuote.ID">
+                            ng-model="entity.ID">
                 </div>
             </div>
 <!-- QUOTE TITLE -->            
@@ -33,8 +33,8 @@
                 <div class="form-group form-group-sm">
                     <label>Quote Title</label>
                     <input class="form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.quoteTitle"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
+                            ng-model="entity.quoteTitle"
+                            ng-blur="save()">
                 </div>
             </div>
 <!-- QUOTE DATE -->
@@ -42,8 +42,8 @@
                 <div class="form-group form-group-sm">
                     <label>Quote Date</label>
                     <input type="date" class="form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.quoteDate"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
+                            ng-model="entity.quoteDate"
+                            ng-blur="save()">
                 </div>
             </div>
 <!--QUOTE EXPIRES -->
@@ -51,8 +51,8 @@
                 <div class="form-group form-group-sm">
                     <label>Quote Expires</label>
                     <input type="date" class="form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.quoteExpires"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
+                            ng-model="entity.quoteExpires"
+                            ng-blur="save()">
                 </div>
             </div>
 
@@ -65,7 +65,7 @@
                 <div class="form-group form-group-sm">
                     <label>Quoted By</label>
                     <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentQuote.quoteBy"
+                            ng-model="entity.quoteBy"
                             >
                 </div>
 
@@ -75,7 +75,7 @@
                 <div class="form-group form-group-sm">
                     <label>Quote For (Customer Contact)</label>
                     <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentQuote.contactName"
+                            ng-model="entity.contactName"
                             ng-click="csQuotes.csQuotes.selectCustomerContact()">
                 </div>
             </div>
@@ -84,7 +84,7 @@
                 <div class="form-group form-group-sm">
                     <label>Representative</label>
                     <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="csQuotes.csQuotes.currentQuote.representative"
+                            ng-model="entity.representative"
                             title="This field is pulled from the Overview Tab">
                 </div>
             </div>
@@ -93,9 +93,9 @@
                 <div class="form-group form-group-sm">
                     <label>Terms</label>
                     <input  class="form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.terms"
+                            ng-model="entity.terms"
                             title="This field is pulled from the Overview Tab"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
+                            ng-blur="save()">
                 </div>
             </div>
 
@@ -106,8 +106,8 @@
                 <div class="form-group">
                     <label>FOB</label>
                     <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.FOB"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()" rows="5">
+                            ng-model="entity.FOB"
+                            ng-blur="save()" rows="5">
                     </textarea>
                 </div>
             </div>
@@ -116,8 +116,8 @@
                 <div class="form-group">
                     <label>Delivery</label>
                     <textarea  class="input-sm form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.delivery"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()" rows="5">
+                            ng-model="entity.delivery"
+                            ng-blur="save()" rows="5">
                     </textarea>
                 </div>
             </div>
@@ -126,8 +126,8 @@
                 <div class="form-group">
                     <label>Address</label>
                     <textarea class="input-sm form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.address" rows="5"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()">
+                            ng-model="entity.address" rows="5"
+                            ng-blur="save()">
                     </textarea>
                 </div>
             </div>
@@ -136,8 +136,8 @@
                 <div class="form-group">
                     <label>Notes</label>
                     <textarea class="input-sm form-control auto-save" 
-                            ng-model="csQuotes.csQuotes.currentQuote.notes"
-                            ng-blur="csQuotes.csQuotes.saveCurrentQuote()" rows="5">
+                            ng-model="entity.notes"
+                            ng-blur="save()" rows="5">
                     </textarea>
                 </div>
             </div>
@@ -145,6 +145,6 @@
 
         </div><!-- End Row -->
 
-        <div class="row" ng-controller="csQuoteLinesController">
+        <div class="row" wak-data="CsQuoteLineItems" filter="CustomerQuotes">
             <div class="col-md-12" ng-include="'/apps/Customers/csDashTabs/quotes/quoteLinesForm.html'"></div>
         </div>
