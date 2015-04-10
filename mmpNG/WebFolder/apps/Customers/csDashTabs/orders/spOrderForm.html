@@ -1,4 +1,113 @@
-<div wak-data="current.PurchaseOrders">
-    <h1>TEST!</h1>
-    {{entity.ID}}
+<div wak-data="current.PurchaseOrders" ng-form="wakDataForm">
+    <!-- HEADER -->
+    <div class="row">
+        <div class="col-md-3"><h3>Supplier Purchase Order</h3></div>
+        <wak-mod-info col="6"></wak-mod-info>
+        <button type="button" class="btn btn-danger" ng-click="wakDataDir.confirmDelete(entity)">Delete PO</button>
+    </div>
+
+    <!-- PO INFO -->
+    <div class="row">
+        <wi w-col="3" w-label="PO #"                w-model="entity.ID"             readonly        ></wi>
+        <wi w-col="3" w-label="Status"              w-model="entity.status"         readonly        ></wi>
+        <wi w-col="3" w-label="Supplier"            w-model="entity.sName"          readonly    ng-click="wakDataDir.SAM.selectSupplier(entity, 'supplier')"        ></wi>
+        <wi w-col="3" w-label="PO Date"             w-model="entity.poDate"         w-type="date"   ></wi>
+    </div>
+
+    <div class="row">
+        <wi w-col="3" w-label="Related Customer"    w-model="entity.cName"          readonly        ></wi>
+        <wi w-col="3" w-label="Customer Order"      w-model="entity.csOrderNo"      readonly        ></wi>
+        <wi w-col="3" w-label="Supplier Contact"    w-model="entity.spContactName"  readonly    ng-click="wakDataDir.SAM.spContacts(entity, 'spContact', entity.supplier)"></wi>
+        <wi w-col="3" w-label="PO Terms"            w-model="entity.terms"                          ></wi>
+    </div>
+
+    <div class="row">
+        <wi w-col="3" w-label="Ship Via"            w-model="entity.shipVia"        ></wi>
+        <wi w-col="3" w-label="Ship Service"        w-model="entity.shipService"    ></wi>
+        <wi w-col="3" w-label="Ship Account"        w-model="entity.shipAcct"       ></wi>
+        <wi w-col="3" w-label="Ship Terms"          w-model="entity.shipTerms"      ></wi>
+    </div>
+
+    <div class="row">
+        <wi text w-col="3" w-label="Bill To"            w-model="entity.billTo"             ></wi>
+        <wi text w-col="3" w-label="Ship To"            w-model="entity.shipto"             ></wi>
+        <wi text w-col="3" w-label="Ship Instructions"  w-model="entity.shipInstructions"   ></wi>
+        <wi text w-col="3" w-label="Notes"              w-model="entity.notes"              ></wi>
+    </div>
+
+    <!-- LINE ITEMS -->
+    <div wak-data="POLineItems" filter="PurchaseOrders">
+        
+        <h5>Line Items</h5>
+        
+        <div class="row" style="border:1px solid;" ng-repeat="poLine in collection | orderBy:'lineID' ">
+            
+            <div class="col-md-1 less-col-padding">
+
+                <wi tiny w-label="Line No"      w-model="poLine.lineID"      blur-args="poLine"       ></wi>
+
+                <button type="button" class="btn btn-danger" ng-click="remove(poLine)">
+                    <span class="glyphicon glyphicon-trash"></span>
+                </button>
+
+            </div>
+
+            <div class="col-md-2  less-col-padding">
+                <wi tiny w-label="Part No"          w-model="poLine.partNo"   readonly blur-args="poLine" ng-click="wakDataDir.SAM.selectParts(poLine, 'partRev')"></wi>
+                <wi tiny w-label="Part Rev"         w-model="poLine.revision" readonly blur-args="poLine" ng-click="wakDataDir.SAM.selectParts(poLine, 'partRev')"></wi>
+                <wi tiny w-label="Part Description" w-model="poLine.partDesc" readonly blur-args="poLine" ng-click="wakDataDir.SAM.selectParts(poLine, 'partRev')"></wi>
+            </div>
+
+            <div class="col-md-2 less-col-padding">
+                <wi tiny w-label="Status" w-model="poLine.status" readonly></wi>
+                <wi tiny w-label="Price"  w-model="poLine.price"  blur-args="poLine"></wi>
+                <wi tiny w-label="Unit"   w-model="poLine.unit"   blur-args="poLine"></wi>
+            </div>
+            
+
+            <!-- LINE ITEM QTYS -->
+            <div class="col-md-7">
+
+                <div class="row">
+                    <div class="col-xs-2 less-col-padding text-centered">QTY</div>
+                    <div class="col-xs-3 less-col-padding text-centered">DUE</div>
+                    <div class="col-xs-1 less-col-padding text-centered">XD</div>
+                    <div class="col-xs-2 less-col-padding text-centered">BO</div>
+                    <div class="col-xs-2 less-col-padding text-centered">@SP</div>
+                    <div class="col-xs-1 less-col-padding text-centered">Stat</div>
+                    <div class="col-xs-1 less-col-padding text-centered"></div>
+                </div>
+
+                <div wak-data="POLineQtys" filter="lineRef.ID = :1" params="poLine.ID">
+                    <div class="row" ng-repeat="poliq in collection | orderBy:'due' ">
+                        <wi tiny tf xs w-col="2" w-model="poliq.qty"            blur-args="poliq"               ></wi>
+                        <wi tiny tf xs w-col="3" w-model="poliq.due"            blur-args="poliq" w-type="date" ></wi>
+                        <wi tiny tf xs w-col="1" w-model="poliq.cancelled"      blur-args="poliq"               ></wi>
+                        <wi tiny tf xs w-col="2" w-model="poliq.backOrdered"    blur-args="poliq" readonly      ></wi>
+                        <wi tiny tf xs w-col="2" w-model="poliq.qtyAtSupplier"  blur-args="poliq" readonly      ></wi>
+                        <wi tiny tf xs w-col="1" w-model="poliq.status"         blur-args="poliq" readonly      ></wi>
+
+                        <div class="col-xs-1 less-col-padding">
+                            <button type="button" class="btn btn-danger btn-xs" ng-click="remove(poliq)">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-offset-11 col-xs-1 less-col-padding">
+                            <button type="button" class="btn btn-primary btn-xs" ng-click="add({lineRef: poLine})">
+                                <span class="glyphicon glyphicon-plus-sign"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-offset-10 col-md-2">
+                <button type="button" class="btn btn-primary" ng-click="add()">Add Line</button>
+            </div> 
+        </div>
+    </div>
 </div>
