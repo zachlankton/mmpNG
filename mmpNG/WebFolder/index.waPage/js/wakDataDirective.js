@@ -346,6 +346,7 @@ csAppServices.directive('wi', function(){
             if ($attrs.tiny != undefined){$scope.inputTiny = "input-tiny"; $scope.formGroupSize = "form-group-tiny"; $scope.lessColPadding = "less-col-padding"}
             if ($attrs.text != undefined){$scope.inputTag = "textarea"; $scope.formGroupSize = ""; $scope.inputTiny = "input-sm";}
             if ($attrs.wCol == undefined){$scope.lessColPadding = "";}
+            if ($attrs.hr != undefined){$scope.hrLabelCol = $attrs.hr || "3"; $scope.hrInputCol = (12 - parseInt($scope.hrLabelCol));}
             
             $scope._blur = function(){
                 if ($scope.blurArgs == undefined){
