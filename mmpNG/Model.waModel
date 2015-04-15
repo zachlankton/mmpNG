@@ -256,12 +256,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 10,
-						"Y" : 76
+						"X" : 47,
+						"Y" : 306
 					}
 				}
 			},
@@ -582,7 +582,7 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -599,7 +599,7 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -622,6 +622,40 @@
 					{
 						"X" : 881,
 						"Y" : 328
+					}
+				}
+			},
+			"PackingList" : 
+			{
+				"panelColor" : "#548DD4",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 25,
+						"Y" : 20
+					}
+				}
+			},
+			"PackingListLines" : 
+			{
+				"panelColor" : "#B2A2C7",
+				"scalarVisible" : "true",
+				"inheritedVisible" : "true",
+				"methVisible" : "true",
+				"panel" : 
+				{
+					"isOpen" : "true",
+					"pathVisible" : true,
+					"position" : 
+					{
+						"X" : 476,
+						"Y" : 19
 					}
 				}
 			}
@@ -743,6 +777,11 @@
 				"PurchaseOrders" : 
 				{
 					"computed" : "PurchaseOrders/PurchaseOrders-events.js"
+				},
+				"PackingList" : 
+				{
+					"computed" : "PackingList/PackingList-events.js",
+					"events" : "PackingList/PackingList-events.js"
 				}
 			},
 			"relationCurve" : 
@@ -864,6 +903,14 @@
 					"kind" : "relatedEntities",
 					"scope" : "public",
 					"type" : "OrdersCollection",
+					"reversePath" : true,
+					"path" : "contact"
+				},
+				{
+					"name" : "packingListCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PackingListCollection",
 					"reversePath" : true,
 					"path" : "contact"
 				}
@@ -2248,6 +2295,14 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "partRev.revision"
+				},
+				{
+					"name" : "packingListLinesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PackingListLinesCollection",
+					"reversePath" : true,
+					"path" : "orderLineRef"
 				}
 			],
 			"key" : 
@@ -2453,6 +2508,261 @@
 					"scope" : "public",
 					"type" : "string",
 					"path" : "contact.name"
+				},
+				{
+					"name" : "packingListCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PackingListCollection",
+					"reversePath" : true,
+					"path" : "order"
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PackingList",
+			"className" : "PackingList",
+			"collectionName" : "PackingListCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "incID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "order",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Orders",
+					"path" : "Orders"
+				},
+				{
+					"name" : "date",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false
+				},
+				{
+					"name" : "contact",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "Contact",
+					"path" : "Contact"
+				},
+				{
+					"name" : "shipFrom",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipVia",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipService",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipAcct",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "shipTerms",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "Notes",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "modified",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "date",
+					"simpleDate" : false,
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.PackingList.modified.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.PackingList.modified.onSet",
+							"userDefined" : true
+						}
+					]
+				},
+				{
+					"name" : "invoiceNo",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "file",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "user",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "string"
+				},
+				{
+					"name" : "packingListLinesCollection",
+					"kind" : "relatedEntities",
+					"scope" : "public",
+					"type" : "PackingListLinesCollection",
+					"reversePath" : true,
+					"path" : "plRef"
+				},
+				{
+					"name" : "orderID",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "long",
+					"path" : "order.ID"
+				}
+			],
+			"events" : 
+			[
+				{
+					"kind" : "save",
+					"from" : "$mainModel.PackingList.events.save",
+					"userDefined" : true
+				},
+				{
+					"kind" : "remove",
+					"from" : "$mainModel.PackingList.events.remove",
+					"userDefined" : true
+				}
+			],
+			"key" : 
+			[
+				{
+					"name" : "ID"
+				}
+			]
+		},
+		{
+			"name" : "PackingListLines",
+			"className" : "PackingListLines",
+			"collectionName" : "PackingListLinesCollection",
+			"scope" : "public",
+			"attributes" : 
+			[
+				{
+					"name" : "ID",
+					"kind" : "storage",
+					"scope" : "public",
+					"indexed" : true,
+					"unique" : true,
+					"autosequence" : true,
+					"type" : "long",
+					"indexKind" : "btree"
+				},
+				{
+					"name" : "plRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "PackingList",
+					"path" : "PackingList"
+				},
+				{
+					"name" : "lineID",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "orderLineRef",
+					"kind" : "relatedEntity",
+					"scope" : "public",
+					"type" : "OrderLineItems",
+					"path" : "OrderLineItems"
+				},
+				{
+					"name" : "partNo",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "orderLineRef.partNo"
+				},
+				{
+					"name" : "partRev",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "orderLineRef.revision"
+				},
+				{
+					"name" : "partDesc",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "orderLineRef.partDesc"
+				},
+				{
+					"name" : "qtyShipped",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "qtyCanceled",
+					"kind" : "storage",
+					"scope" : "public",
+					"type" : "number"
+				},
+				{
+					"name" : "unit",
+					"kind" : "alias",
+					"scope" : "public",
+					"type" : "string",
+					"path" : "orderLineRef.unit"
 				}
 			],
 			"key" : 

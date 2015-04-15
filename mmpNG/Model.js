@@ -24,3 +24,4 @@ include("./Model/SpAddress/SpAddress-events.js");
 include("./Model/SupplierQuotePriceBreak/SupplierQuotePriceBreak-events.js");
 include("./Model/CustomerSupplierQuotes/CustomerSupplierQuotes-events.js");
 include("./Model/PurchaseOrders/PurchaseOrders-events.js");
+include("./Model/PackingList/PackingList-events.js");
