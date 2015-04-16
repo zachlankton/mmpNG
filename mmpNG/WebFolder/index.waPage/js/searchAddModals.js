@@ -67,6 +67,26 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
             sortAttr: "partNo"
         });
     };
+
+    //////////////////////////////////////
+    // SELECT CUSTOMER ORDER LINE ITEMS //
+    //////////////////////////////////////
+    values.SAM.selectCSOrderLineItem = function(entity, attribute, currentOrder){
+        var collection = $wakanda.$ds.OrderLineItems.$find({
+            filter: "order.ID = :1",
+            params: [currentOrder.ID],
+            pageSize: 999999999
+        });
+
+        values.searchAddModal({
+            title: "Select Order Line Item",
+            collection: collection,
+            listItemExp: "{{partNo}} {{partDesc}} Rev: {{revision}}",
+            sortAttr: 'lineID',
+            entity: entity,
+            attribute: attribute
+        });
+    }
     
     //////////////////////////////
     // SELECT CUSTOMER CONTACT  //
