@@ -4,7 +4,7 @@
 		<include user="admin" ID="8F73A4E6D02B429C883E7C52202C8679"/>
 		<include user="gavin" ID="0546C87DAC054FE184D9F0E4DAC36E55"/>
 	</group>
-	<user ID="8F73A4E6D02B429C883E7C52202C8679" name="admin" fullName="Admin" password="f6ea70fc9140191382b4447a121a2b6d"/>
+	<user ID="8F73A4E6D02B429C883E7C52202C8679" name="admin" fullName="Admin" password="4683d29fab15e5823eaf6dbc201d72ba"/>
 	<user ID="79BC2D8B3BF74244BAF72C174E39F736" name="zach" fullName="Zach Lankton" password="46eaa38663e98b92cf720781e04eb2ee"/>
 	<user ID="0546C87DAC054FE184D9F0E4DAC36E55" name="gavin" fullName="Gavin McGraw" password="5cfd19b579cb30636172e83393c7da5b"/>
 </directory>
