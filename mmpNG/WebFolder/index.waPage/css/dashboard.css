@@ -9,6 +9,10 @@ body {
   
 }
 
+[ng-click] .default-cursor{
+    cursor: pointer !important;
+}
+
 textarea {resize:none;}
 
 .float-right {
