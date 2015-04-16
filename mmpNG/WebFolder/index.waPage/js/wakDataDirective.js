@@ -116,7 +116,8 @@ csAppServices.directive('wakData', function(){
             var getSimpleFilter = function(filterEntity){
                 var dcName = filterEntity.$name;
                 var currentEntity = $scope.current[dcName];
-
+                if (currentEntity.ID == undefined){return "PARAMS_NOT_AVAILABLE";}
+                
                 var attr = getRelatedAttribute(dcName);
                 
                 var filter = attr.name + ".ID == " + currentEntity.ID;
