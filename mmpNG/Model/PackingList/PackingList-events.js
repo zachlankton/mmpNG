@@ -16,9 +16,14 @@ model.PackingList.events.save = function(event) {
 	var isNew = this.isNew();
 	if (isNew && this.order != undefined){
 		var pList = this;
-		
+		this.contact = this.order.contact;
+		this.shipVia = this.order.shipVia;
+		this.shipService = this.order.shipService;
+		this.shipTerms = this.order.shipTerms;
+		this.shipAcct = this.order.shipAcct;
+		this.shipTo = this.order.shipToAddress;
 		// ASSIGN AN INCREMENTAL PACKING SLIP ID STARTING WITH 1
-		var lastID = ds.PackingList.query('orderID = ' + this.order.ID).max('incID')
+		var lastID = ds.PackingList.query('orderID = ' + this.order.ID).max('incID');
 		if (lastID == undefined){this.incID = 1;}
 		else{ this.incID = lastID + 1; }
 		
@@ -38,4 +43,14 @@ model.PackingList.events.save = function(event) {
 
 model.PackingList.events.remove = function(event) {
 	this.packingListLinesCollection.remove();
+};
+
+
+model.PackingList.pListNo.onGet = function() {
+	return this.orderID + "-" + this.incID;
+};
+
+
+model.PackingList.pListNo.onSet = function(value) {
+	return "";
 };

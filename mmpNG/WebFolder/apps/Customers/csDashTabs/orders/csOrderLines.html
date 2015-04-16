@@ -43,8 +43,8 @@
                 <wi tiny tf xs w-col="1" w-model="oliq.lineID"      blur-args="oliq"                  ></wi>
                 <wi tiny tf xs w-col="2" w-model="oliq.qty"         blur-args="oliq"                  ></wi>
                 <wi tiny tf xs w-col="3" w-model="oliq.due"         blur-args="oliq"    w-type="date" ></wi>
-                <wi tiny tf xs w-col="2" w-model="oliq.balance"     blur-args="oliq"    readonly      ></wi>
-                <wi tiny tf xs w-col="3" w-model="oliq.status"      blur-args="oliq"    readonly      ></wi>              
+                <wi tiny tf xs w-col="2" w-model="oliq.balance"     blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>
+                <wi tiny tf xs w-col="3" w-model="oliq.status"      blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>              
 
                 <div class="col-xs-1 less-col-padding">
                     <button type="button" class="btn btn-danger btn-xs" ng-click="remove(oliq)">

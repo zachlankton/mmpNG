@@ -1,40 +1,69 @@
 <div class="row" ng-controller="csOrdersController">
-    <div class="col-md-3" >
-        <div>
-            <p><u>Customer Orders</u></p>
-            <div wak-data="Orders", filter="Customer">
+    <div ng-show="!csOrders.showPackingLists">
+        <div class="col-md-3" >
+            <div>
+                <p style="display: inline-block"><u>Customer Orders</u></p>
+                <button ng-click="csOrders.showPackingLists = true" 
+                style="float:right;" class="btn btn-xs btn-primary">Packing Lists</button>
+                <div wak-data="Orders", filter="Customer">
+                    <search-add-list
+                        list-item-exp = "'{{ID}} - {{orderNo}}'"
+                        add-attr="orderNo"
+                        sort-attr="modified"
+                        sort-desc="true"
+                        create-obj = "createObj">
+                    </search-add-list>
+                </div>
+            </div>
+            <div wak-data="PurchaseOrders" filter="Orders" 
+                ng-show="current.Orders.ID">
+                <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
+                <button ng-click="add()" 
+                style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
+
                 <search-add-list
-                    list-item-exp = "'{{ID}} - {{orderNo}}'"
-                    add-attr="orderNo"
-                    sort-attr="modified"
-                    sort-desc="true"
-                    create-obj = "createObj">
+                    list-item-exp = "'{{ID}} - {{sName}}'"
+                    sort-attr="sName">
                 </search-add-list>
+
             </div>
         </div>
-        <div wak-data="PurchaseOrders" filter="Orders" 
-            ng-show="current.Orders.ID">
-            <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
-            <button ng-click="add()" 
-            style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
+        <div 	 
+                class="col-md-9" 
+                ng-show="csOrders.current.Orders.ID  && !csOrders.current.PurchaseOrders.ID"
+                ng-include="'/apps/Customers/csDashTabs/orders/csOrderForm.html'">
+        </div>
 
-            <search-add-list
-                list-item-exp = "'{{ID}} - {{sName}}'"
-                sort-attr="sName">
-            </search-add-list>
-          
+        <div 	
+                class="col-md-9" 
+                ng-show="csOrders.current.PurchaseOrders.ID"
+                ng-include="'/apps/Customers/csDashTabs/orders/spOrderForm.html'"
+                ng-controller="spOrderFormController">
         </div>
     </div>
-    <div 	 
-			class="col-md-9" 
-			ng-show="csOrders.current.Orders.ID  && !csOrders.current.PurchaseOrders.ID"
-			ng-include="'/apps/Customers/csDashTabs/orders/csOrderForm.html'">
-    </div>
 
-    <div 	
-			class="col-md-9" 
-			ng-show="csOrders.current.PurchaseOrders.ID"
-			ng-include="'/apps/Customers/csDashTabs/orders/spOrderForm.html'"
-			ng-controller="spOrderFormController">
+    <div ng-show="csOrders.showPackingLists">
+        
+        <div class="col-md-3" >
+            <div>
+                <button class="btn-xs btn btn-primary" ng-click="csOrders.showPackingLists = false">
+                    <span class="glyphicon glyphicon-arrow-left"></span> Back To Orders
+                </button>
+                <div wak-data="PackingList", filter="Orders">
+                    <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
+                    <button ng-click="add()" 
+                    style="float:right;" class="btn btn-xs btn-primary">Add Packing List</button>
+                    <search-add-list
+                        list-item-exp = "'{{orderID}}-{{incID}}'"
+                        sort-attr="incID">
+                    </search-add-list>
+                </div>
+            </div>
+        </div>
+        <div 	 
+                class="col-md-9" 
+                ng-show="csOrders.current.PackingList.ID"
+                ng-include="'/apps/Customers/csDashTabs/orders/PackingList.html'">
+        </div>
     </div>
 </div>
