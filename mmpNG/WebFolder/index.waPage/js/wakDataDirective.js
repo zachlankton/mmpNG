@@ -219,6 +219,7 @@ csAppServices.directive('wakData', function(){
                 var newEntity = $wakanda.$ds[dClass].$create(createObj);
                 newEntity.$save().then(function(){
                     $scope.collection.push(newEntity);
+                    $scope.current[dClass] = newEntity;
                     clearFormObject(cObject);
                 });
             };
