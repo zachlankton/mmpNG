@@ -8,3 +8,6 @@ model.OrderLineItems.modified.onGet = function() {
 model.OrderLineItems.modified.onSet = function(value) {
 	return "";
 };
+model.OrderLineItems.events.remove = function(event) {
+	this.orderLineItemQtysCollection.remove();
+};

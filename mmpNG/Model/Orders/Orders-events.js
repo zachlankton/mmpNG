@@ -18,3 +18,10 @@ model.Orders.firstDueDate.onGet = function() {
 model.Orders.firstDueDate.onSet = function() {
 	return "";
 };
+
+
+model.Orders.events.remove = function(event) {
+	this.orderLineItemsCollection.remove();
+	this.purchaseOrdersCollection.remove();
+	this.packingListCollection.remove();
+};

@@ -8,3 +8,8 @@ model.PurchaseOrders.modified.onGet = function() {
 model.PurchaseOrders.modified.onSet = function(value) {
 	return "";
 };
+
+
+model.PurchaseOrders.events.remove = function(event) {
+	this.pOLineItemsCollection.remove();
+};

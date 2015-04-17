@@ -31,3 +31,9 @@ model.PartRev.quotePriceBreaks.onSet = function() {
 	return "";
 };
 
+
+
+model.PartRev.events.remove = function(event) {
+	this.routingCollection.remove();
+	this.controlPlanCollection.remove();
+};
