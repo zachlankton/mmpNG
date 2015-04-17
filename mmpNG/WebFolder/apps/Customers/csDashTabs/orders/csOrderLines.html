@@ -15,6 +15,7 @@
         <wi tiny w-label="Part No"          w-model="oLine.partNo"   blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
         <wi tiny w-label="Part Rev"         w-model="oLine.revision" blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
         <wi tiny w-label="Part Description" w-model="oLine.partDesc" blur-args="oLine" readonly ng-click="wakDataDir.SAM.selectParts(oLine, 'partRev')"></wi>
+        <wi tiny w-label="Total Qty" w-model="oLine.totalQty" readonly ></wi>
     </div>  <!-- End Column -->
         
     <div class="col-md-2 less-col-padding">
@@ -41,13 +42,13 @@
             <div class="row" ng-repeat="oliq in collection | orderBy:'due'">
 
                 <wi tiny tf xs w-col="1" w-model="oliq.lineID"      blur-args="oliq"                  ></wi>
-                <wi tiny tf xs w-col="2" w-model="oliq.qty"         blur-args="oliq"                  ></wi>
+                <wi tiny tf xs w-col="2" w-model="oliq.qty"         w-blur="csOrders.csOrders.saveQty" blur-args="[oLine, oliq, save]"                ></wi>
                 <wi tiny tf xs w-col="3" w-model="oliq.due"         blur-args="oliq"    w-type="date" ></wi>
                 <wi tiny tf xs w-col="2" w-model="oliq.balance"     blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>
                 <wi tiny tf xs w-col="3" w-model="oliq.status"      blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>              
 
                 <div class="col-xs-1 less-col-padding">
-                    <button type="button" class="btn btn-danger btn-xs" ng-click="remove(oliq)">
+                    <button type="button" class="btn btn-danger btn-xs" ng-click="remove(oliq); csOrders.csOrders.saveQty([oLine])">
                         <span class="glyphicon glyphicon-trash"></span>
                     </button>
                 </div>
