@@ -18,7 +18,7 @@
             <div wak-data="PurchaseOrders" filter="Orders" 
                 ng-show="current.Orders.ID">
                 <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
-                <button ng-click="add()" 
+                <button ng-click="add(true)" 
                 style="float:right;" class="btn btn-xs btn-primary">Add P.O.</button>
 
                 <search-add-list
@@ -51,7 +51,7 @@
                 </button>
                 <div wak-data="PackingList", filter="Orders">
                     <p style="display: inline-block"><u>Supplier P.O.'s</u></p> 
-                    <button ng-click="add()" 
+                    <button ng-click="add(true)" 
                     style="float:right;" class="btn btn-xs btn-primary">Add Packing List</button>
                     <search-add-list
                         list-item-exp = "'{{orderID}}-{{incID}}'"

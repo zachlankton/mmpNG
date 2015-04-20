@@ -213,13 +213,19 @@ csAppServices.directive('wakData', function(){
             ///////////////////
             //  ADD FUNCTION //
             ///////////////////
-            $scope.add = function(cObject){
+            $scope.add = function(cObject, select){
+                if (cObject === true && select == undefined){ //only passed one arg and is not an object
+                     select = cObject;
+                     cObject = undefined;   
+                }
+                select = select || false;
+                
                 var createObj = $scope.createObj(cObject);
                 var dClass = getDataClassName();
                 var newEntity = $wakanda.$ds[dClass].$create(createObj);
                 newEntity.$save().then(function(){
                     $scope.collection.push(newEntity);
-                    $scope.current[dClass] = newEntity;
+                    if (select){$scope.current[dClass] = newEntity;}
                     clearFormObject(cObject);
                 });
             };
