@@ -15,7 +15,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -87,7 +87,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -256,7 +256,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -292,7 +292,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -310,7 +310,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -327,7 +327,7 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
