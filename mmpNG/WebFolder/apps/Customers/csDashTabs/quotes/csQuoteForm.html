@@ -3,15 +3,7 @@
             <div class="col-md-3">
                 <h3>Customer Quote</h3>
             </div>
-
-            <div class=" col-md-6 alert alert-success"
-                    ng-show="wakDataForm.$pristine">
-                    Last Auto Save: {{entity.modified | modDate}}
-            </div>
-            <div class=" col-md-6 alert alert-danger"
-                    ng-show="wakDataForm.$dirty">
-                    Form Has Been Edited Since Last Save
-            </div>
+            <wak-mod-info col="6"></wak-mod-info>
             <div class="col-md-2 col-md-offset-1">
                 <button class="btn btn-danger" ng-click="wakDataDir.confirmDelete(entity)">
                 Delete Quote</button>
@@ -19,130 +11,24 @@
         </div>
 
         <div class="row">
-            
-            <div class="col-md-3">
-<!-- QUOTE NO -->                
-                <div class="form-group form-group-sm">
-                    <label>Quote No</label>
-                    <input title="Quote No is automatically generated" readonly="true" class="form-control auto-save default-cursor" 
-                            ng-model="entity.ID">
-                </div>
-            </div>
-<!-- QUOTE TITLE -->            
-            <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Quote Title</label>
-                    <input class="form-control auto-save" 
-                            ng-model="entity.quoteTitle"
-                            ng-blur="save()">
-                </div>
-            </div>
-<!-- QUOTE DATE -->
-            <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Quote Date</label>
-                    <input type="date" class="form-control auto-save" 
-                            ng-model="entity.quoteDate"
-                            ng-blur="save()">
-                </div>
-            </div>
-<!--QUOTE EXPIRES -->
-            <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Quote Expires</label>
-                    <input type="date" class="form-control auto-save" 
-                            ng-model="entity.quoteExpires"
-                            ng-blur="save()">
-                </div>
-            </div>
-
+            <wi w-col="3" w-label="Quote No"        w-model="entity.ID"             readonly        ></wi>
+            <wi w-col="3" w-label="Quote Title"     w-model="entity.quoteTitle"                     ></wi>
+            <wi w-col="3" w-label="Quote Date"      w-model="entity.quoteDate"      w-type="date"   ></wi>
+            <wi w-col="3" w-label="Quote Expires"   w-model="entity.quoteExpires"   w-type="date"   ></wi>
         </div> <!-- End Row -->
         
         <div class="row">
-            
-            <div class="col-md-3">
- <!-- QUOTED BY -->               
-                <div class="form-group form-group-sm">
-                    <label>Quoted By</label>
-                    <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="entity.quoteBy"
-                            >
-                </div>
-
-            </div>
-<!--QUOTE FOR CUSTOMER CONTACT -->
-            <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Quote For (Customer Contact)</label>
-                    <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="entity.contactName"
-                            ng-click="csQuotes.csQuotes.selectCustomerContact()">
-                </div>
-            </div>
-<!-- REPRESENTATIVE -->
-             <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Representative</label>
-                    <input  readonly class="form-control auto-save default-cursor" 
-                            ng-model="entity.representative"
-                            title="This field is pulled from the Overview Tab">
-                </div>
-            </div>
-<!-- TERMS -->
-             <div class="col-md-3">
-                <div class="form-group form-group-sm">
-                    <label>Terms</label>
-                    <input  class="form-control auto-save" 
-                            ng-model="entity.terms"
-                            title="This field is pulled from the Overview Tab"
-                            ng-blur="save()">
-                </div>
-            </div>
-
+            <wi w-col="3" w-label="Quoted By"       w-model="entity.quoteBy"        readonly        ></wi>
+            <wi w-col="3" w-label="Quote For"       w-model="entity.contactName"    readonly        ng-click="csQuotes.csQuotes.selectCustomerContact()" ></wi>
+            <wi w-col="3" w-label="Representative"  w-model="entity.representative" readonly        ></wi>
+            <wi w-col="3" w-label="Terms"           w-model="entity.terms"                          ></wi>
         </div> <!-- End Row -->
 <!--FOB -->
         <div class="row">
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>FOB</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="entity.FOB"
-                            ng-blur="save()" rows="5">
-                    </textarea>
-                </div>
-            </div>
-<!--DELIVERY -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Delivery</label>
-                    <textarea  class="input-sm form-control auto-save" 
-                            ng-model="entity.delivery"
-                            ng-blur="save()" rows="5">
-                    </textarea>
-                </div>
-            </div>
-<!-- ADDRESS -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Address</label>
-                    <textarea class="input-sm form-control auto-save" 
-                            ng-model="entity.address" rows="5"
-                            ng-blur="save()">
-                    </textarea>
-                </div>
-            </div>
-<!-- NOTES -->
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label>Notes</label>
-                    <textarea class="input-sm form-control auto-save" 
-                            ng-model="entity.notes"
-                            ng-blur="save()" rows="5">
-                    </textarea>
-                </div>
-            </div>
-
-
+            <wi text w-col="3" w-label="FOB"            w-model="entity.FOB"                        ></wi>
+            <wi text w-col="3" w-label="Delivery"       w-model="entity.delivery"                   ></wi>
+            <wi text w-col="3" w-label="Address"        w-model="entity.address"                    ></wi>
+            <wi text w-col="3" w-label="Notes"          w-model="entity.notes"                      ></wi>
         </div><!-- End Row -->
 
         <div class="row" wak-data="CsQuoteLineItems" filter="CustomerQuotes">

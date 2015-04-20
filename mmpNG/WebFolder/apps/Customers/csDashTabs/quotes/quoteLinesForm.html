@@ -2,12 +2,7 @@
 <div class="row" style="border:1px solid;" ng-repeat="qLine in collection | orderBy:'lineID'">
 
     <div class="col-md-1 less-col-padding">
-        <div class="form-group form-group-tiny">
-            <label>Line No</label>
-            <input type="number" class="form-control auto-save input-tiny"
-                    ng-model="qLine.lineID"
-                    ng-blur="save(qLine)">
-        </div>
+        <wi tiny w-label="Line No" w-model="qLine.lineID" blur-args="qLine"></wi>
         
         <button type="button" class="btn btn-danger" ng-click="remove(qLine)">
             <span class="glyphicon glyphicon-trash"></span>
@@ -15,67 +10,29 @@
     </div> <!-- End Column -->
 
     <div class="col-md-3  less-col-padding">
-        <div class="form-group  form-group-tiny">
-            <label>Part No</label>
-            <input class="form-control auto-save input-tiny"
-                    ng-model="qLine.partNo"
-                    ng-blur="save(qLine)">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Part Rev</label>
-            <input class="form-control auto-save input-tiny"
-                    ng-model="qLine.partRev"
-                    ng-blur="save(qLine)">
-        </div>
-        <div class="form-group form-group-tiny">
-            <label>Part Description</label>
-            <input class="form-control auto-save input-tiny"
-                    ng-model="qLine.partDesc"
-                    ng-blur="save(qLine)">
-        </div>
+        <wi tiny w-label="Part No"          w-model="qLine.partNo"      blur-args="qLine"   ></wi>
+        <wi tiny w-label="Part Rev"         w-model="qLine.partRev"     blur-args="qLine"   ></wi>
+        <wi tiny w-label="Part Description" w-model="qLine.partDesc"    blur-args="qLine"   ></wi>
     </div>  <!-- End Column -->
         
-    <div class="col-md-4 less-col-padding">
-        <div class="form-group form-group-tiny">
-            <label>Quote Description</label>
-            <textarea rows="5" class="form-control auto-save"
-                    ng-model="qLine.quoteDescription"
-                    ng-blur="save(qLine)"></textarea>
-        </div>
-    </div> <!-- End Column -->
+    
+    <wi w-col="4" tiny text w-label="Quote Description"   w-model="qLine.quoteDescription"      blur-args="qLine"   ></wi>        
+    
     <div class="col-md-4">
 
         <div class="row">
-
             <div class="col-xs-4 less-col-padding text-centered">Qty</div>
-
             <div class="col-xs-5 less-col-padding text-centered">Price</div>
-
             <div class="col-xs-2 less-col-padding text-centered">Unit</div>
-
             <div class="col-xs-1 less-col-padding text-centered"></div>
         </div> <!-- End Row -->
+
         <div wak-data="CsQuoteLineItemQtys" filter="quoteLine.ID = :1" params="qLine.ID">
             <div class="row" ng-repeat="qliq in collection | orderBy:'ID'">
-
-                <div class="col-xs-4 less-col-padding">
-                    <input type="number" min="0" class="form-control auto-save input-tiny tiny-font"
-                            ng-model="qliq.qty"
-                            ng-blur="save(qliq)">
-                </div>
-
-                <div class="col-xs-5 less-col-padding">
-                    <input type="number" step="0.0001" min="0" class="form-control auto-save input-tiny tiny-font"
-                            ng-model="qliq.price"
-                            ng-blur="save(qliq)">   
-                </div>
-
-                <div class="col-xs-2 less-col-padding">
-                    <input  class="form-control auto-save input-tiny tiny-font"
-                            ng-model="qliq.unit"
-                            ng-blur="save(qliq)">
-                </div>
-
+                <wi tiny tf xs w-col="4" w-model="qliq.qty"     blur-args="qliq"    ></wi>
+                <wi tiny tf xs w-col="5" w-model="qliq.price"   blur-args="qliq"    ></wi>
+                <wi tiny tf xs w-col="2" w-model="qliq.unit"   blur-args="qliq"    ></wi>
+               
                 <div class="col-xs-1 less-col-padding">
                     <button type="button" class="btn btn-danger btn-xs" ng-click="remove(qliq)">
                         <span class="glyphicon glyphicon-trash"></span>
