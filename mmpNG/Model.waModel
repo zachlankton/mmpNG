@@ -1532,6 +1532,27 @@
 					"type" : "SupplierQuotesCollection",
 					"reversePath" : true,
 					"path" : "customer"
+				},
+				{
+					"name" : "parts",
+					"kind" : "calculated",
+					"scope" : "public",
+					"type" : "string",
+					"scriptKind" : "javascript",
+					"onGet" : 
+					[
+						{
+							"from" : "$mainModel.Customer.parts.onGet",
+							"userDefined" : true
+						}
+					],
+					"onSet" : 
+					[
+						{
+							"from" : "$mainModel.Customer.parts.onSet",
+							"userDefined" : true
+						}
+					]
 				}
 			],
 			"events" : 
