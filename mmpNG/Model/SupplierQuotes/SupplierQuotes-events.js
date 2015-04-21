@@ -15,3 +15,8 @@ model.SupplierQuotes.events.remove = function(event) {
 	this.customerSupplierQuotesCollection.remove();
 };
 
+
+
+model.SupplierQuotes.events.save = function(event) {
+	this.enteredBy = currentUser().fullName;
+};
