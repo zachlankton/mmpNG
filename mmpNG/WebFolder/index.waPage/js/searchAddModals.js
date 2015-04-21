@@ -256,7 +256,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
 ///////////////////////////////
 // SEARCH ADD LIST DIRECTIVE //
 ///////////////////////////////
-csAppServices.directive('searchAddList', function($wakanda) {
+csAppServices.directive('searchAddList', function() {
   return {
     restrict: 'E',
     scope: {
@@ -366,8 +366,8 @@ csAppServices.directive('searchAddList', function($wakanda) {
                 createObj[nameSpace[0]] = newChild;
                 var newEntity = parentClass.$create(createObj);
                 newEntity.$save().then(function(){
-                    newEntity.spQuote.$_entity.serverRefresh(function(data){
-                        newEntity.spQuote = $wakanda.$ds.SupplierQuotes.$create(data.rawResult.__ENTITIES[0]);
+                    newEntity[nameSpace[0]].$_entity.serverRefresh(function(data){
+                        newEntity[nameSpace[0]] = childClass.$create(data.rawResult.__ENTITIES[0]);
                     });
                     $scope.collection.push(newEntity);
                     $scope._itemClick(newEntity);
