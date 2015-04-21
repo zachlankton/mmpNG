@@ -41,7 +41,7 @@ csAppServices.factory('csAppData', function ($wakanda, $filter) {
         values.reusable.modal.confirmDelete = {};
         values.reusable.modal.confirmDelete.Yes = function(){
             entity.$remove().then(function(){
-                if (refresh != undefined){refresh();}
+                if (refresh != undefined){refresh(); return 0;}
                 var dataClass = entity.$_entity._private.dataClass.$name;
                 values.current[dataClass] = {};
                 values.removeFromCollection(entity, dataClass);
