@@ -92,7 +92,8 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     // SELECT CUSTOMER CONTACT  //
     //////////////////////////////
     values.SAM.csContacts = function(entity, attribute, customer){
-        
+        customer = customer || values.current.Customer;
+
         var collection = $wakanda.$ds.Contact.$find({
             filter: "cName = :1",
             params: [customer.name],
@@ -124,7 +125,8 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     // SELECT SUPPLIER CONTACT  //
     //////////////////////////////
     values.SAM.spContacts = function(entity, attribute, supplier){
-
+        supplier = supplier || values.current.Supplier;
+        
         var collection = $wakanda.$ds.SpContact.$find({
             filter: "sName = :1",
             params: [supplier.name],
