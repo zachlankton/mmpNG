@@ -8,9 +8,8 @@ model.CustomerSupplierQuotes.events.validate = function(event) {
 	if (newCsQuoteNo == undefined) {return true;}
 	if (newSpQuoteNo == undefined) {return true;}
 	if (newCsQuoteCustomer == undefined) {return true;}
-	if (newSpQuoteSupplier == undefined) {return true;}
 	
-	var results = ds.CustomerSupplierQuotes.query("csQuoteNo == :1 && spQuoteNo == :2 && customer == :3 && supplier == :4", newCsQuoteNo, newSpQuoteNo, newCsQuoteCustomer, newSpQuoteSupplier);
+	var results = ds.CustomerSupplierQuotes.query("csQuoteNo == :1 && spQuoteNo == :2 && customer == :3", newCsQuoteNo, newSpQuoteNo, newCsQuoteCustomer);
 	
 	if (results.length > 0) {return {error: 1, errorMessage: "Duplicate Entry!"}}
 
