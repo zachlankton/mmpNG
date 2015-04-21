@@ -129,7 +129,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
 
         var collection = $wakanda.$ds.SpContact.$find({
             filter: "sName = :1",
-            params: [supplier.name],
+            params: [supplier],
             pageSize: 999999999
         });
 
@@ -218,7 +218,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     ///////////////////////////////////////////////////////
     values.SAM.selectExistingSpQuote = function(callBack, customer){
         customer = customer || values.current.Customer.name;
-        
+
         var collection = $wakanda.$ds.SupplierQuotes.$find({
             filter: "cName = :1",
             params: [customer],

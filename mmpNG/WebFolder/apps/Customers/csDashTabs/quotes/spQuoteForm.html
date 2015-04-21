@@ -12,9 +12,9 @@
                     Form Has Been Edited Since Last Save
             </div>
             <div class="col-md-2 col-md-offset-1">
-                <button class="btn btn-danger" ng-click="wakDataDir.confirmDelete(entity.spQuote)">
+                <button class="btn btn-danger" ng-click="csQuotes.csQuotes.deleteThisSpQuote()">
                 Delete Quote</button>
-                <button class="btn btn-warning" ng-click="remove(entity)">
+                <button class="btn btn-warning" ng-click="csQuotes.csQuotes.unRelateSpQuote()">
                 Remove</button>
                 
             </div>
@@ -37,7 +37,7 @@
                     <label>Supplier</label>
                     <input  readonly class="form-control auto-save default-cursor" 
                             ng-model="entity.spQuote.sName"
-                            ng-click="csQuotes.csQuotes.selectSupplier()">
+                            ng-click="wakDataDir.SAM.selectSupplier(entity.spQuote, 'supplier');">
                 </div>
             </div>
 <!-- QUOTE DATE -->
@@ -79,7 +79,7 @@
                     <label>Quoted By</label>
                     <input  readonly class="form-control auto-save default-cursor" 
                             ng-model="entity.spQuote.contactName"
-                            ng-click="csQuotes.csQuotes.selectSupplierContact()">
+                            ng-click="wakDataDir.SAM.spContacts(entity.spQuote, 'contact', entity.spQuote.sName)">
                 </div>
             </div>
 <!-- FILE LINK -->

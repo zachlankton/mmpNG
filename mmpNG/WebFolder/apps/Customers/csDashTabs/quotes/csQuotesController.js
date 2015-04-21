@@ -19,55 +19,29 @@ myApp.controller('csQuotesController', function ($scope, $wakanda, $filter, csAp
 
 		newEntity.$save().then(function(e) {
 			rScope.collections.CustomerSupplierQuotes.push(newEntity);
+			rScope.current.CustomerSupplierQuotes = newEntity;
 		})
 	};
 
-	/////////////////////////////////////
-    // SELECT EXISTING SUPPLIER QUOTE  //
-    /////////////////////////////////////
-	csQuotes.selectExistingSupplierQuote = function(spQuote){
-        var curCustomer = rScope.current.Customer.name;
-        rScope.SAM.selectExistingSpQuote(csQuotes.relateExistingSupplierQuote, curCustomer);
-	};
 
+    ///////////////////////////
+    // DELETE SUPPLIER QUOTE //
+    ///////////////////////////
+    csQuotes.deleteThisSpQuote = function(){
+        rScope.confirmDelete(rScope.current.CustomerSupplierQuotes.spQuote, function(){
+            rScope.removeFromCollection(rScope.current.CustomerSupplierQuotes, 'CustomerSupplierQuotes');
+            rScope.current.CustomerSupplierQuotes = {};
+        });
+    }
 
-    /////////////////////////////////////
-    // REMOVE SP QUOTE RELATIONSHIP    //
-    /////////////////////////////////////
-	csQuotes.remSpRel = function(spQuote){
-	    spQuote.$remove().then(function(){
-	        csQuotes.getSupplierQuotes();
-	    });
-	}
-
-
-    //////////////////////////////////////////
-    // SELECT CUSTOMER CONTACT (QUOTE FOR)  //
-    //////////////////////////////////////////
-	csQuotes.selectCustomerContact = function(){
-	    var entity = rScope.current.CustomerQuotes;
-	    var customer = rScope.current.Customer;
-        rScope.SAM.csContacts(entity, "contact", customer);
-	};
-
-
-	///////////////////////////////
-	// SELECT SUPPLIER FOR QUOTE //
-	///////////////////////////////
-    csQuotes.selectSupplier = function(){
-        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
-        rScope.SAM.selectSupplier(spQuote, "supplier");
+    //////////////////////////////
+    //  UNRELATE SUPPLIER QUOTE //
+    //////////////////////////////
+    csQuotes.unRelateSpQuote = function(){
+        rScope.current.CustomerSupplierQuotes.$remove().then(function(){
+            rScope.removeFromCollection(rScope.current.CustomerSupplierQuotes, 'CustomerSupplierQuotes');
+            rScope.current.CustomerSupplierQuotes = {};
+        });        
     };
-
-
-    ///////////////////////////////
-	// SELECT SUPPLIER CONTACT   //
-	///////////////////////////////
-    csQuotes.selectSupplierContact = function(){
-        var spQuote = rScope.current.CustomerSupplierQuotes.spQuote;
-        var supplier = spQuote.supplier;
-        rScope.SAM.spContacts(spQuote, "contact", supplier);
-    };
-
   
 });

@@ -15,7 +15,7 @@
         <div    wak-data="CustomerSupplierQuotes" filter="CustomerQuotes" 
                 wak-select="spQuote" ng-show="current.CustomerQuotes.ID">
             <p style="display: inline-block"><u>Supplier Quotes</u></p> 
-            <button ng-click="csQuotes.csQuotes.selectExistingSupplierQuote()" 
+            <button ng-click="wakDataDir.SAM.selectExistingSpQuote(csQuotes.csQuotes.relateExistingSupplierQuote);" 
             style="float:right;" class="btn btn-xs btn-primary">Add Existing</button>
 
             <search-add-list
