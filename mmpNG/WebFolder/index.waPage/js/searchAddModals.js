@@ -124,32 +124,40 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////////////
     // SELECT SUPPLIER CONTACT  //
     //////////////////////////////
-    values.SAM.spContacts = function(entity, attribute, supplier){
-        supplier = supplier || values.current.Supplier;
-
-        var collection = $wakanda.$ds.SpContact.$find({
-            filter: "sName = :1",
-            params: [supplier],
-            pageSize: 999999999
+    values.SAM.spContacts = function(entity, attribute, sName){
+        
+        var suppliers = $wakanda.$ds.Supplier.$find({
+            filter: "name = :1",
+            params: [sName]
         });
 
         var createObj = function(contactName){
             return {
-                supplier: supplier,
+                supplier: suppliers[0],
                 name: contactName
             };
         }
 
-        values.searchAddModal({
-            title: "Select Contact",
-            collection: collection,
-            listItemExp: "{{name}} - ({{title}})",
-			sortAttr: "name",
-			addAttr: "name",
-            createObj: createObj,
-            entity: entity,
-            attribute: attribute
+        suppliers.$promise.then(function(){
+           var collection = $wakanda.$ds.SpContact.$find({
+                filter: "sName = :1",
+                params: [suppliers[0].name],
+                pageSize: 999999999
+            }); 
+            values.searchAddModal({
+                title: "Select Contact",
+                collection: collection,
+                listItemExp: "{{name}} - ({{title}})",
+                sortAttr: "name",
+                addAttr: "name",
+                createObj: createObj,
+                entity: entity,
+                attribute: attribute
+            });
+            
         });
+
+        
     };
 
 
