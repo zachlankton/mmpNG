@@ -126,7 +126,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     //////////////////////////////
     values.SAM.spContacts = function(entity, attribute, supplier){
         supplier = supplier || values.current.Supplier;
-        
+
         var collection = $wakanda.$ds.SpContact.$find({
             filter: "sName = :1",
             params: [supplier.name],
@@ -217,6 +217,7 @@ csAppServices.run(function($wakanda, $filter, csAppData, $interpolate){
     // ATTACH EXISTING SUPPLIER QUOTE TO CUSTOMER QUOTE  //
     ///////////////////////////////////////////////////////
     values.SAM.selectExistingSpQuote = function(callBack, customer){
+        customer = customer || values.current.Customer.name;
         
         var collection = $wakanda.$ds.SupplierQuotes.$find({
             filter: "cName = :1",
