@@ -15,7 +15,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -87,7 +87,7 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "true",
+					"isOpen" : "false",
 					"pathVisible" : true,
 					"position" : 
 					{
@@ -202,12 +202,12 @@
 				"scalarVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 23,
-						"Y" : 26
+						"X" : 13,
+						"Y" : 33
 					}
 				}
 			},
@@ -565,12 +565,12 @@
 				"methVisible" : "true",
 				"panel" : 
 				{
-					"isOpen" : "false",
+					"isOpen" : "true",
 					"pathVisible" : true,
 					"position" : 
 					{
-						"X" : 549,
-						"Y" : 96
+						"X" : 543,
+						"Y" : 45
 					}
 				}
 			},
@@ -1726,6 +1726,11 @@
 			],
 			"events" : 
 			[
+				{
+					"kind" : "save",
+					"from" : "$mainModel.CustomerQuotes.events.save",
+					"userDefined" : true
+				},
 				{
 					"kind" : "remove",
 					"from" : "$mainModel.CustomerQuotes.events.remove"
@@ -4712,6 +4717,11 @@
 			],
 			"events" : 
 			[
+				{
+					"kind" : "save",
+					"from" : "$mainModel.SupplierQuotes.events.save",
+					"userDefined" : true
+				},
 				{
 					"kind" : "remove",
 					"from" : "$mainModel.SupplierQuotes.events.remove"
