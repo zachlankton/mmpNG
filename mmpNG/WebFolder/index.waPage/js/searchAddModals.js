@@ -349,7 +349,7 @@ csAppServices.directive('searchAddList', function() {
         //////////////////
         var advancedAdd = function(value, nameSpace){
             var parentClass = $scope.collection.$_collection._private.dataClass;
-            var childClass = $scope.collection.$_collection._private.dataClass[nameSpace[0]].relatedClass
+            var childClass = $scope.collection.$_collection._private.dataClass[nameSpace[0]].getRelatedClass();
             var createObj = {};
             if ($scope.createObj != undefined){
                 createObj = $scope.createObj(value);
