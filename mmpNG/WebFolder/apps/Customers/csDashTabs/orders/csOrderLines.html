@@ -31,7 +31,8 @@
         <div class="row">
 
             <div class="col-xs-1 less-col-padding text-centered">ID</div>
-            <div class="col-xs-2 less-col-padding text-centered">Qty</div>
+            <div class="col-xs-1 less-col-padding text-centered">Qty</div>
+            <div class="col-xs-1 less-col-padding text-centered">XD</div>
             <div class="col-xs-3 less-col-padding text-centered">Due</div>
             <div class="col-xs-2 less-col-padding text-centered">Balance</div>
             <div class="col-xs-3 less-col-padding text-centered">Status</div>
@@ -42,7 +43,8 @@
             <div class="row" ng-repeat="oliq in collection | orderBy:'due'">
 
                 <wi tiny tf xs w-col="1" w-model="oliq.lineID"      blur-args="oliq"                  ></wi>
-                <wi tiny tf xs w-col="2" w-model="oliq.qty"         w-blur="csOrders.csOrders.saveQty" blur-args="[oLine, oliq, save]"                ></wi>
+                <wi tiny tf xs w-col="1" w-model="oliq.qty"         w-blur="csOrders.csOrders.saveQty" blur-args="[oLine, oliq, save]"                ></wi>
+                <wi tiny tf xs w-col="1" w-model="oliq.cancelled"   blur-args="oliq"                  ></wi>
                 <wi tiny tf xs w-col="3" w-model="oliq.due"         blur-args="oliq"    w-type="date" ></wi>
                 <wi tiny tf xs w-col="2" w-model="oliq.balance"     blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>
                 <wi tiny tf xs w-col="3" w-model="oliq.status"      blur-args="oliq"    readonly      ng-click="csOrders.showPackingLists = true"></wi>              
