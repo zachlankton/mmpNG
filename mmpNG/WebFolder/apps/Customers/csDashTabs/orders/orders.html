@@ -3,7 +3,7 @@
         <div class="col-md-3" >
             <div>
                 <p style="display: inline-block"><u>Customer Orders</u></p>
-                <button ng-click="csOrders.showPackingLists = true" 
+                <button ng-click="csOrders.showPackingLists = true" ng-show="csOrders.current.Orders.ID" 
                 style="float:right;" class="btn btn-xs btn-primary">Packing Lists</button>
                 <div wak-data="Orders", filter="Customer">
                     <search-add-list
